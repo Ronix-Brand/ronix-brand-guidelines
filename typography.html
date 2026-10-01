@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typography — Ronix Design System</title>
+<meta name="description" content="Roboto type system: Title, Subtitle and Body styles and how they resolve per breakpoint.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Foundations &nbsp;/&nbsp; Typography</p>
+
+      <div class="sg-hero">
+        <h1>Typography</h1>
+        <p class="sg-hero__lead">
+          One typeface, three roles. Roboto carries the whole system — ExtraBold for titles,
+          SemiBold for subtitles, Regular for body — and each style is a composed variable that
+          re-resolves at every breakpoint.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="typeface">Typeface</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              <code class="sg-code">Font/Roboto</code> is the family token, bound by every composed type
+              style, so a change of typeface is a one-variable edit.
+            </p>
+            <p>
+              Load weights 300, 400, 500, 600, 700 and 800. Light&nbsp;300 is used only by Caption&nbsp;1;
+              Medium&nbsp;500 and Bold&nbsp;700 appear in the strong body and subtitle styles.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;align-items:flex-start;gap:8px">
+                <p style="margin:0;font-size:56px;line-height:1;font-weight:800;letter-spacing:-.02em">Aa</p>
+                <p style="margin:0;font-family:var(--font-roboto);font-size:15px;color:var(--global-foreground-2-rest);word-break:break-word">
+                  ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; ? ! % @ # &euro; $
+                </p>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Roboto, ExtraBold 800 shown at 56&nbsp;px.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="scale">Type scale</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Three composed styles are confirmed in the library. Each is a design token of type
+              <em>Font</em>, binding family, style, size, weight, line height and letter spacing at
+              once — which is why the CSS below sets all of them from tokens rather than from
+              hard-coded values.
+            </p>
+          </div>
+
+          <div>
+            <div class="sg-specimen">
+              <p class="sg-specimen__sample sg-type-title">Your reliable solution in routine maintenance</p>
+              <p class="sg-specimen__spec">
+                <b>type system / Title / In-container / Title 1</b>
+                Roboto ExtraBold<br>
+                size &nbsp; var(--font-title-in-container-1) &rarr; 32px<br>
+                weight &nbsp;800<br>
+                line-height &nbsp;100%<br>
+                letter-spacing &nbsp;0
+              </p>
+            </div>
+
+            <div class="sg-specimen">
+              <p class="sg-specimen__sample sg-type-subtitle">Explore our flagship lineup of tool sets</p>
+              <p class="sg-specimen__spec">
+                <b>type system / Subtitle / Subtitle 2</b>
+                Roboto SemiBold<br>
+                size &nbsp; var(--font-subtitle-2) &rarr; 18px<br>
+                weight &nbsp;600<br>
+                line-height &nbsp;22px<br>
+                letter-spacing &nbsp;0
+              </p>
+            </div>
+
+            <div class="sg-specimen">
+              <p class="sg-specimen__sample sg-type-body">
+                Designed to streamline your everyday tasks with precision and convenience. Body 1 is
+                the default running text for the whole system and the size every other measurement
+                is judged against.
+              </p>
+              <p class="sg-specimen__spec">
+                <b>type system / Body / Body 1</b>
+                Roboto Regular<br>
+                size &nbsp; var(--font-body-1-regular) &rarr; 16px<br>
+                weight &nbsp;400<br>
+                line-height &nbsp;20px<br>
+                letter-spacing &nbsp;0
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="responsive">Responsive behaviour</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Type does not scale fluidly. The same named token holds a different value in each
+              breakpoint section of the library, and <code class="sg-code">tokens.css</code> mirrors
+              that with media queries rather than with <code class="sg-code">clamp()</code>.
+            </p>
+            <p>
+              The practical consequence: component CSS never mentions a pixel size. Resize this page
+              past 768&nbsp;px and the specimens above change on their own.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead>
+                    <tr><th>Style</th><th>Large &ge;1200</th><th>Medium 768–1199</th><th>Small &lt;768</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Title 1</td><td>32 / 100%</td><td>32 / 100%</td><td>28 / 100%</td></tr>
+                    <tr><td>Subtitle 2</td><td>18 / 22</td><td>18 / 22</td><td>14 / 16</td></tr>
+                    <tr><td>Body 1</td><td>16 / 20</td><td>16 / 20</td><td>14 / 20</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Size / line-height per breakpoint, in px.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Using the styles</h3>
+            <p>
+              Reach for the token, not the value. A component that hard-codes 16&nbsp;px silently
+              opts out of the Small breakpoint.
+            </p>
+          </div>
+
+          <pre class="sg-pre">.product-card__title {
+  font-family: var(--font-roboto);
+  font-size:   var(--font-subtitle-2);
+  line-height: var(--font-line-height-subtitle-2);
+  font-weight: var(--font-subtitle-2-weight);
+}
+
+/* Or use the ready-made helper classes */
+&lt;p class="sg-type-body"&gt;Running text&lt;/p&gt;</pre>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="setting">Setting text</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Measure is capped at roughly 70 characters. Longer lines lose the reader; shorter ones
+              break the rhythm of the block structure.
+            </p>
+            <p>
+              Titles are set tight — 100&nbsp;% line height — and are never centred over more than
+              two lines. Body copy is left-aligned in every language the system supports in LTR.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <p class="sg-type-body" style="margin:0;max-width:34em">
+                  A comfortable measure lets the eye return to the start of the next line without
+                  searching. Around 60 to 70 characters is the target for Body 1.
+                </p>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 3</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>Cap the measure at about 70 characters.</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <p class="sg-type-body" style="margin:0;text-align:center">
+                  A long title centred across four lines forces the reader to hunt for the start of
+                  every line, and the ragged edges fight the block structure the layout depends on.
+                </p>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 4</span>
+                <span class="sg-verdict sg-verdict--dont" style="display:block">
+                  <span class="sg-verdict__label">Don&rsquo;t</span>
+                  <span>Centre long passages.</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="colour.html"><span>Previous chapter</span>&larr; Colour</a>
+        <a href="layout.html"><span>Next chapter</span>Layout &amp; Grid &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

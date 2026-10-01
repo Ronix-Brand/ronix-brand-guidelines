@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Production components — Ronix Design System</title>
+<meta name="description" content="Announcement bar, in-grid promo tile, similar-model chips, related products rail, review list and video testimonial card.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Production components</p>
+
+      <div class="sg-hero">
+        <h1>Production components</h1>
+        <p class="sg-hero__lead">
+          Six components that run on the live site. Each one is built here as a working
+          component &mdash; open it, click it, scroll it. Sizes and colours are measured from
+          production at the Large&nbsp;&mdash;&nbsp;Extra breakpoint and expressed in system tokens.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="announce">Announcement bar</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A full-width strip that sits <em>above</em> the header, not inside it. The whole bar
+              is a link; a dismiss control sits at the right edge.
+            </p>
+            <p>
+              It is 36&nbsp;px tall at Large with <code class="sg-code">Padding/X-Small</code> block
+              padding and a 40&nbsp;px inline gutter, set in Body&nbsp;1 at SemiBold on
+              <code class="sg-code">#bf0000</code>.
+            </p>
+            <h3>Rules</h3>
+            <ul>
+              <li>One bar at a time, one message, one destination.</li>
+              <li>Keep the message to a single line at 1320&nbsp;px. It centres, so a second line unbalances the header beneath it.</li>
+              <li>Dismissal is per visitor and must persist &mdash; do not re-show it on the next page.</li>
+              <li>The header below must move up when the bar is dismissed, not leave a gap.</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch;padding:0">
+                <div data-announce>
+                  <a class="rx-announce" href="#announce">
+                    Maximize Your Profits with Ronix
+                    <button class="rx-announce__dismiss" type="button" aria-label="Dismiss">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                    </button>
+                  </a>
+                  <p style="margin:0;padding:var(--padding-medium);text-align:center">
+                    <button class="rx-btn rx-btn--ghost" type="button" data-announce-reset hidden>Bring the bar back</button>
+                  </p>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Dismiss it &mdash; the bar collapses and the space closes.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-note">
+          <p>
+            <code class="sg-code">#bf0000</code> is the darker of the two brand reds and is not the
+            same value as the primary button. Use it only for this bar, so the header keeps a single
+            dominant red.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="promo">In-grid promo tile</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A promotional tile that takes one product slot inside a listing grid. It carries the
+              same footprint as the card it replaces &mdash; 264&nbsp;&times;&nbsp;451 at
+              Large&nbsp;&mdash;&nbsp;Extra, a 1&nbsp;:&nbsp;1.71 portrait &mdash; so the row stays level.
+            </p>
+            <p>
+              Construction is a full-bleed photograph, a bottom-up scrim, a Title&nbsp;5 headline and
+              a small light action. It is the
+              <a href="images.html#overlay-card">overlay card</a> in a narrower frame.
+            </p>
+            <h3>Rules</h3>
+            <ul>
+              <li>One tile per visible grid row at most.</li>
+              <li>It must fill a whole slot. Never let it span two columns or sit half in a row.</li>
+              <li>It is not a product, so it carries no SKU, rating or Compare control.</li>
+              <li>It needs its own scrim. Do not rely on the photograph being dark at the foot.</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <div class="rx-product-grid" style="width:100%">
+                  <a class="rx-product-card" href="#promo">
+                    <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                    <span class="rx-product-card__body">
+                      <span class="rx-product-card__meta"><span class="rx-product-card__sku">3150N</span><span class="rx-label">Hot sale</span></span>
+                      <span class="rx-product-card__title">Mini Angle Grinder 1050W</span>
+                      <ul class="rx-product-card__specs"><li>Power 1050W</li><li>11000 RPM</li><li>115 mm disc</li></ul>
+                      <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                    </span>
+                  </a>
+                  <a class="rx-product-card" href="#promo">
+                    <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                    <span class="rx-product-card__body">
+                      <span class="rx-product-card__meta"><span class="rx-product-card__sku">3504</span></span>
+                      <span class="rx-product-card__title">Bench Grinder 520W</span>
+                      <ul class="rx-product-card__specs"><li>Power 520W</li><li>2950 RPM</li><li>200 mm wheel</li></ul>
+                      <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                    </span>
+                  </a>
+                  <a class="rx-product-card" href="#promo">
+                    <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                    <span class="rx-product-card__body">
+                      <span class="rx-product-card__meta"><span class="rx-product-card__sku">3212V</span><span class="rx-label">New</span></span>
+                      <span class="rx-product-card__title">Angle Grinder 2100W</span>
+                      <ul class="rx-product-card__specs"><li>Power 2100W</li><li>6000 RPM</li><li>230 mm disc</li></ul>
+                      <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rx-compare">Compare</span></span>
+                    </span>
+                  </a>
+                  <a class="rx-promo-tile" href="#promo">
+                    <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                    <span class="rx-promo-tile__content">
+                      <span class="rx-promo-tile__title">Are you up to a successful investment in tools and equipment?</span>
+                      <span class="rx-promo-tile__action">Reach out to us</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>The tile in the fourth slot. Hover it and the action inverts to brand red.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="chips">Similar-model chips</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A row of model numbers above the product title. Selecting one loads that model &mdash;
+              these are navigation, not filters, and not the
+              <a href="product-grid.html#filters">filter chips</a> they resemble.
+            </p>
+            <p>
+              Each chip is 28&nbsp;px tall: <code class="sg-code">Padding/XXX-Small</code> block,
+              <code class="sg-code">Padding/X-Small</code> inline, a 4&nbsp;px radius and a
+              1&nbsp;px <code class="sg-code">#3d3d3d</code> border, set in Caption&nbsp;1.
+              The current model inverts to near-black.
+            </p>
+            <h3>Rules</h3>
+            <ul>
+              <li>The model being viewed is always present and always marked current.</li>
+              <li>Wrap the row, never scroll it &mdash; a hidden model is an unreachable product.</li>
+              <li>Mark the current chip with <code class="sg-code">aria-current</code>, not colour alone.</li>
+              <li>If there is only one model, omit the row. Do not render a single chip.</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <div style="width:100%;display:flex;flex-direction:column;gap:var(--padding-medium)">
+                  <div class="rx-model-chips" data-chips-target="chipPanel">
+                    <p class="rx-model-chips__label">similar model</p>
+                    <a class="rx-chip" href="#chips" aria-current="true"
+                       data-model="3150N" data-title="Mini Angle Grinder 1050W-115mm"
+                       data-barcode="6970206844521" data-image="img/ronix-heat-gun.png">3150N</a>
+                    <a class="rx-chip" href="#chips"
+                       data-model="3504" data-title="Bench Grinder 520W-200mm"
+                       data-barcode="6970206844538" data-image="img/ronix-sander.png">3504</a>
+                    <a class="rx-chip" href="#chips"
+                       data-model="3509N" data-title="Bench Grinder 150W-125mm"
+                       data-barcode="6970206844545" data-image="img/ronix-sander.png">3509N</a>
+                    <a class="rx-chip" href="#chips"
+                       data-model="3212V" data-title="Angle Grinder 2100W-230mm-110V"
+                       data-barcode="6970206844552" data-image="img/ronix-heat-gun.png">3212V</a>
+                    <a class="rx-chip" href="#chips"
+                       data-model="8657" data-title="20V Brushless Angle Grinder Kit"
+                       data-barcode="6970206844569" data-image="img/ronix-heat-gun.png">8657</a>
+                    <a class="rx-chip" href="#chips"
+                       data-model="8901-40V" data-title="40V Brushless Cordless Mini Angle Grinder Kit 125mm"
+                       data-barcode="6970206844576" data-image="img/ronix-sander.png">8901-40V</a>
+                    <a class="rx-chip" href="#chips"
+                       data-model="3116BS" data-title="Mini Angle Grinder 850W-100mm (BS)"
+                       data-barcode="6970206844583" data-image="img/ronix-heat-gun.png">3116BS</a>
+                  </div>
+
+                  <div class="rx-model-panel" id="chipPanel">
+                    <span class="rx-model-panel__media"><img src="img/ronix-heat-gun.png" alt="" data-field="image"></span>
+                    <span>
+                      <span class="rx-model-panel__model" data-field="model">Model : 3150N</span>
+                      <p class="rx-model-panel__title" data-field="title">Mini Angle Grinder 1050W-115mm</p>
+                      <p class="rx-model-panel__barcodes" data-field="barcode">Barcode for colour box: 6970206844521</p>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Pick a model &mdash; the panel below follows the selection.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="related">Related products rail</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The <a href="product-card.html#anatomy">product card</a> in a horizontal rail rather
+              than a grid. Four across at Large&nbsp;&mdash;&nbsp;Extra inside a 1320&nbsp;px
+              container, so each slide is 330&nbsp;px; three at Medium, two at Small.
+            </p>
+            <p>
+              A pair of 40&nbsp;&times;&nbsp;40 chevrons sits at the head, beside the title. They are
+              the rail&rsquo;s own control size &mdash; the
+              <a href="product-information.html#slider">PDP gallery</a> uses 30&nbsp;&times;&nbsp;30.
+            </p>
+            <h3>Rules</h3>
+            <ul>
+              <li>Disable the chevron at each end rather than looping. A rail that wraps hides where it starts.</li>
+              <li>The track must stay scrollable by touch and trackpad; the chevrons are an addition, not the only way through.</li>
+              <li>Cards keep every part they have in a grid. Do not strip the rating or Compare to save height.</li>
+              <li>Fewer cards than slots &mdash; left-align them and hide both chevrons.</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <div class="rx-rail" style="width:100%">
+                  <div class="rx-rail__head">
+                    <p class="rx-rail__title">Related Products</p>
+                    <div class="rx-rail__nav">
+                      <button class="rx-rail__btn" type="button" data-rail="prev" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+                      </button>
+                      <button class="rx-rail__btn" type="button" data-rail="next" aria-label="Next">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="rx-rail__track">
+                    <a class="rx-product-card" href="#related">
+                      <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                      <span class="rx-product-card__body">
+                        <span class="rx-product-card__meta"><span class="rx-product-card__sku">3504</span></span>
+                        <span class="rx-product-card__title">Bench Grinder 520W</span>
+                        <ul class="rx-product-card__specs"><li>Power 520W</li><li>2950 RPM</li></ul>
+                        <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                      </span>
+                    </a>
+                    <a class="rx-product-card" href="#related">
+                      <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                      <span class="rx-product-card__body">
+                        <span class="rx-product-card__meta"><span class="rx-product-card__sku">3509N</span></span>
+                        <span class="rx-product-card__title">Bench Grinder 150W</span>
+                        <ul class="rx-product-card__specs"><li>Power 150W</li><li>220&ndash;240V</li></ul>
+                        <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;<span class="rx-rating__empty">&#9733;&#9733;&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                      </span>
+                    </a>
+                    <a class="rx-product-card" href="#related">
+                      <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                      <span class="rx-product-card__body">
+                        <span class="rx-product-card__meta"><span class="rx-product-card__sku">3212V</span><span class="rx-label">New</span></span>
+                        <span class="rx-product-card__title">Angle Grinder 2100W</span>
+                        <ul class="rx-product-card__specs"><li>Power 2100W</li><li>6000 RPM</li></ul>
+                        <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rx-compare">Compare</span></span>
+                      </span>
+                    </a>
+                    <a class="rx-product-card" href="#related">
+                      <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                      <span class="rx-product-card__body">
+                        <span class="rx-product-card__meta"><span class="rx-product-card__sku">8657</span></span>
+                        <span class="rx-product-card__title">20V Brushless Grinder Kit</span>
+                        <ul class="rx-product-card__specs"><li>20V</li><li>4000 mAh</li></ul>
+                        <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                      </span>
+                    </a>
+                    <a class="rx-product-card" href="#related">
+                      <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                      <span class="rx-product-card__body">
+                        <span class="rx-product-card__meta"><span class="rx-product-card__sku">8901-40V</span><span class="rx-label">New</span></span>
+                        <span class="rx-product-card__title">40V Cordless Mini Grinder</span>
+                        <ul class="rx-product-card__specs"><li>40V</li><li>Lithium-ion</li></ul>
+                        <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                      </span>
+                    </a>
+                    <a class="rx-product-card" href="#related">
+                      <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                      <span class="rx-product-card__body">
+                        <span class="rx-product-card__meta"><span class="rx-product-card__sku">3116BS</span></span>
+                        <span class="rx-product-card__title">Mini Angle Grinder 850W</span>
+                        <ul class="rx-product-card__specs"><li>Power 850W</li><li>100 mm disc</li></ul>
+                        <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                      </span>
+                    </a>
+                    <a class="rx-product-card" href="#related">
+                      <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                      <span class="rx-product-card__body">
+                        <span class="rx-product-card__meta"><span class="rx-product-card__sku">3110NBS</span></span>
+                        <span class="rx-product-card__title">Mini Angle Grinder 880W</span>
+                        <ul class="rx-product-card__specs"><li>Power 880W</li><li>115 mm disc</li></ul>
+                        <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Seven cards, four slots. The left chevron is disabled until the track moves.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="reviews">Review list</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A flat list of customer reviews at the foot of the product page. Each entry is a
+              handle, a date, a body and a Reply control, in a 16&nbsp;px padded row separated by a
+              hairline.
+            </p>
+            <p>
+              The handle is Body&nbsp;1 at Bold on an 18&nbsp;px line; the date is Caption&nbsp;1 in
+              <code class="sg-code">#3d3d3d</code>, offset from the handle by
+              <code class="sg-code">Padding/Medium</code>. The body indents to align under the handle.
+            </p>
+            <h3>Rules</h3>
+            <ul>
+              <li>Show the ten most recent and reveal the rest on demand. Do not paginate reviews.</li>
+              <li>Both forms are disclosures &mdash; closed by default, and they push content down rather than overlaying it.</li>
+              <li>A submitted review appears at the top of the list straight away.</li>
+              <li>No reviews yet means an invitation to write the first one, never an empty panel.</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <div class="rx-reviews" style="width:100%">
+                  <div class="rx-reviews__head">
+                    <p class="rx-reviews__title">Review</p>
+                    <button class="rx-reviews__write" type="button" aria-expanded="false">Write a Review</button>
+                  </div>
+
+                  <div class="rx-reviews__form">
+                    <input type="text" name="name" placeholder="Your name" aria-label="Your name">
+                    <textarea name="body" placeholder="What did you think of this tool?" aria-label="Your review"></textarea>
+                    <div class="rx-reviews__form-actions">
+                      <button class="rx-btn rx-btn--primary" type="button" data-post>Post review</button>
+                    </div>
+                  </div>
+
+                  <article class="rx-review">
+                    <p class="rx-review__meta"><span class="rx-review__author">@Dannie Tatum</span><span class="rx-review__date">2021-04-18</span></p>
+                    <p class="rx-review__body">Strong yet beautiful.</p>
+                    <p class="rx-review__actions"><button class="rx-review__reply" type="button" aria-expanded="false">Reply</button></p>
+                    <div class="rx-review__form">
+                      <textarea placeholder="Write a reply" aria-label="Reply"></textarea>
+                      <div class="rx-review__form-actions">
+                        <button class="rx-btn rx-btn--ghost" type="button" data-cancel>Cancel</button>
+                        <button class="rx-btn rx-btn--primary" type="button">Post reply</button>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="rx-review">
+                    <p class="rx-review__meta"><span class="rx-review__author">@Sterling Hynson</span><span class="rx-review__date">2021-04-09</span></p>
+                    <p class="rx-review__body">When I hold it I feel so powerful. Its design is beautiful.</p>
+                    <p class="rx-review__actions"><button class="rx-review__reply" type="button" aria-expanded="false">Reply</button></p>
+                    <div class="rx-review__form">
+                      <textarea placeholder="Write a reply" aria-label="Reply"></textarea>
+                      <div class="rx-review__form-actions">
+                        <button class="rx-btn rx-btn--ghost" type="button" data-cancel>Cancel</button>
+                        <button class="rx-btn rx-btn--primary" type="button">Post reply</button>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="rx-review">
+                    <p class="rx-review__meta"><span class="rx-review__author">@Dale Faircloth</span><span class="rx-review__date">2021-03-28</span></p>
+                    <p class="rx-review__body">Really powerful for a mini angle grinder.</p>
+                    <p class="rx-review__actions"><button class="rx-review__reply" type="button" aria-expanded="false">Reply</button></p>
+                    <div class="rx-review__form">
+                      <textarea placeholder="Write a reply" aria-label="Reply"></textarea>
+                      <div class="rx-review__form-actions">
+                        <button class="rx-btn rx-btn--ghost" type="button" data-cancel>Cancel</button>
+                        <button class="rx-btn rx-btn--primary" type="button">Post reply</button>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="rx-review" hidden>
+                    <p class="rx-review__meta"><span class="rx-review__author">@Jay Victor</span><span class="rx-review__date">2021-03-09</span></p>
+                    <p class="rx-review__body">Reasonable price with high quality.</p>
+                    <p class="rx-review__actions"><button class="rx-review__reply" type="button" aria-expanded="false">Reply</button></p>
+                    <div class="rx-review__form">
+                      <textarea placeholder="Write a reply" aria-label="Reply"></textarea>
+                      <div class="rx-review__form-actions">
+                        <button class="rx-btn rx-btn--ghost" type="button" data-cancel>Cancel</button>
+                        <button class="rx-btn rx-btn--primary" type="button">Post reply</button>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="rx-review" hidden>
+                    <p class="rx-review__meta"><span class="rx-review__author">@Robt Vanderpol</span><span class="rx-review__date">2021-01-18</span></p>
+                    <p class="rx-review__body">Great for metal cutting.</p>
+                    <p class="rx-review__actions"><button class="rx-review__reply" type="button" aria-expanded="false">Reply</button></p>
+                    <div class="rx-review__form">
+                      <textarea placeholder="Write a reply" aria-label="Reply"></textarea>
+                      <div class="rx-review__form-actions">
+                        <button class="rx-btn rx-btn--ghost" type="button" data-cancel>Cancel</button>
+                        <button class="rx-btn rx-btn--primary" type="button">Post reply</button>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="rx-review" hidden>
+                    <p class="rx-review__meta"><span class="rx-review__author">@Michel Reinbold</span><span class="rx-review__date">2020-07-04</span></p>
+                    <p class="rx-review__body">The anti-dust switch is such a good feature. I have been using this one for over a year now and I am completely satisfied with it.</p>
+                    <p class="rx-review__actions"><button class="rx-review__reply" type="button" aria-expanded="false">Reply</button></p>
+                    <div class="rx-review__form">
+                      <textarea placeholder="Write a reply" aria-label="Reply"></textarea>
+                      <div class="rx-review__form-actions">
+                        <button class="rx-btn rx-btn--ghost" type="button" data-cancel>Cancel</button>
+                        <button class="rx-btn rx-btn--primary" type="button">Post reply</button>
+                      </div>
+                    </div>
+                  </article>
+
+                  <button class="rx-reviews__more" type="button">Show more reviews</button>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>Write a review, reply to one, or reveal the rest &mdash; all three work.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="video">Video testimonial card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A player above a headline and a paragraph, carried in the same chevron rail as the
+              related products. The card is 435&nbsp;px wide at Large&nbsp;&mdash;&nbsp;Extra &mdash;
+              the same 3-column width as
+              <a href="images.html#matrix">images with overlay text</a> &mdash; and the player is
+              435&nbsp;&times;&nbsp;295, a 1.47&nbsp;:&nbsp;1 frame.
+            </p>
+            <p>
+              The play control is a 90&nbsp;&times;&nbsp;45 rounded rectangle on a translucent slate,
+              centred. Body text sits in a 16&nbsp;px padded block: Title&nbsp;5 headline, Body&nbsp;1
+              paragraph.
+            </p>
+            <h3>Rules</h3>
+            <ul>
+              <li>One video plays at a time. Starting another stops the first.</li>
+              <li>Never autoplay with sound.</li>
+              <li>Cards in a rail share a height, so cap the paragraph and keep headlines to two lines.</li>
+              <li>A poster image is required &mdash; a black frame before play reads as a broken card.</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <div class="rx-rail rx-rail--3" style="width:100%">
+                  <div class="rx-rail__head">
+                    <p class="rx-rail__title">Customer Review</p>
+                    <div class="rx-rail__nav">
+                      <button class="rx-rail__btn" type="button" data-rail="prev" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+                      </button>
+                      <button class="rx-rail__btn" type="button" data-rail="next" aria-label="Next">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="rx-rail__track">
+                    <article class="rx-video-card">
+                      <div class="rx-video-card__player" data-playing="false" role="button" tabindex="0" aria-label="Play testimonial">
+                        <img src="img/warehouse-germany.jpg" alt="" loading="lazy">
+                        <button class="rx-video-card__play" type="button" tabindex="-1" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <span class="rx-video-card__bar"><span>Playing</span><span class="rx-video-card__progress"><span></span></span><span>2:14</span></span>
+                      </div>
+                      <div class="rx-video-card__body">
+                        <p class="rx-video-card__title">Quality, Value and Fast Delivery in Kassel</p>
+                        <p class="rx-video-card__text">Our partner in Kassel on quality, pricing and delivery speed.</p>
+                      </div>
+                    </article>
+                    <article class="rx-video-card">
+                      <div class="rx-video-card__player" data-playing="false" role="button" tabindex="0" aria-label="Play testimonial">
+                        <img src="img/warehouse-uae.jpg" alt="" loading="lazy">
+                        <button class="rx-video-card__play" type="button" tabindex="-1" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <span class="rx-video-card__bar"><span>Playing</span><span class="rx-video-card__progress"><span></span></span><span>1:48</span></span>
+                      </div>
+                      <div class="rx-video-card__body">
+                        <p class="rx-video-card__title">Our Partner in Meppen Is Growing With Ronix</p>
+                        <p class="rx-video-card__text">The display at our partner&rsquo;s store continues to expand.</p>
+                      </div>
+                    </article>
+                    <article class="rx-video-card">
+                      <div class="rx-video-card__player" data-playing="false" role="button" tabindex="0" aria-label="Play testimonial">
+                        <img src="img/warehouse-china.jpg" alt="" loading="lazy">
+                        <button class="rx-video-card__play" type="button" tabindex="-1" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <span class="rx-video-card__bar"><span>Playing</span><span class="rx-video-card__progress"><span></span></span><span>3:02</span></span>
+                      </div>
+                      <div class="rx-video-card__body">
+                        <p class="rx-video-card__title">Reaching New Customers in Papenburg</p>
+                        <p class="rx-video-card__text">How Ronix tools opened a new group of customers.</p>
+                      </div>
+                    </article>
+                    <article class="rx-video-card">
+                      <div class="rx-video-card__player" data-playing="false" role="button" tabindex="0" aria-label="Play testimonial">
+                        <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                        <button class="rx-video-card__play" type="button" tabindex="-1" aria-hidden="true">
+                          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <span class="rx-video-card__bar"><span>Playing</span><span class="rx-video-card__progress"><span></span></span><span>2:36</span></span>
+                      </div>
+                      <div class="rx-video-card__body">
+                        <p class="rx-video-card__title">Setting Up Ronix in Neustadt</p>
+                        <p class="rx-video-card__text">Preparing a new retail space with our partner.</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Click a poster to start it. Starting a second stops the first.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="unrefine.html"><span>Previous chapter</span>&larr; Additional components</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+<script src="js/production.js?v=27"></script>
+</body>
+</html>

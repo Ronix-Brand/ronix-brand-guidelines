@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Images with overlay text — Ronix Design System</title>
+<meta name="description" content="Images with overlay text: the Size x Grid matrix, the scrim, image rails and the job category card.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Images</p>
+
+      <div class="sg-hero">
+        <h1>Images with overlay text</h1>
+        <p class="sg-hero__lead">
+          An editorial image block: a photograph, a gradient scrim, a Title&nbsp;3 headline and an
+          optional action. Unlike the category tile, this component brings its own scrim — so it is
+          legible over any photograph.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Three layers: the photograph, a bottom-up gradient to black, and the content block at
+              <code class="sg-code">Padding/Medium</code> (16&nbsp;px).
+            </p>
+            <p>
+              The gradient is attached to the content block rather than being a fixed slice of the
+              frame. That matters: when the card narrows and the headline wraps to more lines, the
+              scrim grows with it. A fixed-height scrim leaves the extra lines sitting on bare
+              photograph.
+            </p>
+            <h3>Content</h3>
+            <ul>
+              <li>Headline — Title&nbsp;3 in-container, 26/30 ExtraBold, in <code class="sg-code">Foreground/On&nbsp;brand</code></li>
+              <li>Action — the standard secondary button, optional</li>
+            </ul>
+            <p>
+              Text is left-aligned and bottom-aligned, which is the opposite of the
+              <a href="categories.html">category tile</a>. The two components sit on the same page
+              types and do not agree.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-overlay-image" href="#anatomy" style="width:100%;max-width:440px">
+                  <img src="img/job-concrete-tools.jpg" alt="Operator using a demolition hammer" loading="lazy">
+                  <span class="rx-overlay-image__content">
+                    <span class="rx-overlay-image__title">Brushless Motors; The Way Forward</span>
+                    <span class="rx-btn rx-btn--secondary">Brushless motor</span>
+                  </span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Size=Extra, Grid=2 — 656&times;492, a 4:3 landscape frame.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="matrix">Size &times; Grid</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Four variants from two properties, and this time <strong>the naming holds</strong>.
+              <code class="sg-code">Size</code> sets the height; <code class="sg-code">Grid</code>
+              sets how many fit across the container.
+            </p>
+            <p>
+              Because only the width changes with Grid, the 3-up variants are
+              <strong>portrait</strong> while the 2-up variants are landscape — same height, narrower
+              frame.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Variant</th><th>Width token</th><th>Height token</th><th>Size</th><th>Aspect</th></tr></thead>
+                  <tbody>
+                    <tr><td>Size=Extra, Grid=2</td><td><code>Size-2 column/Extra-Width</code></td><td><code>Extra-Height</code></td><td>656 &times; 492</td><td>1.33 landscape</td></tr>
+                    <tr><td>Size=Default, Grid=2</td><td><code>Size-2 column/Defualt-Width</code></td><td><code>Defualt-Height</code></td><td>566 &times; 424</td><td>1.33 landscape</td></tr>
+                    <tr><td>Size=Extra, Grid=3</td><td><code>Size-3 column/Extra-Width</code></td><td>— reuses 2-column</td><td>434 &times; 492</td><td>0.88 portrait</td></tr>
+                    <tr><td>Size=Default, Grid=3</td><td><code>Size-3 column/Defualt-Width</code></td><td>— reuses 2-column</td><td>374 &times; 424</td><td>0.88 portrait</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>The 3-column collection defines widths only. Heights come from the 2-column tokens.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>All four, to scale</h3>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame" style="align-items:flex-start;flex-wrap:wrap;gap:12px;justify-content:flex-start">
+              <a class="rx-overlay-image" href="#matrix" style="width:246px">
+                <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                <span class="rx-overlay-image__content"><span class="rx-overlay-image__title" style="font-size:18px;line-height:22px">Extra, Grid 2</span></span>
+              </a>
+              <a class="rx-overlay-image rx-overlay-image--default" href="#matrix" style="width:212px">
+                <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                <span class="rx-overlay-image__content"><span class="rx-overlay-image__title" style="font-size:18px;line-height:22px">Default, Grid 2</span></span>
+              </a>
+              <a class="rx-overlay-image rx-overlay-image--grid3" href="#matrix" style="width:163px">
+                <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                <span class="rx-overlay-image__content"><span class="rx-overlay-image__title" style="font-size:18px;line-height:22px">Extra, Grid 3</span></span>
+              </a>
+              <a class="rx-overlay-image rx-overlay-image--default rx-overlay-image--grid3" href="#matrix" style="width:140px">
+                <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                <span class="rx-overlay-image__content"><span class="rx-overlay-image__title" style="font-size:18px;line-height:22px">Default, Grid 3</span></span>
+              </a>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 3</span>At 37&nbsp;% scale. Headlines reduced to Title&nbsp;5 so the labels fit the demo.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="scrim">The scrim</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A bottom-up gradient to solid black, sized to the content it sits behind. It is part of
+              the component, not the photograph.
+            </p>
+            <p>
+              This is what makes the component robust: the headline stays legible whether the
+              underlying image is a dark workshop or a bright outdoor shot.
+            </p>
+            <h3>Compare with the category tile</h3>
+            <p>
+              The <a href="categories.html#content">category tile</a> has no scrim, and depends on
+              every photograph being dark in the lower band. The system therefore contains both the
+              problem and its solution, on two components used on the same kinds of page.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-overlay-image rx-overlay-image--default" href="#scrim" style="width:100%;max-width:260px">
+                  <span style="position:absolute;inset:0;background:linear-gradient(135deg,#e8e8e8,#fafafa)"></span>
+                  <span class="rx-overlay-image__content">
+                    <span class="rx-overlay-image__title" style="font-size:20px;line-height:24px">Legible on a light image</span>
+                  </span>
+                </a>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 4</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>With the scrim, even a near-white photograph carries white text.</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-category" href="#scrim" style="width:100%;max-width:200px">
+                  <span style="position:absolute;inset:0;background:linear-gradient(135deg,#e8e8e8,#fafafa)"></span>
+                  <span class="rx-category__label">No scrim</span>
+                </a>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 5</span>
+                <span class="sg-verdict sg-verdict--dont" style="display:block">
+                  <span class="sg-verdict__label">Don&rsquo;t</span>
+                  <span>The category tile on the same image. Same brand, same page, unreadable.</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="grids">Grids and rails</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Two or three across the container at Large and Medium, with an 8&nbsp;px gap. At Small
+              the images go full width and the row becomes a horizontal rail.
+            </p>
+            <p>
+              The page also holds a four-up rail with a pair of 40&times;40 chevrons at its
+              lower-right — larger than the 30&times;30 chevrons on the
+              <a href="product-information.html#slider">PDP slider</a>.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Container</th><th>Grid=2</th><th>Grid=3</th></tr></thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large</td><td>1320</td><td>2 &times; 656</td><td>3 &times; 434</td></tr>
+                    <tr><td>1140</td><td>2 &times; 566</td><td>3 &times; 374</td></tr>
+                    <tr><td rowspan="2">Medium</td><td>960</td><td>2 &times; 476</td><td>3 &times; 314</td></tr>
+                    <tr><td>720</td><td>2 &times; 356</td><td>3 &times; 234</td></tr>
+                    <tr><td rowspan="2">Small</td><td>540</td><td>1 &times; 540</td><td>1 &times; 540</td></tr>
+                    <tr><td>326</td><td>1 &times; 326</td><td>1 &times; 326</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Image width is the container less the gaps, divided by the column count: <code>(C &minus; 8)&thinsp;/&thinsp;2</code> and <code>(C &minus; 16)&thinsp;/&thinsp;3</code>. Widths are fixed per breakpoint in the library, but they all follow that rule.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Live: three across</h3>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame">
+              <div class="rx-image-grid rx-image-grid--3" style="width:100%">
+                <a class="rx-overlay-image rx-overlay-image--grid3" href="#grids">
+                  <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                  <span class="rx-overlay-image__content">
+                    <span class="rx-overlay-image__title" style="font-size:20px;line-height:24px">Brushless motors</span>
+                    <span class="rx-btn rx-btn--secondary">Learn more</span>
+                  </span>
+                </a>
+                <a class="rx-overlay-image rx-overlay-image--grid3" href="#grids">
+                  <img src="img/line-made-in-germany.jpg" alt="" loading="lazy">
+                  <span class="rx-overlay-image__content">
+                    <span class="rx-overlay-image__title" style="font-size:20px;line-height:24px">Made in Germany</span>
+                    <span class="rx-btn rx-btn--secondary">Learn more</span>
+                  </span>
+                </a>
+                <a class="rx-overlay-image rx-overlay-image--grid3" href="#grids">
+                  <img src="img/line-86-series.jpg" alt="" loading="lazy">
+                  <span class="rx-overlay-image__content">
+                    <span class="rx-overlay-image__title" style="font-size:20px;line-height:24px">86 series</span>
+                    <span class="rx-btn rx-btn--secondary">Learn more</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 7</span>Grid=3, portrait frames, 8&nbsp;px gap. Collapses to one column below 768&nbsp;px.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="overlay-card">Overlay card with description</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The page&rsquo;s <code class="sg-code">wrapper</code> carousels use a second overlay
+              variant: same photograph-and-scrim construction, but the content is a headline
+              <em>and a descriptive paragraph</em>, with no action.
+            </p>
+            <p>
+              The frame is 435&times;462 — slightly portrait — and four sit across a 1320&nbsp;px
+              container with the paging chevrons placed beneath, right-aligned.
+            </p>
+            <h3>Type</h3>
+            <ul>
+              <li>Headline — <code class="sg-code">Web/Title/Title&nbsp;3</code>, 24/32 <strong>Bold&nbsp;700</strong></li>
+              <li>Body — <code class="sg-code">Web/Body/Body&nbsp;2</code>, 14/20 Regular</li>
+              <li>Both in <code class="sg-code">Generic/Foreground/On&nbsp;brand</code> (#ffffff)</li>
+            </ul>
+            <p>Padding is <code class="sg-code">Padding/X-Large</code> (24&nbsp;px).</p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="width:100%;padding:16px;background:var(--global-background-4-rest)">
+                  <div class="rx-image-grid rx-image-grid--3">
+                    <a class="rx-overlay-card" href="#overlay-card">
+                      <img src="img/warehouse-germany.jpg" alt="Ronix warehouse in Germany" loading="lazy">
+                      <span class="rx-overlay-card__content">
+                        <span class="rx-overlay-card__title" style="display:block">Warehouse in Germany</span>
+                        <span class="rx-overlay-card__body" style="display:block">
+                          Located in the heart of Europe, our German warehouse serves as a central hub
+                          for efficient product distribution and seamless access to European markets.
+                        </span>
+                      </span>
+                    </a>
+                    <a class="rx-overlay-card" href="#overlay-card">
+                      <img src="img/warehouse-china.jpg" alt="Ronix warehouse in China" loading="lazy">
+                      <span class="rx-overlay-card__content">
+                        <span class="rx-overlay-card__title" style="display:block">Warehouse in China</span>
+                        <span class="rx-overlay-card__body" style="display:block">
+                          Located in the heart of China, our warehouse is not only responsible for
+                          storing our products but also for facilitating quick access to the Asian
+                          market.
+                        </span>
+                      </span>
+                    </a>
+                    <a class="rx-overlay-card" href="#overlay-card">
+                      <img src="img/warehouse-uae.jpg" alt="Ronix warehouse in the UAE" loading="lazy">
+                      <span class="rx-overlay-card__content">
+                        <span class="rx-overlay-card__title" style="display:block">Warehouse in UAE</span>
+                        <span class="rx-overlay-card__body" style="display:block">
+                          Positioned at the crossroads of Europe, Asia, and Africa, our UAE warehouse
+                          provides efficient logistics and quick access to the Middle Eastern market.
+                        </span>
+                      </span>
+                    </a>
+                  </div>
+                  <div class="rx-rail-controls">
+                    <button class="rx-chevron" type="button" aria-label="Previous">
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M15 6l-6 6 6 6"/></svg>
+                    </button>
+                    <button class="rx-chevron" type="button" aria-label="Next">
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 8</span>The wrapper carousel. Chevrons are 40&times;40 and sit below the rail, right-aligned.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="job-card">Job category card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A separate carousel component: a 435&times;245 photograph with a dark band across the
+              foot carrying a 48&times;48 icon and a Title&nbsp;4 label.
+            </p>
+            <p>
+              Sixteen cards ship — Concrete, Machine, Wood Carving, Painting, Gardening, Masonry,
+              Blacksmith, Glazing, Industrial, Tool Set, Machinist, Electrical, DIY, Wood Working,
+              Jewelry and Automotive tools.
+            </p>
+            <p>
+              Each carries a distinct line icon drawn for that trade.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-image-rail" style="width:100%">
+                  <a class="rx-job-card" href="#job-card">
+                    <img src="img/job-concrete-tools.jpg" alt="" loading="lazy">
+                    <span class="rx-job-card__title">
+                      <span class="rx-job-card__icon">
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:32px;height:32px"><path d="M3 21l6-6M14 3l7 7-4 4-7-7z"/><path d="M9 15l-3-3"/></svg>
+                      </span>
+                      Concrete Tools
+                    </span>
+                  </a>
+                  <a class="rx-job-card" href="#job-card">
+                    <img src="img/category-power-tools.jpg" alt="" loading="lazy">
+                    <span class="rx-job-card__title">
+                      <span class="rx-job-card__icon">
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:32px;height:32px"><rect x="3" y="8" width="13" height="8" rx="2"/><path d="M16 12h5M7 16v3"/></svg>
+                      </span>
+                      Machine Tools
+                    </span>
+                  </a>
+                  <a class="rx-job-card" href="#job-card">
+                    <img src="img/line-86-series.jpg" alt="" loading="lazy">
+                    <span class="rx-job-card__title">
+                      <span class="rx-job-card__icon">
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:32px;height:32px"><path d="M4 20l8-8M12 4l8 8-4 4-8-8z"/></svg>
+                      </span>
+                      Wood Carving
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 9</span>Job category rail. Icons here are stand-ins — the library&rsquo;s sixteen are bespoke.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              The scrim is a pseudo-element, so the markup carries only the photograph and the
+              content.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;a class="rx-overlay-image" href="/brushless"&gt;
+  &lt;img src="brushless.jpg" alt=""&gt;
+  &lt;span class="rx-overlay-image__content"&gt;
+    &lt;span class="rx-overlay-image__title"&gt;Brushless Motors; The Way Forward&lt;/span&gt;
+    &lt;span class="rx-btn rx-btn--secondary"&gt;Brushless motor&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!-- Three across --&gt;
+&lt;div class="rx-image-grid rx-image-grid--3"&gt;
+  &lt;a class="rx-overlay-image rx-overlay-image--grid3"&gt;…&lt;/a&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="product-information.html"><span>Previous chapter</span>&larr; Product information</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

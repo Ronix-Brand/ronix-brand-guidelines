@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Office card — Ronix Design System</title>
+<meta name="description" content="The office card: a branch contact card that shares its name with the news card but is a different component.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Office card</p>
+
+      <div class="sg-hero">
+        <h1>Office card</h1>
+        <p class="sg-hero__lead">
+          A branch contact card — photograph, office name, postal address, phone and email. It is a
+          distinct component from the news card, but the library gives both the same name.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="naming">Relationship to the news card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The office card and the <a href="news.html">news card</a> share the library name
+              <code class="sg-code">News Card - EN</code>. They are separate component sets with
+              different content and different properties — check which one is in use before building
+              against it.
+            </p>
+            <h3>How they differ</h3>
+            <ul>
+              <li>Content — address lines here, a date on the news card</li>
+              <li>Property names — <code class="sg-code">type</code> here, <code class="sg-code">Size</code> there</li>
+              <li>Grids — 2 and 3 column here, 2, 3 and 4 there</li>
+              <li>Height — every office variant is <strong>26&nbsp;px taller</strong></li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Variant</th><th>News card page</th><th>Office card page</th><th>Difference</th></tr></thead>
+                  <tbody>
+                    <tr><td>2-column, Extra</td><td>656 &times; 508</td><td>656 &times; 534</td><td>+26</td></tr>
+                    <tr><td>2-column, Default</td><td>566 &times; 458</td><td>566 &times; 484</td><td>+26</td></tr>
+                    <tr><td>3-column, Extra</td><td>434 &times; 405</td><td>434 &times; 431</td><td>+26</td></tr>
+                    <tr><td>3-column, Default</td><td>374 &times; 371</td><td>374 &times; 397</td><td>+26</td></tr>
+                    <tr><td>4-column</td><td>324 &times; 343</td><td>&mdash;</td><td>not offered</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Identical widths, consistently taller bodies — the address block needs the extra room.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Photograph on top, then a body at <code class="sg-code">Padding/Medium</code> with
+              <code class="sg-code">Padding/X-Small</code> (8&nbsp;px) between elements.
+            </p>
+            <h3>Body</h3>
+            <ul>
+              <li>Office name — Title&nbsp;4 in-container, 20/22 ExtraBold</li>
+              <li>Address, phone and email — Body&nbsp;2, 14/18 Regular, one line each</li>
+              <li>A small tag at the foot — Caption&nbsp;2, 10/12</li>
+            </ul>
+            <p>
+              Phone and email are plain text in the library. In markup they should be
+              <code class="sg-code">tel:</code> and <code class="sg-code">mailto:</code> links — on a
+              contact card that is the whole point of the component.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-office" style="width:100%;max-width:300px">
+                  <span class="rx-office__media"><img src="img/warehouse-germany.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-office__body">
+                    <span class="rx-office__title">Ronix Germany</span>
+                    <address class="rx-office__address">
+                      Am Ziegelturm 9, 63571, Gelnhausen, Germany<br>
+                      <a href="tel:+4960514989050">+49 6051 4989050</a><br>
+                      <a href="mailto:sales@ronixtools.de">sales@ronixtools.de</a>
+                    </address>
+                    <span class="rx-office__tag">Europe</span>
+                  </span>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>State=Default, type=Extra, Grid=3-column — 434&times;431.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-office" style="width:100%;max-width:300px;border-color:var(--brand-stroke-1-rest);background:var(--global-background-2-rest)">
+                  <span class="rx-office__media"><img src="img/warehouse-germany.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-office__body">
+                    <span class="rx-office__title">Ronix Germany</span>
+                    <address class="rx-office__address">
+                      Am Ziegelturm 9, 63571, Gelnhausen, Germany<br>
+                      <a href="tel:+4960514989050">+49 6051 4989050</a><br>
+                      <a href="mailto:sales@ronixtools.de">sales@ronixtools.de</a>
+                    </address>
+                    <span class="rx-office__tag">Europe</span>
+                  </span>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>State=Hover — the same brand border and background lift used by the news and product cards.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="grid">Grid</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Two or three across, with an 8&nbsp;px gap — no 4-column variant, because the address
+              block does not compress below about 300&nbsp;px without wrapping badly.
+            </p>
+            <p>
+              Below 768&nbsp;px the grid drops to two columns, and at 358&nbsp;px the cards reach
+              159&nbsp;px wide. An address at 14&nbsp;px in 159&nbsp;px of space wraps to five or six
+              lines, which is why these cards are the tallest in the system at Small.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Container</th><th>Columns</th><th>Card</th></tr></thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large</td><td>1320</td><td>3</td><td>434 &times; 431</td></tr>
+                    <tr><td>1140</td><td>3</td><td>374 &times; 397</td></tr>
+                    <tr><td rowspan="2">Medium</td><td>960</td><td>3</td><td>314 &times; 369</td></tr>
+                    <tr><td>720</td><td>2</td><td>356 &times; 375</td></tr>
+                    <tr><td rowspan="2">Small</td><td>540</td><td>2</td><td>266 &times; 330</td></tr>
+                    <tr><td>326</td><td>2</td><td>159 &times; 318</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Card heights barely move across breakpoints — the address block holds them up.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Live grid</h3>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame">
+              <div class="rx-news-grid rx-news-grid--3" style="width:100%">
+                <div class="rx-office">
+                  <span class="rx-office__media"><img src="img/warehouse-germany.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-office__body">
+                    <span class="rx-office__title">Ronix Germany</span>
+                    <address class="rx-office__address">
+                      Am Ziegelturm 9, 63571, Gelnhausen, Germany<br>
+                      <a href="tel:+4960514989050">+49 6051 4989050</a><br>
+                      <a href="mailto:sales@ronixtools.de">sales@ronixtools.de</a>
+                    </address>
+                    <span class="rx-office__tag">Europe</span>
+                  </span>
+                </div>
+                <div class="rx-office">
+                  <span class="rx-office__media"><img src="img/warehouse-china.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-office__body">
+                    <span class="rx-office__title">Ronix China</span>
+                    <address class="rx-office__address">
+                      Yiwu International Trade City, Zhejiang, China<br>
+                      <a href="tel:+8657985412300">+86 579 8541 2300</a><br>
+                      <a href="mailto:sales@ronixtools.cn">sales@ronixtools.cn</a>
+                    </address>
+                    <span class="rx-office__tag">Asia</span>
+                  </span>
+                </div>
+                <div class="rx-office">
+                  <span class="rx-office__media"><img src="img/warehouse-uae.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-office__body">
+                    <span class="rx-office__title">Ronix UAE</span>
+                    <address class="rx-office__address">
+                      Deira, Dubai, United Arab Emirates<br>
+                      <a href="tel:+97142255500">+971 4 225 5500</a><br>
+                      <a href="mailto:sales@ronixtools.ae">sales@ronixtools.ae</a>
+                    </address>
+                    <span class="rx-office__tag">Middle East</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 5</span>Three offices. The foot tag stays aligned because it uses <code>margin-top: auto</code>.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Unlike the news card, this one is <strong>not</strong> a single anchor — it contains two
+              independent links, so wrapping it in an outer anchor would nest them. Use
+              <code class="sg-code">&lt;address&gt;</code> for the contact block.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;div class="rx-office"&gt;
+  &lt;div class="rx-office__media"&gt;&lt;img src="germany.jpg" alt=""&gt;&lt;/div&gt;
+  &lt;div class="rx-office__body"&gt;
+    &lt;h3 class="rx-office__title"&gt;Ronix Germany&lt;/h3&gt;
+    &lt;address class="rx-office__address"&gt;
+      Am Ziegelturm 9, 63571, Gelnhausen, Germany&lt;br&gt;
+      &lt;a href="tel:+4960514989050"&gt;+49 6051 4989050&lt;/a&gt;&lt;br&gt;
+      &lt;a href="mailto:sales@ronixtools.de"&gt;sales@ronixtools.de&lt;/a&gt;
+    &lt;/address&gt;
+    &lt;span class="rx-office__tag"&gt;Europe&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="news.html"><span>Previous chapter</span>&larr; News card</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

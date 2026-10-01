@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navigation &amp; footer — Ronix Design System</title>
+<meta name="description" content="The navigation bar, mega menu, mobile menu, search and footer — the largest page in the system.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Navigation &amp; footer</p>
+
+      <div class="sg-hero">
+        <h1>Navigation &amp; footer</h1>
+        <p class="sg-hero__lead">
+          The largest page in the library by a wide margin: twenty component families and roughly 140
+          variants covering every navigation surface the site has, plus the footer.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="scale">Scale</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              This page carries more variants than the previous eleven documented pages combined. It
+              is also where the system&rsquo;s two design generations sit closest together — the footer
+              binds current and legacy tokens in the same component.
+            </p>
+            <p>
+              Three separate navigation bar families exist for three different properties: the main
+              site, Ronix Mag, and a global-presence variant.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Family</th><th>Properties</th><th>Variants</th></tr></thead>
+                  <tbody>
+                    <tr><td>Footer</td><td>Type — 6 breakpoints</td><td>6</td></tr>
+                    <tr><td>Main navigation bar</td><td>State &times; Type &times; layout</td><td>8</td></tr>
+                    <tr><td>Mega Menu</td><td>Size &times; State</td><td>12</td></tr>
+                    <tr><td>Mobile menu</td><td>State</td><td>10</td></tr>
+                    <tr><td>navigation-bar-with-menus</td><td>State, per width</td><td>12</td></tr>
+                    <tr><td>Ronixmag Top Navigation Bar</td><td>State, per width</td><td>10</td></tr>
+                    <tr><td>Navigation-bar &gt;992</td><td>type &times; state</td><td>6</td></tr>
+                    <tr><td>Small-frame-menu</td><td>size &times; Type</td><td>10</td></tr>
+                    <tr><td>Large-frame-menu</td><td>Type &times; State</td><td>6</td></tr>
+                    <tr><td>Menu</td><td>Size &times; State</td><td>8</td></tr>
+                    <tr><td>Search-dropdown</td><td>Property 1 — 3 widths</td><td>3</td></tr>
+                    <tr><td>Flag</td><td>Property 1 — countries</td><td>30+</td></tr>
+                    <tr><td>Footer Collaps Button, Search box, Search-product-block, category-card, banner</td><td>various</td><td>12</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Roughly 140 variants. The Flag set alone covers 30+ countries.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="navbar">Navigation bar</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              54&nbsp;px tall. Three properties: <code class="sg-code">State</code> (Close / Open),
+              <code class="sg-code">Type</code> (Extra / Defualt) and
+              <code class="sg-code">Navigation bar layout</code> (Large / Small).
+            </p>
+            <p>
+              Open adds 298&nbsp;px at Large and 258&nbsp;px at Small — the mega menu panel drops
+              below the bar rather than overlaying it, so page content is pushed down.
+            </p>
+            <p>
+              The active top-level link takes a 2&nbsp;px
+              <code class="sg-code">Brand/Stroke/2/Selected</code> underline — the same treatment as
+              the <a href="product-line.html#tablist">Product line tablist</a>.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-nav" style="width:100%" id="navDemo">
+                  <div class="rx-nav__bar">
+                    <span class="rx-nav__logo">Ronix</span>
+                    <ul class="rx-nav__links">
+                      <li><a class="rx-nav__link" href="#navbar" aria-expanded="true" id="navProduct">Product</a></li>
+                      <li><a class="rx-nav__link" href="#navbar">About Us</a></li>
+                      <li><a class="rx-nav__link" href="#navbar">Contact Us</a></li>
+                    </ul>
+                    <span class="rx-nav__actions">
+                      <a class="rx-btn rx-btn--primary" href="#navbar">Partnership</a>
+                      <button class="rx-chevron" type="button" aria-label="Search">
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                      </button>
+                      <button class="rx-chevron" type="button" aria-label="Language">EN</button>
+                    </span>
+                  </div>
+
+                  <div class="rx-megamenu" id="megaPanel">
+                    <div class="rx-megamenu__tabs" role="tablist">
+                      <button class="rx-megamenu__tab" role="tab" aria-selected="true" type="button">Power Tools</button>
+                      <button class="rx-megamenu__tab" role="tab" aria-selected="false" type="button">Cordless Tools</button>
+                      <button class="rx-megamenu__tab" role="tab" aria-selected="false" type="button">Hand tools</button>
+                      <button class="rx-megamenu__tab" role="tab" aria-selected="false" type="button">Tool Accessories</button>
+                    </div>
+                    <div class="rx-megamenu__cols">
+                      <ul class="rx-megamenu__group">
+                        <li class="rx-megamenu__heading">Drills</li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Drill Set</a></li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Electric Drills</a></li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Impact Drills</a></li>
+                      </ul>
+                      <ul class="rx-megamenu__group">
+                        <li class="rx-megamenu__heading">Grass Cutters</li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Brush Cutter</a></li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Hedge Trimmers</a></li>
+                        <li class="rx-megamenu__heading" style="margin-top:12px">Sanders</li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Orbital Sander</a></li>
+                      </ul>
+                      <ul class="rx-megamenu__group">
+                        <li class="rx-megamenu__item"><a href="#navbar">Angle Grinders</a></li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Demolition Hammers</a></li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Compressors</a></li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Blowers Chainsaw</a></li>
+                        <li class="rx-megamenu__item"><a href="#navbar">Batteries &amp; Chargers</a></li>
+                      </ul>
+                    </div>
+                    <p style="margin:16px 0 0"><a class="rx-btn rx-btn--secondary" href="#navbar">All Power Tools</a></p>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>State=Open, Type=Extra. Click &ldquo;Product&rdquo; to close it; the mega-menu tabs are live.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="megamenu">Mega menu</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Its own component, twelve variants: <code class="sg-code">Size</code> of 1920, 1400 or
+              992 crossed with <code class="sg-code">State</code> of Category, Industry, Professions
+              or Series.
+            </p>
+            <p>
+              Those four States are four different taxonomies of the same catalogue — by product
+              type, by industry served, by trade, and by product series.
+            </p>
+            <p>
+              Menu rows are <code class="sg-code">Desktop List Item</code>, a fixed 186&times;40
+              component. Seventeen instances sit loose on the page.
+            </p>
+            <p>
+              There is no Size below 992 — the mega menu does not exist on tablet or phone. That is
+              what the <a href="#mobile">mobile menu</a> replaces.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>State</th><th>1920</th><th>1400</th><th>992</th><th>Organises by</th></tr></thead>
+                  <tbody>
+                    <tr><td>Category</td><td>1920&times;598</td><td>1200&times;598</td><td>992&times;528</td><td>Product type</td></tr>
+                    <tr><td>Industry</td><td>1920&times;510</td><td>1200&times;514</td><td>992&times;448</td><td>Sector served</td></tr>
+                    <tr><td>Professions</td><td>1920&times;510</td><td>1200&times;510</td><td>992&times;448</td><td>Trade</td></tr>
+                    <tr><td>Series</td><td>1920&times;470</td><td>1200&times;420</td><td>992&times;369</td><td>Product series</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Note the Size=1400 variants are drawn 1200&nbsp;px wide — the label and the frame disagree.</figcaption>
+            </figure>
+          </div>
+
+          <p class="sg-note">
+            <code class="sg-code">category-card</code> inside the mega menu carries a
+            <code class="sg-code">Type = LTR | RTL</code> property. Use the RTL variant on
+            right-to-left locales; other components in the mega menu mirror with the page direction.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="mobile">Mobile menu</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              390&nbsp;px wide, ten States — a whole navigation flow rather than a single panel:
+              default, search, search results, three PLP levels, global presence, and three unnamed
+              states.
+            </p>
+            <p>
+              Rows are full-width with a disclosure chevron where a level goes deeper. Height varies
+              from 256&nbsp;px to 1520&nbsp;px depending on state.
+            </p>
+            <h3>Unnamed states</h3>
+            <p>
+              Four of the ten are called <code class="sg-code">State8</code>,
+              <code class="sg-code">State9</code>, <code class="sg-code">State10</code> and
+              <code class="sg-code">State11</code> — auto-generated names, never
+              replaced. The same problem as the
+              <a href="news.html#info-box">news information box</a>, at four times the scale.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-mobilemenu">
+                  <div class="rx-mobilemenu__search">
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                    Search on Ronixtools.com
+                  </div>
+                  <ul class="rx-mobilemenu__list">
+                    <li><a href="#mobile">Product <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 6l6 6-6 6"/></svg></a></li>
+                    <li><a href="#mobile">About Us</a></li>
+                    <li><a href="#mobile">Service</a></li>
+                    <li><a href="#mobile">Contact Us</a></li>
+                    <li><a href="#mobile">Location <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 6l6 6-6 6"/></svg></a></li>
+                    <li><a href="#mobile">Ronix Mag</a></li>
+                    <li><a href="#mobile">Become Our Distributor</a></li>
+                  </ul>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>State=defualt — 390&times;440.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>State</th><th>Height</th><th>Purpose</th></tr></thead>
+                  <tbody>
+                    <tr><td>defualt</td><td>440</td><td>Top level</td></tr>
+                    <tr><td>Search-1</td><td>272</td><td>Search focused</td></tr>
+                    <tr><td>State10</td><td>1520</td><td>Search results</td></tr>
+                    <tr><td>plp-1</td><td>304</td><td>Category level 1</td></tr>
+                    <tr><td>plp-2</td><td>640</td><td>Category level 2</td></tr>
+                    <tr><td>plp-3</td><td>352</td><td>Category level 3</td></tr>
+                    <tr><td>Global Presence</td><td>307</td><td>Country selector</td></tr>
+                    <tr><td>State8 / State9 / State11</td><td>582 / 640 / 390</td><td>Unnamed</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Ten states covering the full navigation flow.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="search">Search</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Three components work together: a 768&times;40
+              <code class="sg-code">Search box</code> with Hover and Language properties, a
+              <code class="sg-code">Search-dropdown</code> at three widths, and a
+              159&times;233 <code class="sg-code">Search-product-block</code> — the product tile
+              shown inside search results.
+            </p>
+            <p>
+              The dropdown is 466&ndash;506&nbsp;px tall, so search results are a substantial panel
+              rather than a simple suggestion list.
+            </p>
+            <p>
+              The search box carries a <code class="sg-code">Language=EN</code> property with a
+              single value, so there is no localised variant to switch to. Treat the language as a
+              page-level setting rather than a property of the search box.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Component</th><th>Size</th><th>Properties</th></tr></thead>
+                  <tbody>
+                    <tr><td>Search box</td><td>768 &times; 40</td><td>Hover &times; Language=EN</td></tr>
+                    <tr><td>Search-dropdown</td><td>1920&times;466, 1200&times;506, 992&times;506</td><td>Property 1 — width</td></tr>
+                    <tr><td>Search-product-block</td><td>159 &times; 233</td><td>Default / Variant2</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 7</span>Note the 1920 dropdown is <em>shorter</em> than the 1200 — more columns, fewer rows.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="footer">Footer</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Six breakpoint variants. Height more than doubles as it narrows — 884&nbsp;px at
+              1400 through 992, then 1515, 1587 and 1753&nbsp;px as the link columns stack.
+            </p>
+            <h3>Structure</h3>
+            <ul>
+              <li>Logo bar with Contact Us and Download catalog</li>
+              <li>Four link columns plus a newsletter panel</li>
+              <li>Offices block — Germany, U.A.E. and China</li>
+              <li>Legal bar with social icons</li>
+            </ul>
+            <p>
+              The newsletter panel contains the <code class="sg-code">form</code> component
+              (State=1/2) and the &ldquo;100% PRIVACY GUARANTEED&rdquo; overline — the same pairing as
+              the <a href="form.html">contact form</a>, but here the overline is Roboto rather than
+              Helvetica LT.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-footer" style="width:100%">
+                  <div class="rx-footer__top">
+                    <span class="rx-nav__logo">Ronix</span>
+                    <span class="rx-footer__actions">
+                      <a class="rx-btn rx-btn--secondary" href="#footer">Contact Us</a>
+                      <a class="rx-btn rx-btn--primary" href="#footer" style="background:var(--global-foreground-1-rest)">Download catalog</a>
+                    </span>
+                  </div>
+
+                  <div class="rx-footer__cols">
+                    <div>
+                      <p class="rx-footer__heading">All Products</p>
+                      <ul class="rx-footer__list">
+                        <li><a href="#footer">Power Tools</a></li>
+                        <li><a href="#footer">Hand Tools</a></li>
+                        <li><a href="#footer">Work lighs</a></li>
+                        <li><a href="#footer">Measuring Tools</a></li>
+                        <li><a href="#footer">Safety Equipment</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="rx-footer__heading">Series and Technology</p>
+                      <ul class="rx-footer__list">
+                        <li><a href="#footer">Product Series</a></li>
+                        <li><a href="#footer">Our Technology</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="rx-footer__heading">Ronix Mag</p>
+                      <ul class="rx-footer__list">
+                        <li><a href="#footer">How to</a></li>
+                        <li><a href="#footer">Jobs</a></li>
+                        <li><a href="#footer">Tool Reviews</a></li>
+                        <li><a href="#footer">Archive</a></li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="rx-footer__heading">Company Profile</p>
+                      <ul class="rx-footer__list">
+                        <li><a href="#footer">About Us</a></li>
+                        <li><a href="#footer">Contact Us</a></li>
+                        <li><a href="#footer">Branding Agency</a></li>
+                        <li><a href="#footer">Events</a></li>
+                      </ul>
+                    </div>
+                    <div class="rx-footer__newsletter">
+                      <h3>Join our newsletter</h3>
+                      <p style="margin:0 0 8px;font-size:12px">Name <span style="color:var(--brand-foreground-1-rest)">*</span></p>
+                      <input class="rx-form__input" type="text" style="width:100%;margin-bottom:8px" aria-label="Name">
+                      <p style="margin:0 0 8px;font-size:12px">E-mail <span style="color:var(--brand-foreground-1-rest)">*</span></p>
+                      <input class="rx-form__input" type="email" style="width:100%;margin-bottom:12px" aria-label="E-mail">
+                      <p class="rx-form__privacy" style="margin-bottom:8px">100% Privacy Guaranteed</p>
+                      <button class="rx-form__submit" type="button" style="background:var(--global-foreground-1-rest)">Subscribe</button>
+                    </div>
+                  </div>
+
+                  <div class="rx-footer__offices">
+                    <p class="rx-footer__heading" style="margin-bottom:8px">Ronix Offices</p>
+                    Germany: +49 6051 4989050 &mdash; Am Ziegelturm 9, 63571, Gelnhausen<br>
+                    U.A.E.: +971 4 569 0148 &mdash; Office No. 2606, Single Business Tower, Dubai<br>
+                    China: +86 512 56770192-3 &mdash; Office 2403, Wanda Square, Zhangjiagang
+                  </div>
+
+                  <div class="rx-footer__bar">
+                    <a href="#footer" style="color:inherit">Privacy Policy</a>
+                    <span class="rx-footer__social">
+                      <a href="#footer" aria-label="Instagram"><svg class="sg-icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+                      <a href="#footer" aria-label="YouTube"><svg class="sg-icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></a>
+                      <a href="#footer" aria-label="LinkedIn"><svg class="sg-icon" viewBox="0 0 24 24" style="width:18px;height:18px"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.5M11 17v-4a2 2 0 0 1 4 0v4"/></svg></a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 8</span>Footer, Type=&gt;1400. Narrow the window to see the columns stack.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="global">Global presence</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A <code class="sg-code">Flag</code> component with more than thirty country variants at
+              48&times;32, driving a country selector that appears in the navigation bar and as a
+              mobile menu state.
+            </p>
+            <p>
+              Countries span the Middle East, Central Asia, the Caucasus, Eastern Europe, Latin
+              America and North Africa — Saudi Arabia, Kuwait, Kazakhstan, Armenia, Lebanon, Jordan,
+              Bahrain, Yemen, Uzbekistan, Oman, Azerbaijan, Qatar, Turkey, Kyrgyzstan, Russia,
+              Croatia, Ukraine, Serbia, Belarus, Cyprus, Moldova, Brazil, Chile, Argentina, Bolivia,
+              Colombia, Peru, Egypt and Libya.
+            </p>
+            <p>
+              Many of those are RTL or Cyrillic markets. Only one component in the library
+              — <a href="#megamenu">the mega menu&rsquo;s category card</a> — has an RTL property.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+          </div>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="images.html"><span>Previous chapter</span>&larr; Images with overlay text</a>
+        <a href="inventory.html"><span>Next chapter</span>Component index &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+<script>
+(function () {
+  var toggle = document.getElementById('navProduct');
+  var panel = document.getElementById('megaPanel');
+  if (toggle && panel) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      panel.hidden = open;
+    });
+  }
+  var tabs = [].slice.call(document.querySelectorAll('.rx-megamenu__tab'));
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (o) { o.setAttribute('aria-selected', String(o === t)); });
+    });
+  });
+})();
+</script>
+</body>
+</html>

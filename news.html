@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News card — Ronix Design System</title>
+<meta name="description" content="News Card, news-Information-Box and Related-article: the twelve-variant matrix, the overline, and the grid.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; News card</p>
+
+      <div class="sg-hero">
+        <h1>News card</h1>
+        <p class="sg-hero__lead">
+          The editorial card set: an article card in twelve variants, a text-only information box,
+          and a compact related-article row. Together they carry the whole magazine side of the site.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Image on top, then a body with three elements stacked at
+              <code class="sg-code">Padding/Small</code> (12&nbsp;px) inside
+              <code class="sg-code">Padding/Medium</code> (16&nbsp;px).
+            </p>
+            <h3>Body</h3>
+            <ul>
+              <li>Category tag — Caption&nbsp;1 on <code class="sg-code">background/2</code>, 2&nbsp;px radius</li>
+              <li>Headline — Title&nbsp;4 in-container, 20/22 ExtraBold</li>
+              <li>Date — the <strong>overline</strong> style, pinned to the foot</li>
+            </ul>
+            <p>
+              The date sits at the bottom regardless of how many lines the headline takes, so a row
+              of cards keeps its dates on one line.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-news" href="#anatomy" style="width:100%;max-width:300px">
+                  <span class="rx-news__media"><img src="img/job-concrete-tools.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-news__body">
+                    <span class="rx-news__tag">Guides</span>
+                    <span class="rx-news__title">What to pick as your cordless drill for home projects</span>
+                    <span class="rx-news__date">December 16, 2022</span>
+                  </span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>State=Default, Grid=3-column, Size=Extra — 434&times;405.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-news" href="#anatomy" style="width:100%;max-width:300px;border-color:var(--brand-stroke-1-rest);background:var(--global-background-2-rest)">
+                  <span class="rx-news__media"><img src="img/job-concrete-tools.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-news__body">
+                    <span class="rx-news__tag" style="background:var(--global-background-1-rest)">Guides</span>
+                    <span class="rx-news__title">What to pick as your cordless drill for home projects</span>
+                    <span class="rx-news__date">December 16, 2022</span>
+                  </span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>State=Hover — brand border plus a lift to <code>background/2</code>, the same treatment as the product card.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="overline">The overline</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Dates use a style named simply <code class="sg-code">overline</code>: Roboto Regular
+              12&nbsp;px, 100&nbsp;% line height, set in caps — and with
+              <strong>1.5&nbsp;px letter-spacing</strong>.
+            </p>
+            <p>
+              That tracking matters more than it sounds. Every other type style in the system —
+              all five titles, both subtitles, all three body sizes, both captions — carries
+              <code class="sg-code">letterSpacing: 0</code>. This is the only exception in the entire
+              type system.
+            </p>
+            <p>
+              It is also the only style not filed under <code class="sg-code">type system/</code> or
+              <code class="sg-code">Web/</code>. It sits at the root of the collection with no
+              prefix at all.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;align-items:flex-start;gap:16px">
+                <p style="margin:0;font-size:12px;line-height:1;letter-spacing:1.5px;text-transform:uppercase;color:var(--global-foreground-3-rest)">December 16, 2022</p>
+                <p style="margin:0;font-size:12px;line-height:1;letter-spacing:0;text-transform:uppercase;color:var(--global-foreground-3-rest)">December 16, 2022</p>
+                <p class="sg-specimen__spec" style="margin:0">
+                  <b>Above: overline, 1.5px tracking. Below: the same at 0.</b>
+                  The tracking is what makes it read as a label rather than as small body text.
+                </p>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>The system&rsquo;s only non-zero letter-spacing.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="matrix">State &times; Grid &times; Size</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Twelve variants from three properties — the most heavily specified component in the system, and like <a href="images.html#matrix">Images with overlay text</a>, the naming
+              behaves.
+            </p>
+            <p>
+              <code class="sg-code">Grid</code> says how many fit across;
+              <code class="sg-code">Size</code> picks Extra or Default within that;
+              <code class="sg-code">State</code> is Default or Hover.
+            </p>
+            <p>
+              Note the card gets <em>taller</em> as the grid gets wider — 2-column cards are
+              508&nbsp;px, 4-column are 343&nbsp;px — because the image height scales with the card
+              width while the body stays fixed.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Grid</th><th>Size=Extra</th><th>Size=Default</th></tr></thead>
+                  <tbody>
+                    <tr><td>2-column</td><td>656 &times; 508</td><td>566 &times; 458</td></tr>
+                    <tr><td>3-column</td><td>434 &times; 405</td><td>374 &times; 371</td></tr>
+                    <tr><td>4-column</td><td>324 &times; 343</td><td>279 &times; 340</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Each cell also has a Hover state, giving twelve variants.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Live grid</h3>
+            <p>Three across, collapsing to two below 768&nbsp;px. Hover any card.</p>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame">
+              <div class="rx-news-grid rx-news-grid--3" style="width:100%">
+                <a class="rx-news" href="#matrix">
+                  <span class="rx-news__media"><img src="img/job-concrete-tools.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-news__body">
+                    <span class="rx-news__tag">Guides</span>
+                    <span class="rx-news__title">What to pick as your cordless drill for home projects</span>
+                    <span class="rx-news__date">December 16, 2022</span>
+                  </span>
+                </a>
+                <a class="rx-news" href="#matrix">
+                  <span class="rx-news__media"><img src="img/warehouse-china.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-news__body">
+                    <span class="rx-news__tag">Logistics</span>
+                    <span class="rx-news__title">Inside the distribution network</span>
+                    <span class="rx-news__date">November 2, 2022</span>
+                  </span>
+                </a>
+                <a class="rx-news" href="#matrix">
+                  <span class="rx-news__media"><img src="img/line-86-series.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-news__body">
+                    <span class="rx-news__tag">Product</span>
+                    <span class="rx-news__title">The 86 series, one battery across every tool</span>
+                    <span class="rx-news__date">October 9, 2022</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 5</span>Dates stay on a common baseline even though the headlines run to different lengths.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="info-box">News information box</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The same card with the image removed — a 434&times;162 block for sidebar lists such as
+              &ldquo;Most visited&rdquo;. Tag, headline and date, nothing else.
+            </p>
+            <p>
+              Hover is identical to the news card: brand border plus a lift to
+              <code class="sg-code">background/2</code>.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="sg-stack" style="width:100%;max-width:360px">
+                  <a class="rx-news-box" href="#info-box">
+                    <span class="rx-news__tag">Most visited</span>
+                    <span class="rx-news__title">What to pick as your cordless drill for home projects</span>
+                    <span class="rx-news__date">December 16, 2022</span>
+                  </a>
+                  <a class="rx-news-box" href="#info-box">
+                    <span class="rx-news__tag">Most visited</span>
+                    <span class="rx-news__title">Choosing the right angle grinder disc</span>
+                    <span class="rx-news__date">November 30, 2022</span>
+                  </a>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>news-Information-Box, Size=Extra. Hover either.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="related">Related article</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A compact 326&times;130 row: square thumbnail on the left, date above headline on the
+              right. Two states, Default and Hover.
+            </p>
+            <p>
+              Hover fills to <code class="sg-code">background/2</code> but draws
+              <strong>no border</strong> — unlike the news card and information box, which both add a
+              brand-red outline.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="sg-stack" style="width:100%;max-width:360px">
+                  <a class="rx-related" href="#related">
+                    <span class="rx-related__media"><img src="img/job-concrete-tools.jpg" alt="" loading="lazy"></span>
+                    <span>
+                      <span class="rx-related__date" style="display:block">December 16, 2022</span>
+                      <span class="rx-related__title">Ronix Top-line series</span>
+                    </span>
+                  </a>
+                  <a class="rx-related" href="#related">
+                    <span class="rx-related__media"><img src="img/line-made-in-germany.jpg" alt="" loading="lazy"></span>
+                    <span>
+                      <span class="rx-related__date" style="display:block">December 2, 2022</span>
+                      <span class="rx-related__title">Made in Germany range</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 7</span>Related-article rows. Hover to see the fill.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="responsive">Responsive behaviour</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Because the column count is a component property rather than a breakpoint rule, the library lays out each Grid value separately at every breakpoint.
+            </p>
+            <p>
+              In code that inverts: one card, and the grid decides how many fit. The
+              <code class="sg-code">Grid</code> property becomes a class on the container.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Container</th><th>Cards</th><th>Card width</th></tr></thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large</td><td>1320</td><td>3</td><td>434</td></tr>
+                    <tr><td>1140</td><td>3</td><td>374</td></tr>
+                    <tr><td rowspan="2">Medium</td><td>960</td><td>3</td><td>314</td></tr>
+                    <tr><td>720</td><td>3</td><td>234</td></tr>
+                    <tr><td rowspan="2">Small</td><td>540</td><td>2&ndash;3</td><td>266</td></tr>
+                    <tr><td>326</td><td>2&ndash;3</td><td>159</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 8</span>Card width is the container less the gaps, divided by the column count. Widths are fixed per breakpoint in the library, but they all follow that rule.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              The date uses <code class="sg-code">margin-top: auto</code> so it stays at the foot
+              whatever the headline does.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;a class="rx-news" href="/news/cordless-drill"&gt;
+  &lt;span class="rx-news__media"&gt;&lt;img src="drill.jpg" alt=""&gt;&lt;/span&gt;
+  &lt;span class="rx-news__body"&gt;
+    &lt;span class="rx-news__tag"&gt;Guides&lt;/span&gt;
+    &lt;span class="rx-news__title"&gt;What to pick as your cordless drill&lt;/span&gt;
+    &lt;time class="rx-news__date" datetime="2022-12-16"&gt;December 16, 2022&lt;/time&gt;
+  &lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!-- Grid is a container class, not a card property --&gt;
+&lt;div class="rx-news-grid rx-news-grid--3"&gt;…&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="zigzag.html"><span>Previous chapter</span>&larr; Zigzag card</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modal &amp; catalogue card — Ronix Design System</title>
+<meta name="description" content="The modal card across six breakpoints, and the catalogue card with its optional parts.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Modal &amp; catalogue card</p>
+
+      <div class="sg-hero">
+        <h1>Modal &amp; catalogue card</h1>
+        <p class="sg-hero__lead">
+          A profile modal shown over a darkened page, and the catalogue card it links to, with rules
+          governing which of the card&rsquo;s parts are optional.
+        </p>
+      </div>
+
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="modal">Modal card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A profile modal: image on one side, name, role, biography and two actions on the other,
+              with a close control at the top right.
+            </p>
+            <h3>Layout by breakpoint</h3>
+            <ul>
+              <li><strong>Default and 992</strong> — side by side, image left</li>
+              <li><strong>768 and 576</strong> — stacked, image on top</li>
+              <li><strong>358</strong> — stacked, and the two actions go full width, one above the other</li>
+            </ul>
+            <p>
+              The scrim behind it is the 90&nbsp;% black specified in the
+              <a href="ui-introduction.html#superimposition">UI introduction</a> — one of the few places where
+              a rule stated in the introduction is actually followed by a component.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-modal-scrim" style="width:100%">
+                  <div class="rx-modal">
+                    <button class="rx-modal__close" type="button" aria-label="Close">
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 6l12 12M18 6L6 18"/></svg>
+                    </button>
+                    <div class="rx-modal__media">
+                      <img src="img/catalogue-cover.jpg" alt="Ronix catalogue" loading="lazy">
+                    </div>
+                    <div class="rx-modal__body">
+                      <p class="rx-modal__name">R. Ramkhoo</p>
+                      <p class="rx-modal__role">Founder and CEO</p>
+                      <p class="rx-modal__text">
+                        With more than 20 years of experience and expertise in the development of
+                        various tool categories, R. Ramkhoo is in charge of overseeing R&amp;D and
+                        technological strategies in Ronix. He is directly responsible for supervising
+                        all phases of quality control, standard setting, and customer needs analysis.
+                      </p>
+                      <div class="rx-modal__actions">
+                        <a class="rx-btn rx-btn--primary" href="#modal">Primary Button</a>
+                        <a class="rx-btn rx-btn--secondary" href="#modal">Secondary Button</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Default layout over a 90&nbsp;% black scrim. Narrow past 768&nbsp;px and it stacks, with the actions going full width.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Breakpoints</h3>
+            <p>
+              Seven columns are laid out on the page — 1920, 1400, 1200, 992, 768, 576 and 358 — but
+              the component itself has five named variants. 1920, 1400 and 1200 all use the Default
+              layout.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Variant</th><th>Layout</th><th>Actions</th><th>Title over image</th></tr></thead>
+                  <tbody>
+                    <tr><td>Default</td><td>Side by side</td><td>Inline pair</td><td>No</td></tr>
+                    <tr><td>992</td><td>Side by side</td><td>Inline pair</td><td>No</td></tr>
+                    <tr><td>768</td><td>Stacked</td><td>Inline pair</td><td>No</td></tr>
+                    <tr><td>576</td><td>Stacked</td><td>Inline pair</td><td>No</td></tr>
+                    <tr><td>358</td><td>Stacked</td><td>Full width, stacked</td><td><strong>Yes</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>The 358 variant is the only one that carries the catalogue title over the image.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="catalogue">Catalogue card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A portrait cover image with a title beneath, and optionally a description row with a
+              disclosure chevron and a download button. Two sizes: Default and Small.
+            </p>
+            <h3>The title is part of the artwork</h3>
+            <p>
+              &ldquo;Entdecken Sie Unsere Aktuellen Kataloge&rdquo; is baked into the cover image, not
+              a text layer — it scales with the image between Default and Small rather than holding a
+              fixed size.
+            </p>
+            <p>
+              Localising the cover therefore means supplying new artwork, not changing a component
+              property.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-catalogue" href="#catalogue" style="width:100%;max-width:200px">
+                  <span class="rx-catalogue__media"><img src="img/catalogue-cover.jpg" alt="Ronix general catalogue" loading="lazy"></span>
+                  <span class="rx-catalogue__title">General catalogue</span>
+                  <span class="rx-catalogue__row">Technology &amp; Germany
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M9 6l6 6-6 6"/></svg>
+                  </span>
+                  <span class="rx-catalogue__action">Download</span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Size=Default, with every optional part present.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-catalogue" href="#catalogue" style="width:100%;max-width:150px">
+                  <span class="rx-catalogue__media"><img src="img/catalogue-cover.jpg" alt="Ronix general catalogue" loading="lazy"></span>
+                  <span class="rx-catalogue__title">General catalogue</span>
+                  <span class="rx-catalogue__row">Technology &amp; Germany
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M9 6l6 6-6 6"/></svg>
+                  </span>
+                  <span class="rx-catalogue__action">Download</span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Size=Small. The cover title shrinks with the image.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="optional">Optional parts</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Three rules govern which parts may be omitted, in the same way as the
+              <a href="information-cards.html#guidelines">clickable card</a>.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>#</th><th>Rule</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>A button is added to this component; it may or may not be present.</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>The description is optional; if there is no description, do not render the row at all.</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>If the description runs longer, it wraps to two lines and the chevron centres against the block.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>The three rules governing the card&rsquo;s optional parts.</figcaption>
+            </figure>
+          </div>
+
+          <p class="sg-note">
+            Rule&nbsp;2 is the one to get right: <strong>omit the row, do not render it empty.</strong> An
+            empty description row leaves a gap and a chevron pointing at nothing. Rule&nbsp;3 is why the
+            chevron is vertically centred against the description rather than pinned to its first line.
+          </p>
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Every permitted combination</h3>
+            <p>
+              Only the cover and the title are required. The six cards below are the combinations
+              drawn in the library.
+            </p>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px;width:100%">
+                <a class="rx-catalogue" href="#optional">
+                  <span class="rx-catalogue__media"><img src="img/catalogue-cover.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-catalogue__title">Title Title Title Title</span>
+                  <span class="rx-catalogue__row rx-catalogue__row--tall">
+                    <span>Short Description Short Description Short Description</span>
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;flex:none"><path d="M9 6l6 6-6 6"/></svg>
+                  </span>
+                </a>
+                <a class="rx-catalogue" href="#optional">
+                  <span class="rx-catalogue__media"><img src="img/catalogue-cover.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-catalogue__title">Title</span>
+                  <span class="rx-catalogue__row">Short Description Short
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;flex:none"><path d="M9 6l6 6-6 6"/></svg>
+                  </span>
+                </a>
+                <a class="rx-catalogue" href="#optional">
+                  <span class="rx-catalogue__media"><img src="img/catalogue-cover.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-catalogue__title">Title</span>
+                  <span class="rx-catalogue__row">Short Description Short
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;flex:none"><path d="M9 6l6 6-6 6"/></svg>
+                  </span>
+                  <span class="rx-catalogue__action">Download</span>
+                </a>
+                <a class="rx-catalogue" href="#optional">
+                  <span class="rx-catalogue__media"><img src="img/catalogue-cover.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-catalogue__title">Title</span>
+                  <span class="rx-catalogue__action">Download</span>
+                </a>
+                <a class="rx-catalogue" href="#optional">
+                  <span class="rx-catalogue__media"><img src="img/catalogue-cover.jpg" alt="" loading="lazy"></span>
+                  <span class="rx-catalogue__title">Title</span>
+                </a>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 6</span>Left to right: two-line description, one-line description, description plus button, button only, title only.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              A real modal needs <code class="sg-code">&lt;dialog&gt;</code> — it gives focus
+              trapping, Escape to close and inertness of the page behind, none of which the library
+              specifies but all of which a modal requires.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;dialog class="rx-modal" aria-labelledby="modal-name"&gt;
+  &lt;button class="rx-modal__close" aria-label="Close"&gt;…&lt;/button&gt;
+  &lt;div class="rx-modal__media"&gt;&lt;img src="portrait.jpg" alt=""&gt;&lt;/div&gt;
+  &lt;div class="rx-modal__body"&gt;
+    &lt;h2 class="rx-modal__name" id="modal-name"&gt;R. Ramkhoo&lt;/h2&gt;
+    &lt;p class="rx-modal__role"&gt;Founder and CEO&lt;/p&gt;
+    &lt;p class="rx-modal__text"&gt;…&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;
+
+&lt;!-- Catalogue card: omit the row entirely when there is no description --&gt;
+&lt;a class="rx-catalogue" href="/catalogues/general"&gt;
+  &lt;span class="rx-catalogue__media"&gt;&lt;img src="cover.jpg" alt=""&gt;&lt;/span&gt;
+  &lt;span class="rx-catalogue__title"&gt;General catalogue&lt;/span&gt;
+  &lt;!-- no empty row, no orphan chevron --&gt;
+  &lt;span class="rx-catalogue__action"&gt;Download&lt;/span&gt;
+&lt;/a&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="navigation.html"><span>Previous chapter</span>&larr; Navigation &amp; footer</a>
+        <a href="inventory.html"><span>Next chapter</span>Component index &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

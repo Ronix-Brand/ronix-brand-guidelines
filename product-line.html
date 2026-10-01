@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product line — Ronix Design System</title>
+<meta name="description" content="Product line: banner ratio, series information block, series rail and the tablist block.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Product line</p>
+
+      <div class="sg-hero">
+        <h1>Product line</h1>
+        <p class="sg-hero__lead">
+          The editorial block that introduces a product series — a wide 3:1 banner with a series
+          information panel beneath it. Two variants ship: plain, and with a series rail for
+          switching between lines.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Three parts, stacked with <code class="sg-code">Padding/XX-Large</code> (32&nbsp;px)
+              between the title and the body.
+            </p>
+            <h3>Structure</h3>
+            <ul>
+              <li><strong>title-wrapper</strong> — Title&nbsp;2 out-of-container, 32/38 ExtraBold</li>
+              <li><strong>Banner-wrapper</strong> — a <code class="sg-code">picture-ratio</code> at 1320&times;440</li>
+              <li><strong>series-information-block</strong> — 204&nbsp;px tall, 32&nbsp;px padding</li>
+            </ul>
+            <p>
+              The banner and the information block are a single rounded surface; the title sits
+              outside it, which is why its type token is named <em>out-container</em>.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-product-line" style="max-width:none;width:100%;padding:24px;background:var(--global-background-2-rest)">
+                  <h3 class="rx-product-line__title">Product Lines</h3>
+                  <div class="rx-product-line__main">
+                    <div class="rx-picture-ratio">
+                      <img src="img/line-86-series.jpg" alt="Ronix 86 series cordless tool range" loading="lazy">
+                    </div>
+                    <div class="rx-series-info">
+                      <p class="rx-series-info__title">Ronix 86 series</p>
+                      <p class="rx-series-info__subtitle">
+                        Ronix 89 &ldquo;All IN ONE&rdquo; Series Comes with A Variety of Brushless,
+                        Cordless Tools, All Powered by One Lithium-Ion Battery.
+                      </p>
+                      <div class="rx-series-info__actions">
+                        <a class="rx-btn rx-btn--secondary" href="#anatomy">86 series</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>product-line, Type=Extra. Banner and information block form one surface.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="ratio">Picture ratio</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The banner is governed by its own tokens rather than by the frame:
+              <code class="sg-code">product-line/Image-ratio/height&nbsp;-&nbsp;extra</code> is
+              440&nbsp;px against a 1320&nbsp;px column — exactly <strong>3:1</strong>.
+            </p>
+            <p>
+              Because it is a ratio and not a height, the CSS uses
+              <code class="sg-code">aspect-ratio</code> and lets the image cover. The banner never
+              letterboxes and never dictates the block&rsquo;s height directly.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Column</th><th>Banner</th><th>Ratio</th></tr></thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large</td><td>1320</td><td>1320 &times; 440</td><td>3.00 : 1</td></tr>
+                    <tr><td>1140</td><td>1140 &times; 400</td><td>2.85 : 1</td></tr>
+                    <tr><td rowspan="2">Medium</td><td>960</td><td>960 &times; 340</td><td>2.82 : 1</td></tr>
+                    <tr><td>720</td><td>720 &times; 250</td><td>2.88 : 1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>The banner fills the container. Height is set per breakpoint, so the ratio sits between 2.82&nbsp;: 1 and 3.00&nbsp;: 1 — size from the height, not the ratio.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="series-info">Series information block</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A fixed 204&nbsp;px panel carrying the series name, a one-sentence description and a
+              single action. Padding is <code class="sg-code">Padding/XX-Large</code> on all sides.
+            </p>
+            <h3>Type</h3>
+            <ul>
+              <li>Title — Title&nbsp;3 in-container, 26/30 ExtraBold</li>
+              <li>Subtitle — Subtitle&nbsp;2, 18/22 SemiBold</li>
+              <li>Action — the standard secondary button, 40&nbsp;px tall</li>
+            </ul>
+            <p>
+              The subtitle is set in SemiBold, not Regular. At 18&nbsp;px over a full column that is
+              heavy for a descriptive sentence, but it is what the library specifies.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-series-info" style="width:100%;border:1px solid var(--global-stroke-1-global-rest);border-radius:var(--size-corner-radius-4)">
+                  <p class="rx-series-info__title">German Made Products</p>
+                  <p class="rx-series-info__subtitle">
+                    Ronix 89 &ldquo;All IN ONE&rdquo; Series Comes with A Variety of Brushless,
+                    Cordless Tools, All Powered by One Lithium-Ion Battery.
+                  </p>
+                  <div class="rx-series-info__actions">
+                    <a class="rx-btn rx-btn--secondary" href="#series-info">Made in Germany</a>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>series-information-block, Size=Extra.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="series-rail">Series rail</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The <code class="sg-code">product-line-with-tablist</code> variant inserts a horizontal
+              rail of series chips between the title and the banner, flanked by previous and next
+              controls.
+            </p>
+            <p>
+              Chips are Body&nbsp;1 Strong with a 1&nbsp;px stroke. The selected chip takes
+              <code class="sg-code">Brand/Stroke/Compound</code> and brand-red text — it does not
+              fill.
+            </p>
+            <p>
+              The rail scrolls rather than wraps. A wrapped rail would change the block&rsquo;s
+              height and push the banner down unpredictably.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-product-line" style="max-width:none;width:100%;padding:24px;background:var(--global-background-2-rest)">
+                  <h3 class="rx-product-line__title">Product Lines</h3>
+                  <div class="rx-series-rail">
+                    <button class="rx-rail-nav" type="button" aria-label="Previous series">
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M15 6l-6 6 6 6"/></svg>
+                    </button>
+                    <div class="rx-series-rail__track" role="tablist">
+                      <button class="rx-chip" role="tab" aria-selected="true" type="button">Ronix-Made in Germany &#127465;&#127466;</button>
+                      <button class="rx-chip" role="tab" aria-selected="false" type="button">Ronix 89 Series</button>
+                      <button class="rx-chip" role="tab" aria-selected="false" type="button">Topline series</button>
+                      <button class="rx-chip" role="tab" aria-selected="false" type="button">86 series</button>
+                    </div>
+                    <button class="rx-rail-nav" type="button" aria-label="Next series">
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
+                  </div>
+                  <div class="rx-product-line__main">
+                    <div class="rx-picture-ratio">
+                      <img src="img/line-made-in-germany.jpg" alt="Ronix Made in Germany hand tool range" loading="lazy">
+                    </div>
+                    <div class="rx-series-info">
+                      <p class="rx-series-info__title">German Made Products</p>
+                      <p class="rx-series-info__subtitle">
+                        Ronix 89 &ldquo;All IN ONE&rdquo; Series Comes with A Variety of Brushless,
+                        Cordless Tools, All Powered by One Lithium-Ion Battery.
+                      </p>
+                      <div class="rx-series-info__actions">
+                        <a class="rx-btn rx-btn--secondary" href="#series-rail">Made in Germany</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>product-line-with-tablist, Type=Extra. The selected chip is outlined, not filled.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="tablist">Tablist block</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A separate component that lives on the same page: equal-width tabs over a text panel.
+              It ships in six width variants — 1320, 1200, 992, 768, 576 and 358.
+            </p>
+            <h3>The underline</h3>
+            <p>
+              The underline uses <code class="sg-code">Thick</code> (2&nbsp;px). The inactive rule runs the full width in
+              <code class="sg-code">Stroke/1/Global/Hover</code> (#d6d6d6); the selected tab
+              overpaints its segment in <code class="sg-code">Brand/Stroke/2/Selected</code>.
+            </p>
+            <p>
+              Tabs share the width equally rather than sizing to their labels, so the underline
+              segments stay even.
+            </p>
+            <p>
+              The panel is Body&nbsp;2 — 12/16, noticeably smaller than the 16&nbsp;px body used
+              elsewhere.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-tablist" style="width:100%;max-width:none" id="demoTablist">
+                  <div class="rx-tablist__tabs" role="tablist">
+                    <button class="rx-tab" role="tab" aria-selected="true" aria-controls="panel-1" type="button">Flexible Product Access</button>
+                    <button class="rx-tab" role="tab" aria-selected="false" aria-controls="panel-2" type="button">Infinite Variety</button>
+                    <button class="rx-tab" role="tab" aria-selected="false" aria-controls="panel-3" type="button">Professional Support</button>
+                  </div>
+                  <div class="rx-tablist__panel" id="panel-1" role="tabpanel">
+                    Ronix distributors have the opportunity to attain a substantial annual ROI
+                    percentage, thanks to our competitively priced tools and equipment. Ronix
+                    distributors have the opportunity to attain a substantial annual ROI percentage,
+                    thanks to our competitively priced tools and equipment.
+                  </div>
+                  <div class="rx-tablist__panel" id="panel-2" role="tabpanel" hidden>
+                    A catalogue spanning power tools, hand tools, air tools and accessories — over
+                    3,000 SKUs across every major category, available from one supplier.
+                  </div>
+                  <div class="rx-tablist__panel" id="panel-3" role="tabpanel" hidden>
+                    Technical training, marketing collateral and after-sales support are provided to
+                    every distributor, in the local language, throughout the partnership.
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>Tablist block, Property&nbsp;1=1320. The tabs are live — click them.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Responsive variants</h3>
+            <p>
+              The block grows taller as it narrows, because the panel text rewraps. Below
+              768&nbsp;px the tabs stack vertically and the underline becomes a left-aligned rule.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Variant</th><th>Width</th><th>Height</th></tr></thead>
+                  <tbody>
+                    <tr><td>Property 1=1320</td><td>1320</td><td>196</td></tr>
+                    <tr><td>Property 1=1200</td><td>1140</td><td>196</td></tr>
+                    <tr><td>Property 1=992</td><td>960</td><td>218</td></tr>
+                    <tr><td>Property 1=768</td><td>720</td><td>240</td></tr>
+                    <tr><td>Property 1=576</td><td>540</td><td>172</td></tr>
+                    <tr><td>Property 1=358</td><td>326</td><td>216</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>The 576 variant is shorter than 768 — the tabs stack differently at that width.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="slider">Slider</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The page also holds four prepared slides — <code class="sg-code">slide-1</code> to
+              <code class="sg-code">slide-4</code> — each a banner-wrapper plus a
+              series-information-block at 1140&nbsp;px.
+            </p>
+            <p>
+              They are frames, not a component set, so there is no slider component to document.
+              What exists is the content for one: four instances of the same structure, ready to be
+              placed in a rail.
+            </p>
+            <p>
+              Slides 1&ndash;3 place the button inside the information wrapper at a 98&nbsp;px
+              offset; slide&nbsp;4 places it outside at 130&nbsp;px. That difference looks accidental.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              The banner and information block share one rounded, clipped surface; the title sits
+              outside it.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;section class="rx-product-line rx-product-line--extra"&gt;
+  &lt;h2 class="rx-product-line__title"&gt;Product Lines&lt;/h2&gt;
+
+  &lt;div class="rx-product-line__main"&gt;
+    &lt;div class="rx-picture-ratio"&gt;
+      &lt;img src="86-series.jpg" alt="Ronix 86 series"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="rx-series-info"&gt;
+      &lt;h3 class="rx-series-info__title"&gt;Ronix 86 series&lt;/h3&gt;
+      &lt;p class="rx-series-info__subtitle"&gt;All in one series…&lt;/p&gt;
+      &lt;div class="rx-series-info__actions"&gt;
+        &lt;a class="rx-btn rx-btn--secondary" href="/series/86"&gt;86 series&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="product-card.html"><span>Previous chapter</span>&larr; Product card</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+<script>
+/* Tablist demo: minimal, accessible tab switching. */
+(function () {
+  var block = document.getElementById('demoTablist');
+  if (!block) return;
+  var tabs = [].slice.call(block.querySelectorAll('.rx-tab'));
+
+  function select(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+  }
+
+  block.querySelector('.rx-tablist__tabs').addEventListener('click', function (e) {
+    var tab = e.target.closest('.rx-tab');
+    if (tab) select(tab);
+  });
+
+  block.querySelector('.rx-tablist__tabs').addEventListener('keydown', function (e) {
+    var i = tabs.indexOf(document.activeElement);
+    if (i === -1) return;
+    var next = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : -1;
+    if (next < 0 || next >= tabs.length) return;
+    tabs[next].focus();
+    select(tabs[next]);
+    e.preventDefault();
+  });
+})();
+</script>
+</body>
+</html>

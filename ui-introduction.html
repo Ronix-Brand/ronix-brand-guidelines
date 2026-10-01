@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI Introduction — Ronix Design System</title>
+<meta name="description" content="Introduction to the Ronix user interface: layout principles, tiles, separation, hierarchy and placement.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; User Interface &nbsp;/&nbsp; Introduction</p>
+
+      <div class="sg-hero">
+        <h1>UI Introduction</h1>
+        <p class="sg-hero__lead">
+          Ronix user interfaces span a wide range of uses — from product catalogues and campaign
+          pages to the tools our teams work in every day. The aim is a varied but well-balanced
+          system-wide experience, built from one shared set of tokens, components and layout rules.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="layout">Layout</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Design for small viewports first</h3>
+            <p>
+              If an application is to be made available on different devices, create and design it
+              for small viewports first. The system defines its frame sizes at three breakpoints —
+              Small, Medium and Large — and the type, icon and container tokens re-resolve at each.
+            </p>
+            <p>
+              Content that survives the 358&nbsp;px container will survive every wider one. The
+              reverse is rarely true.
+            </p>
+            <a class="sg-detail" href="layout.html#breakpoints">More under Layout &amp; Grid
+              <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--grid">
+                <div style="width:100%;max-width:120px">
+                  <div style="height:26px;background:var(--brand-background-1-rest);border-radius:var(--size-corner-radius-4)"></div>
+                  <div style="height:70px;margin-top:8px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                  <div style="height:36px;margin-top:8px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Small viewport: a single column, 326&nbsp;px container inside a 358&nbsp;px section.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--grid">
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:100%">
+                  <div style="height:26px;grid-column:1/-1;background:var(--brand-background-1-rest);border-radius:var(--size-corner-radius-4)"></div>
+                  <div style="height:70px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                  <div style="height:70px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                  <div style="height:70px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>The same content at Large: 1140&nbsp;px container inside a 1200&nbsp;px section.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Subdivision into blocks</h3>
+            <p>
+              The layout is generously subdivided into blocks, vertically and horizontally, so as to
+              clearly structure content and content sections. Blocks are separated by
+              <code class="sg-code">Padding/XX-Large</code> (32&nbsp;px) at Large and
+              <code class="sg-code">Padding/Medium</code> (16&nbsp;px) at Small.
+            </p>
+            <p>
+              Every gap in the system is one of four values. If a spacing decision needs a fifth,
+              the block structure is usually wrong.
+            </p>
+            <a class="sg-detail" href="layout.html#spacing">More under Spacing
+              <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="width:100%;display:grid;gap:32px">
+                  <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px">
+                    <div style="height:96px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                    <div style="height:96px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+                    <div style="height:56px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                    <div style="height:56px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                    <div style="height:56px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                    <div style="height:56px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Content sections separated by 32&nbsp;px; elements within a section by 16&nbsp;px.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="tiles">Structuring by means of tiles</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Content can be displayed inside rectangular tiles. Tiles use the global background
+              ramp — <code class="sg-code">background/2</code> for a resting surface,
+              <code class="sg-code">background/4</code> for an inactive or placeholder one — and are
+              separated from one another by narrow padding.
+            </p>
+            <p>
+              An image may cover a tile completely. When it does, ensure there is sufficient
+              contrast against the surface the tile sits on, so the edges stay readable.
+            </p>
+            <p>
+              If a tile is assigned one or more functions, it becomes a card. Cards carry a
+              <code class="sg-code">Thin</code> 1&nbsp;px stroke and a 4&nbsp;px corner radius.
+            </p>
+            <a class="sg-detail" href="components.html#cards">More under Cards
+              <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:100%">
+                  <div class="rx-tile" style="background:var(--brand-background-1-rest);height:84px"></div>
+                  <div class="rx-tile" style="background:var(--global-foreground-1-rest);height:84px"></div>
+                  <div class="rx-tile" style="background:var(--global-background-4-rest);height:84px"></div>
+                  <div class="rx-tile" style="background:var(--global-background-2-rest);height:84px"></div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Tiles separated by a 4&nbsp;px gap, in brand and grey-scale colours.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-card" style="width:100%;max-width:220px">
+                  <div class="rx-card__media"></div>
+                  <p class="rx-card__title">Rotary hammer</p>
+                  <p class="rx-card__body">SDS-Plus, 800&nbsp;W</p>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>A tile that calls an action or a page is a card.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="separation">Separation of elements</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Clear spacing separates elements from each other in a natural way. Where elements must
+              be grouped compactly for reasons of space, a fine line is applied instead —
+              <code class="sg-code">Global/Stroke/1</code> at <code class="sg-code">Thin</code>
+              (1&nbsp;px).
+            </p>
+            <p>
+              Fine lines are placed <em>between</em> the elements to be separated, never above the
+              first or below the last.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="width:100%;max-width:240px;background:var(--global-background-1-rest);border-radius:var(--size-corner-radius-4)">
+                  <div style="padding:12px 16px">Item one</div>
+                  <div style="padding:12px 16px;border-top:1px solid var(--global-stroke-1-global-rest)">Item two</div>
+                  <div style="padding:12px 16px;border-top:1px solid var(--global-stroke-1-global-rest)">Item three</div>
+                </div>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 6</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>Lines sit between items only.</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="width:100%;max-width:240px;background:var(--global-background-1-rest);border-radius:var(--size-corner-radius-4);border-top:1px solid var(--global-stroke-1-global-rest);border-bottom:1px solid var(--global-stroke-1-global-rest)">
+                  <div style="padding:12px 16px">Item one</div>
+                  <div style="padding:12px 16px;border-top:1px solid var(--global-stroke-1-global-rest)">Item two</div>
+                  <div style="padding:12px 16px;border-top:1px solid var(--global-stroke-1-global-rest)">Item three</div>
+                </div>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 7</span>
+                <span class="sg-verdict sg-verdict--dont" style="display:block">
+                  <span class="sg-verdict__label">Don&rsquo;t</span>
+                  <span>Enclosing rules box the group in and add weight the layout does not need.</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="hierarchy">Hierarchical structure and highlighting</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Elements and content that matter to the user are highlighted through size and
+              placement. Relevance and status are conveyed by contrast against the background:
+              active and important elements contrast starkly, inactive and secondary ones less so.
+            </p>
+            <p>
+              The foreground ramp carries this. <code class="sg-code">Foreground/1</code> is the
+              active voice, <code class="sg-code">Foreground/2</code> supporting copy, and
+              <code class="sg-code">Foreground/3</code> is reserved for captions, metadata and
+              disabled states.
+            </p>
+            <a class="sg-detail" href="colour.html#foreground">More under Colour
+              <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <ul style="list-style:none;margin:0;padding:0;width:100%;max-width:280px">
+                  <li style="padding:10px 16px;border-left:2px solid var(--brand-background-1-rest);color:var(--global-foreground-1-rest);font-weight:600">Power tools</li>
+                  <li style="padding:10px 16px;border-left:2px solid transparent;color:var(--global-foreground-2-rest)">Hand tools</li>
+                  <li style="padding:10px 16px;border-left:2px solid transparent;color:var(--global-foreground-3-rest)">Accessories (unavailable)</li>
+                </ul>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 8</span>Active, inactive and deactivated navigation items, distinguished by contrast alone.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="placement">Placement on colours</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              On white and light grey surfaces, dark components are placed. On the brand red or on
+              foreground&nbsp;1, light components are placed and
+              <code class="sg-code">Foreground/On&nbsp;brand</code> (#ffffff) carries the text.
+            </p>
+            <p>
+              Brand red is a signal colour. It marks the primary action and little else — a page
+              with two red buttons has no primary action.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--brand">
+                <div style="text-align:center">
+                  <p class="sg-type-subtitle" style="margin:0 0 8px">Foreground / On brand</p>
+                  <a class="rx-btn rx-btn--secondary" href="#placement">Secondary action</a>
+                </div>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 9</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>Light components on brand red.</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--brand">
+                <a class="rx-btn rx-btn--primary" href="#placement" style="border:1px solid rgba(255,255,255,.35)">Primary action</a>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 10</span>
+                <span class="sg-verdict sg-verdict--dont" style="display:block">
+                  <span class="sg-verdict__label">Don&rsquo;t</span>
+                  <span>Brand red on brand red. The signal cancels itself out.</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Placement on images</h3>
+            <p>
+              Elements are placed so as to ensure readability. If a background is busy or varies in
+              brightness, a black block with an opacity of up to 30&nbsp;% may be applied across the
+              whole image before content is placed on it.
+            </p>
+            <p>Readability must hold at every viewport, not only the one being designed in.</p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="position:relative;width:100%;min-height:200px;background:radial-gradient(circle at 30% 35%,#4a4a4a,#181818)">
+                  <div style="position:absolute;inset:0;background:rgba(0,0,0,.3)"></div>
+                  <div style="position:relative;padding:32px;color:#fff">
+                    <p class="sg-type-title" style="margin:0 0 8px">Your reliable solution</p>
+                    <p class="sg-type-body" style="margin:0;color:rgba(255,255,255,.8)">Darkening keeps the headline legible over a busy photograph.</p>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 11</span>A 30&nbsp;% black block applied across the image before text is placed.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="superimposition">Superimpositions</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Superimpositions are avoided for purely design-led reasons. Functionally they are often
+              necessary — a sticky header, a tooltip, a modal. In those cases the block one level
+              above the layout receives a subtle soft shadow rather than a heavy border.
+            </p>
+            <p>
+              Where the superimposing block must take full focus, the background behind it is
+              darkened to 90&nbsp;% black. Modals are the usual example.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="width:100%;max-width:260px">
+                  <div style="background:var(--global-background-1-rest);padding:12px 16px;border-radius:var(--size-corner-radius-4);box-shadow:0 2px 8px rgba(0,0,0,.12);font-weight:600">Sticky header</div>
+                  <div style="margin-top:8px;height:80px;background:var(--global-background-4-rest);border-radius:var(--size-corner-radius-4)"></div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 12</span>Sticky header with a subtle soft shadow.</figcaption>
+            </figure>
+
+            <figure class="sg-figure sg-figure__frame--flush">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="position:relative;width:100%;min-height:200px;background:var(--global-background-4-rest);display:flex;align-items:center;justify-content:center">
+                  <div style="position:absolute;inset:0;background:rgba(0,0,0,.9)"></div>
+                  <div style="position:relative;background:#fff;padding:24px;border-radius:var(--size-corner-radius-4);max-width:220px;text-align:center">
+                    <p class="sg-type-subtitle" style="margin:0 0 8px">Confirm removal</p>
+                    <a class="rx-btn rx-btn--primary" href="#superimposition">Remove</a>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 13</span>Modal: the background is darkened to 90&nbsp;% black.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="size">Size of text and components</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Type sizes and some components adapt to viewport width and purpose, so the layout can
+              stay compact where space is short and open where it is not. The same token resolves to
+              a different value per breakpoint.
+            </p>
+            <p>
+              Title&nbsp;1 is 32&nbsp;px at Large and 28&nbsp;px at Small; Body&nbsp;1 is 16&nbsp;px
+              and 14&nbsp;px; the main icon size steps from 24&nbsp;px to 20&nbsp;px. Nothing in the
+              component markup changes — only the token values do.
+            </p>
+            <a class="sg-detail" href="typography.html#responsive">More under Typography
+              <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;align-items:flex-start;gap:16px">
+                <table class="sg-table" style="background:transparent">
+                  <thead>
+                    <tr><th>Token</th><th>Large</th><th>Medium</th><th>Small</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><code>Font/Title/In-container/1</code></td><td>32&nbsp;px</td><td>32&nbsp;px</td><td>28&nbsp;px</td></tr>
+                    <tr><td><code>Font/Subtitle/Subtitle 2</code></td><td>18&nbsp;px</td><td>18&nbsp;px</td><td>14&nbsp;px</td></tr>
+                    <tr><td><code>Font/Body/1/Regular</code></td><td>16&nbsp;px</td><td>16&nbsp;px</td><td>14&nbsp;px</td></tr>
+                    <tr><td><code>Main icon (large object)</code></td><td>24&nbsp;px</td><td>24&nbsp;px</td><td>20&nbsp;px</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 14</span>Values read from the Large, Medium and Small sections of the design library.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <span></span>
+        <a href="colour.html"><span>Next chapter</span>Colour &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

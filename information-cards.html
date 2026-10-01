@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Information cards — Ronix Design System</title>
+<meta name="description" content="Value card, informative card and the clickable social card — plus the only written component guidelines in the system.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Information cards</p>
+
+      <div class="sg-hero">
+        <h1>Information cards</h1>
+        <p class="sg-hero__lead">
+          Four related components for marketing content: the value card, its simple variant, the
+          informative card, and the clickable social card. This page also carries the only written
+          component guidelines in the whole kit.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="value">Value card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A selling point: icon, heading, a short paragraph, and optionally a product photograph
+              bleeding off the right edge.
+            </p>
+            <h3>Size &times; Type</h3>
+            <ul>
+              <li>With image — 656&times;300 Extra, 566&times;300 Default</li>
+              <li>Without image — 434&times;258 Extra, 374&times;258 Default</li>
+            </ul>
+            <p>
+              The two Types are laid out differently, not just sized differently. With an image, the
+              icon sits inline beside the heading and the text is constrained to the left half.
+              Without one, the icon becomes a large mark stacked above the heading.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-value rx-value--image" style="width:100%;max-width:520px;min-height:220px">
+                  <span class="rx-value__icon">$&nbsp; Quality</span>
+                  <p class="rx-value__text">
+                    Ronix tools proudly carry the CE mark, signifying compliance with stringent
+                    European safety, health, and environmental standards.
+                  </p>
+                  <span class="rx-value__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Size=Extra, Type=with Image — the photograph bleeds off the right.</figcaption>
+            </figure>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-value rx-value--stacked" style="width:100%;max-width:300px;min-height:200px">
+                  <span class="rx-value__icon">$</span>
+                  <span class="rx-value__title">Reasonable Pricing</span>
+                  <p class="rx-value__text">
+                    Ronix is committed to delivering exceptional quality while ensuring affordability
+                    for customers with different needs.
+                  </p>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Type=With out Image — icon stacked above the heading.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-value rx-value--stacked" style="width:100%;max-width:260px;min-height:200px">
+                  <span class="rx-value__icon">$</span>
+                  <span class="rx-value__title">Reasonable Pricing</span>
+                  <p class="rx-value__text">
+                    Ronix is committed to delivering exceptional quality while ensuring affordability.
+                  </p>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Size=Default, the narrower of the two.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="informative">Informative card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A circular icon, a heading underlined by a
+              <code class="sg-code">Stroke/1</code> rule, and a paragraph. Two Types crossed with
+              Rest and Hover.
+            </p>
+            <p>
+              Hover is the standard card treatment — brand border plus a lift to
+              <code class="sg-code">background/2</code> — the same as the product, news and office
+              cards.
+            </p>
+            <p>
+              Note that <code class="sg-code">Type=Defualt</code> (221&times;296) is
+              <em>taller</em> than <code class="sg-code">Type=Extra</code> (257&times;272), because
+              the narrower card wraps its heading onto two lines.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-informative" href="#informative" style="width:100%;max-width:257px">
+                  <span class="rx-informative__icon"></span>
+                  <span class="rx-informative__title">Get the Latest News Here</span>
+                  <span class="rx-informative__text">
+                    We are committed to sustainability and environmental responsibility. Our
+                    manufacturing processes adhere to the highest.
+                  </span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Type=Extra, State=Rest.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-informative" href="#informative" style="width:100%;max-width:221px;border-color:var(--brand-stroke-1-rest);background:var(--global-background-2-rest)">
+                  <span class="rx-informative__icon"></span>
+                  <span class="rx-informative__title">Get the Latest News Here</span>
+                  <span class="rx-informative__text">
+                    We are committed to sustainability and environmental responsibility. Our
+                    manufacturing processes adhere to the highest.
+                  </span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>Type=Defualt, State=Hover. Narrower and taller.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="clickable">Clickable card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The social follow card: platform icon, name, a one-line invitation and a dark action
+              button. Two sizes — 180&times;278 Default and 180&times;200 Small — each with Rest and
+              Hover.
+            </p>
+            <h3>Icons</h3>
+            <p>
+              Six platforms ship in two sizes each: Instagram, TikTok, Facebook, YouTube, LinkedIn
+              and X&nbsp;(Twitter), at 64&nbsp;px and 40&nbsp;px.
+            </p>
+            <h3>The dark button</h3>
+            <p>
+              The action sits on <code class="sg-code">background/5</code> — and this is where that
+              token gets interesting. It is <strong>#0a0a0a</strong>, near-black, not a continuation
+              of the light grey ramp that steps 1 to 4 form.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="background:var(--global-background-4-rest)">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;width:100%">
+                  <a class="rx-clickable" href="#clickable">
+                    <span class="rx-clickable__icon">
+                      <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" fill="none" stroke="#2e2e2e" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#2e2e2e" stroke="none"/></svg>
+                    </span>
+                    <span class="rx-clickable__title">Instagram</span>
+                    <span class="rx-clickable__text">Be Part of Our Journey</span>
+                    <span class="rx-clickable__action">Follow</span>
+                  </a>
+                  <a class="rx-clickable" href="#clickable">
+                    <span class="rx-clickable__icon">
+                      <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" fill="none" stroke="#2e2e2e" stroke-width="1.6"><path d="M15 4c.5 2.5 2 4 4.5 4.2v3c-1.8 0-3.4-.5-4.5-1.4V15a5 5 0 1 1-5-5v3a2 2 0 1 0 2 2V4z"/></svg>
+                    </span>
+                    <span class="rx-clickable__title">TikTok</span>
+                    <span class="rx-clickable__text">Be Part of Our Journey</span>
+                    <span class="rx-clickable__action">Follow</span>
+                  </a>
+                  <a class="rx-clickable rx-clickable--small" href="#clickable">
+                    <span class="rx-clickable__icon">
+                      <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" fill="none" stroke="#2e2e2e" stroke-width="1.6"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1z"/></svg>
+                    </span>
+                    <span class="rx-clickable__title">Facebook</span>
+                    <span class="rx-clickable__action">Follow</span>
+                  </a>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Two Default cards and one Small. Hover any of them — the whole card is the link.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="guidelines">Usage rules</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The clickable card carries a set of rules governing which of its parts are required and how it
+              behaves when they are omitted.
+            </p>
+            <p>
+              The rules are set out below.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>#</th><th>Rule</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>The card may omit the description, the button, or the icon.</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>The card itself can carry a link and be clickable.</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>If fewer than six cards are needed, the row should be responsive rather than a carousel — and drop the carousel buttons.</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>The CMS already lets an editor choose the card colour. When the card is clickable, the editor should also be able to choose a hover colour, so the user can tell it is clickable.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 7</span>The four GuideLine rules.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Optional parts</h3>
+            <p>
+              Seven annotated screenshots enumerate which parts can be dropped. Every combination
+              below is legitimate — the component degrades to a bare heading.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Configuration</th><th>Icon</th><th>Description</th><th>Button</th></tr></thead>
+                  <tbody>
+                    <tr><td>Has everything</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td></tr>
+                    <tr><td>No description</td><td>&#10003;</td><td>&mdash;</td><td>&#10003;</td></tr>
+                    <tr><td>No button</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td></tr>
+                    <tr><td>Has description</td><td>&mdash;</td><td>&#10003;</td><td>&mdash;</td></tr>
+                    <tr><td>Has button</td><td>&mdash;</td><td>&mdash;</td><td>&#10003;</td></tr>
+                    <tr><td>Has icon</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                    <tr><td>Main heading only</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 8</span>The card&rsquo;s only required element is its heading.</figcaption>
+            </figure>
+          </div>
+
+          <p class="sg-note">
+            <strong>A clickable card must look clickable.</strong> Where the card carries a link, give it a
+            hover colour distinct from its resting colour. Rule&nbsp;4 above makes this an editor-level
+            setting, so the hover colour is chosen alongside the card colour rather than left to default.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="responsive">Responsive behaviour</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The clickable card row is specified in more detail than anything else in the system —
+              seven breakpoints from 1920 down to 358, each with several column counts.
+            </p>
+            <p>
+              At 992 and 768 the row gains a pair of 36&nbsp;px carousel chevrons in the section
+              title. Below that it wraps instead.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Container</th><th>Cards across</th><th>Carousel</th></tr></thead>
+                  <tbody>
+                    <tr><td>1920</td><td>1320</td><td>6, or 3 + 3</td><td>no</td></tr>
+                    <tr><td>1400</td><td>1320</td><td>2, 3, 4, 5 or 6</td><td>no</td></tr>
+                    <tr><td>1200</td><td>1140</td><td>3 or 6</td><td>no</td></tr>
+                    <tr><td>992</td><td>960</td><td>3 or 6</td><td>yes — 36 px chevrons</td></tr>
+                    <tr><td>768</td><td>720</td><td>3 or 6</td><td>yes — 36 px chevrons</td></tr>
+                    <tr><td>576</td><td>540</td><td>2, wrapping to 3 rows</td><td>no</td></tr>
+                    <tr><td>358</td><td>326</td><td>1, six rows</td><td>no</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 9</span>The carousel only appears at 992 and 768 — the widths where six cards neither fit nor wrap tidily.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Only the heading is required. Everything else is optional per the library&rsquo;s own
+              guidelines, so the markup should tolerate any subset.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;!-- Everything --&gt;
+&lt;a class="rx-clickable" href="https://instagram.com/ronixtools"&gt;
+  &lt;span class="rx-clickable__icon"&gt;&lt;svg&gt;…&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="rx-clickable__title"&gt;Instagram&lt;/span&gt;
+  &lt;span class="rx-clickable__text"&gt;Be Part of Our Journey&lt;/span&gt;
+  &lt;span class="rx-clickable__action"&gt;Follow&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!-- Heading only — still valid --&gt;
+&lt;a class="rx-clickable" href="…"&gt;
+  &lt;span class="rx-clickable__title"&gt;Instagram&lt;/span&gt;
+&lt;/a&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="office.html"><span>Previous chapter</span>&larr; Office card</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

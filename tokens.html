@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token reference — Ronix Design System</title>
+<meta name="description" content="Every token extracted from the Ronix design library, mapped to its CSS custom property.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Resources &nbsp;/&nbsp; Token reference</p>
+
+      <div class="sg-hero">
+        <h1>Token reference</h1>
+        <p class="sg-hero__lead">
+          Every variable read from the design library, mapped to the CSS custom property that carries it.
+          Token paths are preserved so a value in the browser can be traced back to a value in the library without guesswork.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="using-tokens">How to use this reference</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Each row gives the variable name as it appears in the design library, the CSS custom
+              property that carries it, and its value. Names are preserved exactly so a token in the
+              browser can be traced back to a token in the library.
+            </p>
+            <p>
+              Build against the property, never the literal value — several tokens resolve to
+              different values per breakpoint, and a hard-coded value opts out of that.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <p class="sg-note" style="margin:0">
+              Link <code class="sg-code">tokens.css</code> before any other stylesheet. It declares
+              nothing but custom properties, so it can sit in front of an existing framework without
+              conflicting with it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="colour-tokens">Colour</h2>
+        <table class="sg-table">
+          <thead><tr><th>Design token</th><th>CSS custom property</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Global/background/1/Rest</td><td><code>--global-background-1-rest</code></td><td>#ffffff</td></tr>
+            <tr><td>Global/background/2/Rest</td><td><code>--global-background-2-rest</code></td><td>#f5f5f5</td></tr>
+            <tr><td>Global/background/3/Rest</td><td><code>--global-background-3-rest</code></td><td>#f0f0f0</td></tr>
+            <tr><td>Global/background/1/Hover</td><td><code>--global-background-1-hover</code></td><td>#f5f5f5</td></tr>
+            <tr><td>Global/background/4/Rest</td><td><code>--global-background-4-rest</code></td><td>#e5e5e5</td></tr>
+            <tr><td>Global/background/5/Rest</td><td><code>--global-background-5-rest</code></td><td>#0a0a0a</td></tr>
+            <tr><td>Global/Foreground/1/Rest</td><td><code>--global-foreground-1-rest</code></td><td>#2e2e2e</td></tr>
+            <tr><td>Global/Foreground/2/Generic/Rest</td><td><code>--global-foreground-2-rest</code></td><td>#424242</td></tr>
+            <tr><td>Global/Foreground/3/Rest</td><td><code>--global-foreground-3-rest</code></td><td>#616161</td></tr>
+            <tr><td>Global/Foreground/On brand/Rest</td><td><code>--global-foreground-on-brand-rest</code></td><td>#ffffff</td></tr>
+            <tr><td>Global/Stroke/1/Global/Rest <em>(Banner)</em></td><td><code>--global-stroke-1-global-rest</code></td><td>#dbdbdb</td></tr>
+            <tr><td>Global/Stroke/1/Global/Rest <em>(Product-card)</em></td><td><code>--global-stroke-1-global-rest-alt</code></td><td>#e0e0e0</td></tr>
+            <tr><td>Brand/background/1/Rest</td><td><code>--brand-background-1-rest</code></td><td>#a30000</td></tr>
+            <tr><td>Brand/background/1/Hover</td><td><code>--brand-background-1-hover</code></td><td>#8a0000</td></tr>
+            <tr><td>Brand/background/1/Pressed</td><td><code>--brand-background-1-pressed</code></td><td>#700000</td></tr>
+            <tr><td>Brand/Foreground/1/Rest</td><td><code>--brand-foreground-1-rest</code></td><td>#a30000</td></tr>
+            <tr><td>Brand/Stroke/1/Rest</td><td><code>--brand-stroke-1-rest</code></td><td>#a30000</td></tr>
+            <tr><td>Brand/Stroke/2/Selected</td><td><code>--brand-stroke-2-selected</code></td><td>#a30000</td></tr>
+            <tr><td>Brand/Stroke/Compound/Rest</td><td><code>--brand-stroke-compound-rest</code></td><td>#a30000</td></tr>
+            <tr><td>Brand/background/2/Rest</td><td><code>--brand-background-2-rest</code></td><td>#fff5f5</td></tr>
+            <tr><td>Brand/Stroke/2/Rest</td><td><code>--brand-stroke-2-rest</code></td><td>#ffcccc</td></tr>
+            <tr><td>Global/background/1/Selected</td><td><code>--global-background-1-selected</code></td><td>#ebebeb</td></tr>
+            <tr><td>Global/Stroke/1/Global/Selected</td><td><code>--global-stroke-1-global-selected</code></td><td>#cccccc</td></tr>
+            <tr><td>Global/Stroke/1/Global/Hover</td><td><code>--global-stroke-1-global-hover</code></td><td>#d6d6d6</td></tr>
+            <tr><td>Global/background/Subtle/Rest</td><td><code>--global-background-subtle-rest</code></td><td>#ffffff00</td></tr>
+            <tr><td colspan="3" style="padding-top:20px"><strong>Legacy collection</strong> — bound by the PLP card only</td></tr>
+            <tr><td>Red / Dark Red</td><td><code>--legacy-red-dark</code></td><td>#bf0000</td></tr>
+            <tr><td>Red / Base Red</td><td><code>--legacy-red-base</code></td><td>#f20000</td></tr>
+            <tr><td>Text color - light background / Base Text Gray</td><td><code>--legacy-text-base-gray</code></td><td>#5e5e5e</td></tr>
+            <tr><td>logo Gray</td><td><code>--legacy-logo-gray</code></td><td>#717171</td></tr>
+            <tr><td>Back Ground / Deep Gray - Dark mode</td><td><code>--legacy-bg-dark-mode</code></td><td>#1e1e1e</td></tr>
+            <tr><td>Back Ground / Light Gray - Base</td><td><code>--legacy-bg-base-light-gray</code></td><td>#f2f2f2</td></tr>
+            <tr><td>Back Ground / Secondary</td><td><code>--legacy-bg-secondary</code></td><td>#e5e5e5</td></tr>
+            <tr><td>Helvetica LT <em>(Form only)</em></td><td><code>--legacy-font-helvetica</code></td><td>Helvetica LT</td></tr>
+            <tr><td>Text color - light background / Deep Gray</td><td><code>--legacy-text-deep-gray</code></td><td>#3d3d3d</td></tr>
+            <tr><td>Back Ground / Secondray - Light</td><td><code>--legacy-bg-secondary-light</code></td><td>#f9f9f9</td></tr>
+            <tr><td>Text color - Dark background / Base</td><td><code>--legacy-text-on-dark</code></td><td>#ffffff</td></tr>
+            <tr><td colspan="3" style="padding-top:20px"><strong>&ldquo;Web/&rdquo; collection</strong> — a parallel type system, same style names, different values</td></tr>
+            <tr><td>Web / Title / Title 3</td><td><code>--web-title-3</code></td><td>24px / 32px, Bold 700</td></tr>
+            <tr><td>Web / Body / Body 2</td><td><code>--web-body-2</code></td><td>14px / 20px, Regular 400</td></tr>
+            <tr><td>Generic / Foreground / On brand</td><td><code>--generic-foreground-on-brand</code></td><td>#ffffff</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="type-tokens">Typography</h2>
+        <table class="sg-table">
+          <thead><tr><th>Design token</th><th>CSS custom property</th><th>Large</th><th>Small</th></tr></thead>
+          <tbody>
+            <tr><td>Font/Roboto</td><td><code>--font-roboto</code></td><td colspan="2">Roboto</td></tr>
+            <tr><td>Font/Title/Out-container/2</td><td><code>--font-title-out-container-2</code></td><td colspan="2">32px / 38px, ExtraBold 800</td></tr>
+            <tr><td>Font/Title/In-container/3</td><td><code>--font-title-in-container-3</code></td><td colspan="2">26px / 30px, ExtraBold 800</td></tr>
+            <tr><td>Font/Title/In-container/2</td><td><code>--font-title-in-container-2</code></td><td colspan="2">28px / 32px, ExtraBold 800</td></tr>
+            <tr><td>Font/Title/In-container/4</td><td><code>--font-title-in-container-4</code></td><td colspan="2">20px / 22px, ExtraBold 800</td></tr>
+            <tr><td>Font/Subtitle/1/Strong</td><td><code>--font-subtitle-1-strong</code></td><td colspan="2">20px / 100%, Bold 700</td></tr>
+            <tr><td>overline</td><td><code>--font-overline</code></td><td colspan="2">12px / 100%, Regular 400, <strong>1.5px tracking</strong></td></tr>
+            <tr><td>Font/Caption/Caption 1</td><td><code>--font-caption-1</code></td><td colspan="2">12px / 14px</td></tr>
+            <tr><td>type system/Body/Body 2 Strong</td><td><code>--font-body-2-strong</code></td><td colspan="2">14px / 18px, Medium 500</td></tr>
+            <tr><td>Font/Title/Out-container/5</td><td><code>--font-title-out-container-5</code></td><td colspan="2">20px / 100%, ExtraBold 800</td></tr>
+            <tr><td>Font/Title/In-container/5</td><td><code>--font-title-in-container-5</code></td><td colspan="2">18px / 22px, ExtraBold 800</td></tr>
+            <tr><td>Font/Title/In-container/1</td><td><code>--font-title-in-container-1</code></td><td>32px</td><td>28px</td></tr>
+            <tr><td>— weight (ExtraBold)</td><td><code>--font-title-in-container-1-weight</code></td><td colspan="2">800</td></tr>
+            <tr><td>— line height</td><td><code>--font-title-in-container-1-line-height</code></td><td colspan="2">100%</td></tr>
+            <tr><td>Font/Subtitle/Sbutitle 2</td><td><code>--font-subtitle-2</code></td><td>18px</td><td>14px</td></tr>
+            <tr><td>Font/Line Height/Subtitle 2</td><td><code>--font-line-height-subtitle-2</code></td><td>22px</td><td>16px</td></tr>
+            <tr><td>— weight (SemiBold)</td><td><code>--font-subtitle-2-weight</code></td><td colspan="2">600</td></tr>
+            <tr><td>Font/Body/1/Regular</td><td><code>--font-body-1-regular</code></td><td>16px</td><td>14px</td></tr>
+            <tr><td>— line height</td><td><code>--font-line-height-body-1</code></td><td>20px</td><td>20px</td></tr>
+            <tr><td>— weight (Regular)</td><td><code>--font-body-1-weight</code></td><td colspan="2">400</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="space-tokens">Spacing, stroke and radius</h2>
+        <table class="sg-table">
+          <thead><tr><th>Design token</th><th>CSS custom property</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Padding/None</td><td><code>--padding-none</code></td><td>0px</td></tr>
+            <tr><td>Small</td><td><code>--space-small</code></td><td>4px</td></tr>
+            <tr><td>Padding/XX-Small</td><td><code>--padding-xx-small</code></td><td>6px</td></tr>
+            <tr><td>Padding/X-Small</td><td><code>--padding-x-small</code></td><td>8px</td></tr>
+            <tr><td>Padding/Medium</td><td><code>--padding-medium</code></td><td>16px</td></tr>
+            <tr><td>Padding/X-Large</td><td><code>--padding-x-large</code></td><td>24px</td></tr>
+            <tr><td>Padding/XX-Large</td><td><code>--padding-xx-large</code></td><td>32px</td></tr>
+            <tr><td>Thin</td><td><code>--stroke-thin</code></td><td>1px</td></tr>
+            <tr><td>Thick</td><td><code>--stroke-thick</code></td><td>2px</td></tr>
+            <tr><td>Size/Corner radious/4</td><td><code>--size-corner-radius-4</code></td><td>4px</td></tr>
+            <tr><td>Main icon / if the object was large</td><td><code>--icon-main-large</code></td><td>24px &rarr; 20px</td></tr>
+            <tr><td>Text-wrapper / if the object was large</td><td><code>--icon-text-wrapper-large</code></td><td>24px &rarr; 20px</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="frame-tokens">Frames</h2>
+        <table class="sg-table">
+          <thead><tr><th>Design token</th><th>CSS custom property</th><th>Large</th><th>Medium</th><th>Small</th></tr></thead>
+          <tbody>
+            <tr><td>Frame Size/Section/Extra</td><td><code>--frame-section-extra</code></td><td>1400</td><td>992</td><td>576</td></tr>
+            <tr><td>Frame Size/Section/Defualt</td><td><code>--frame-section-default</code></td><td>1200</td><td>768</td><td>358</td></tr>
+            <tr><td>Frame Size/Container/Extra</td><td><code>--frame-container-extra</code></td><td>1320</td><td>928</td><td>540</td></tr>
+            <tr><td>Frame Size/Container/Defualt</td><td><code>--frame-container-default</code></td><td>1140</td><td>720</td><td>326</td></tr>
+            <tr><td>banner-001/wrapper/Extra</td><td><code>--banner-001-wrapper-extra</code></td><td>656</td><td>560</td><td>540</td></tr>
+            <tr><td>banner-001/wrapper/Defualt</td><td><code>--banner-001-wrapper-default</code></td><td>566</td><td>480</td><td>326</td></tr>
+            <tr><td>banner-001/content-wrapper/Extra</td><td><code>--banner-001-content-wrapper-extra</code></td><td>1320</td><td>928</td><td>540</td></tr>
+            <tr><td>banner-001/content-wrapper/Defualt</td><td><code>--banner-001-content-wrapper-default</code></td><td>1140</td><td>720</td><td>326</td></tr>
+            <tr><td>Home page/text-wrapper-padding/Extra</td><td><code>--banner-text-wrapper-padding-extra</code></td><td>32</td><td>24</td><td>24</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="using">Using the tokens</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Link <code class="sg-code">tokens.css</code> before any other stylesheet. It declares
+              nothing but custom properties, so it can sit in front of an existing framework without
+              conflicting with it.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;link rel="stylesheet" href="css/tokens.css?v=27"&gt;
+&lt;link rel="stylesheet" href="css/styleguide.css?v=27"&gt;
+
+/* Then build against roles, never against values */
+.promo {
+  background: var(--global-background-2-rest);
+  color:      var(--global-foreground-1-rest);
+  padding:    var(--padding-xx-large);
+  border:     var(--stroke-thin) solid var(--global-stroke-1-global-rest);
+  border-radius: var(--size-corner-radius-4);
+}</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="components.html"><span>Previous chapter</span>&larr; Components</a>
+        <span></span>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

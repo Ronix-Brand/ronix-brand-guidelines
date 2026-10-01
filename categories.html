@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Category tile — Ronix Design System</title>
+<meta name="description" content="Picture - Inside Label: the category tile, its six Type x Size variants and the category grid.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Category tile</p>
+
+      <div class="sg-hero">
+        <h1>Category tile</h1>
+        <p class="sg-hero__lead">
+          The simplest component in the system: a full-bleed product photograph with a category name
+          set directly on it. No plate, no scrim, no border. It carries the whole category grid.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Two elements. A photograph that covers the tile completely, and a label centred along the
+              foot of the tile, <code class="sg-code">Padding/Medium</code> (16&nbsp;px) up from the
+              bottom edge.
+            </p>
+            <p>
+              The label is <strong>Title&nbsp;5 in-container</strong> — 18/22 ExtraBold — in
+              <code class="sg-code">Foreground/On&nbsp;brand</code> (#ffffff), set in caps.
+            </p>
+            <h3>No scrim</h3>
+            <p>
+              The label sits straight on the image. It works here only because every category
+              photograph in the set is shot on the same dark graduated background, with the product
+              centred and the lower band of the frame deliberately kept clear.
+            </p>
+            <p>
+              That is a content contract, not a component feature — and the component does nothing to
+              enforce it.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-category rx-category--large-extra" href="#anatomy" style="width:100%;max-width:257px">
+                  <img src="img/category-power-tools.jpg" alt="Ronix power tools category" loading="lazy">
+                  <span class="rx-category__label">Power tools</span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Type=Large, Size=Extra — 257&times;256.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-category rx-category--medium-default" href="#anatomy" style="width:100%;max-width:356px">
+                  <img src="img/category-power-tools.jpg" alt="Ronix power tools category" loading="lazy">
+                  <span class="rx-category__label">Power tools</span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Type=Medium, Size=Default — 356&times;199, the one wide variant.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="variants">The Type &times; Size matrix</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Six variants ship, crossing <code class="sg-code">Type</code> of Large, Medium or Small
+              with <code class="sg-code">Size</code> of Extra or Default.
+            </p>
+            <p>
+              The properties do not behave as their names suggest. Read the table before assuming
+              which variant you want.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Variant</th><th>Size</th><th>Aspect</th><th>Shape</th></tr></thead>
+                  <tbody>
+                    <tr><td>Type=Large, Size=Extra</td><td>257 &times; 256</td><td>1.00 : 1</td><td>Square</td></tr>
+                    <tr><td>Type=Large, Size=Default</td><td>221 &times; 220</td><td>1.00 : 1</td><td>Square</td></tr>
+                    <tr><td>Type=Medium, Size=Extra</td><td>186 &times; 186</td><td>1.00 : 1</td><td>Square</td></tr>
+                    <tr><td>Type=Medium, Size=Default</td><td>356 &times; 199</td><td>1.79 : 1</td><td>Wide</td></tr>
+                    <tr><td>Type=Small, Size=Extra</td><td>266 &times; 149</td><td>1.79 : 1</td><td>Wide</td></tr>
+                    <tr><td>Type=Small, Size=Default</td><td>159 &times; 160</td><td>1.00 : 1</td><td>Square</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Four square variants and two wide ones, in no consistent order.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>All six, to scale</h3>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame" style="align-items:flex-start;flex-wrap:wrap;gap:16px;justify-content:flex-start">
+              <a class="rx-category rx-category--large-extra" href="#variants" style="width:171px">
+                <img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Power tools</span>
+              </a>
+              <a class="rx-category rx-category--large-default" href="#variants" style="width:147px">
+                <img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Power tools</span>
+              </a>
+              <a class="rx-category rx-category--medium-extra" href="#variants" style="width:124px">
+                <img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Power tools</span>
+              </a>
+              <a class="rx-category rx-category--medium-default" href="#variants" style="width:237px">
+                <img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Power tools</span>
+              </a>
+              <a class="rx-category rx-category--small-extra" href="#variants" style="width:177px">
+                <img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Power tools</span>
+              </a>
+              <a class="rx-category rx-category--small-default" href="#variants" style="width:106px">
+                <img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Power tools</span>
+              </a>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 4</span>All six variants at two-thirds scale, in the library&rsquo;s own order. The size progression is not monotonic.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="grid">Category grid</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Tiles are laid out ten at a time — five across, two rows — with an
+              <code class="sg-code">Padding/X-Small</code> (8&nbsp;px) gap. Below 768&nbsp;px the grid
+              drops to two columns and the block runs to five rows.
+            </p>
+            <p>
+              The label stays 18&nbsp;px at every breakpoint. On the 159&nbsp;px Small tile that is a
+              large word on a small picture, and longer names — <em>Cordless tools</em>,
+              <em>Tools accessories</em> — wrap onto two lines. The wrapped block stays centred and
+              stays pinned to the foot, so the tiles in a row still align.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Section</th><th>Container</th><th>Columns</th><th>Tile</th><th>Gap</th></tr></thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large</td><td>1400</td><td>1320</td><td>5</td><td>257 &times; 256</td><td>8</td></tr>
+                    <tr><td>1200</td><td>1140</td><td>5</td><td>221 &times; 220</td><td>8</td></tr>
+                    <tr><td rowspan="2">Medium</td><td>992</td><td>960</td><td>5</td><td>186 &times; 186</td><td>6.8</td></tr>
+                    <tr><td>768</td><td>720</td><td>2</td><td>356 &times; 199</td><td>8</td></tr>
+                    <tr><td rowspan="2">Small</td><td>576</td><td>540</td><td>2</td><td>266 &times; 149</td><td>8</td></tr>
+                    <tr><td>358</td><td>326</td><td>2</td><td>159 &times; 160</td><td>6.8</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>Five tiles across down to 992; two across at 768 and below, where the section runs to five rows.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Live grid</h3>
+            <p>Narrow the window and it steps from five columns to two.</p>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame">
+              <div class="rx-category-grid" style="width:100%">
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Power tools</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Hand tools</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Air tools</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Garden</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Tools accessories</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Measuring tools</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Welding</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Cleaning</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Safety equipment</span></a>
+                <a class="rx-category" href="#grid"><img src="img/category-power-tools.jpg" alt="" loading="lazy"><span class="rx-category__label">Tool storage</span></a>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 6</span>Ten tiles, 8&nbsp;px gap, square aspect held by <code>aspect-ratio</code>.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="content">Content rules</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Because there is no scrim, the photograph has to do the work. Two rules follow, and
+              neither is enforced by the component.
+            </p>
+            <h3>Name length</h3>
+            <p>
+              A third rule applies to the copy. The label holds 18&nbsp;px at every breakpoint while
+              the tile shrinks to 159&nbsp;px, so a name must either be short or contain a space to
+              wrap on — <em>Tools accessories</em> wraps cleanly onto two lines,
+              <em>Accessories</em> alone cannot and will overhang the tile.
+            </p>
+            <p>
+              The label wraps at spaces only. Breaking mid-word would be worse than the overhang, so
+              this is a constraint on category naming rather than something CSS should paper over.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-category" href="#content" style="width:100%;max-width:200px">
+                  <img src="img/category-power-tools.jpg" alt="" loading="lazy">
+                  <span class="rx-category__label">Power tools</span>
+                </a>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 7</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>Dark background, product centred, lower band kept clear.</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-category" href="#content" style="width:100%;max-width:200px">
+                  <span style="position:absolute;inset:0;background:linear-gradient(135deg,#d8d8d8,#f2f2f2)"></span>
+                  <span class="rx-category__label">Power tools</span>
+                </a>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 8</span>
+                <span class="sg-verdict sg-verdict--dont" style="display:block">
+                  <span class="sg-verdict__label">Don&rsquo;t</span>
+                  <span>A light photograph. White caps on pale grey is unreadable, and nothing in the component prevents it.</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="sg-note">
+            Where category photography cannot be guaranteed dark across the lower band, apply a scrim: a
+            bottom-up gradient to 30&nbsp;% black, matching the treatment for
+            <a href="ui-introduction.html#placement">placement on images</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              The tile is one anchor. The label is decorative text over the image, so the anchor
+              carries the accessible name and the <code class="sg-code">alt</code> stays empty.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;a class="rx-category" href="/c/power-tools"&gt;
+  &lt;img src="power-tools.jpg" alt=""&gt;
+  &lt;span class="rx-category__label"&gt;Power tools&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!-- In a grid --&gt;
+&lt;div class="rx-category-grid"&gt;…&lt;/div&gt;
+
+&lt;!-- Wide variant --&gt;
+&lt;a class="rx-category rx-category--medium-default" href="…"&gt;…&lt;/a&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="product-line.html"><span>Previous chapter</span>&larr; Product line</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

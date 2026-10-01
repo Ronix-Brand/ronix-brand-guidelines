@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Components — Ronix Design System</title>
+<meta name="description" content="Banner-001, buttons, tiles and cards built from the Ronix design tokens.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components</p>
+
+      <div class="sg-hero">
+        <h1>Components</h1>
+        <p class="sg-hero__lead">
+          Components are assembled entirely from tokens. Every measurement below resolves through a
+          CSS custom property, so a component inherits its responsive behaviour rather than
+          declaring it.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="banner">Banner-001</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              The home-page banner: a full-bleed stage carrying product imagery, with a white text
+              wrapper overlapping its lower edge. The wrapper holds a Title&nbsp;1, a Body&nbsp;1
+              line and up to two calls to action.
+            </p>
+            <p>
+              The stage is a section-width frame; the text wrapper is a container-width frame pulled
+              up over it. Padding inside the wrapper is
+              <code class="sg-code">Banner-Grid/Home page/text-wrapper-padding</code> — 32&nbsp;px at
+              Large, 24&nbsp;px at Small.
+            </p>
+          </div>
+
+          <figure class="sg-figure">
+            <div class="sg-figure__frame sg-figure__frame--flush">
+              <div class="rx-banner" style="width:100%">
+                <div class="rx-banner__stage">
+                  Product imagery
+                  <button class="rx-banner__nav rx-banner__nav--prev" type="button" aria-label="Previous slide">
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M15 6l-6 6 6 6"/></svg>
+                  </button>
+                  <button class="rx-banner__nav rx-banner__nav--next" type="button" aria-label="Next slide">
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 6l6 6-6 6"/></svg>
+                  </button>
+                </div>
+                <div class="rx-banner__text-wrapper">
+                  <p class="rx-banner__title">Your Reliable Solution in Routine Maintenance</p>
+                  <p class="rx-banner__body">
+                    Explore our flagship lineup of tool sets featuring a wide range of accessories,
+                    designed to streamline your everyday tasks with precision and convenience.
+                  </p>
+                  <div class="rx-banner__actions">
+                    <a class="rx-btn rx-btn--primary" href="#banner"><span class="rx-btn__dot"></span>CTA</a>
+                    <a class="rx-btn rx-btn--secondary" href="#banner"><span class="rx-btn__dot"></span>CTA</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 1</span>Banner-001, Type=Extra, Size=Large. Resize the window to see the Small variant.</figcaption>
+          </figure>
+
+          <figure class="sg-figure">
+            <div class="sg-figure__frame sg-figure__frame--flush">
+              <div class="rx-banner" style="width:100%">
+                <div class="rx-banner__stage">
+                  Product imagery
+                  <button class="rx-banner__nav rx-banner__nav--prev" type="button" aria-label="Previous slide">
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M15 6l-6 6 6 6"/></svg>
+                  </button>
+                  <button class="rx-banner__nav rx-banner__nav--next" type="button" aria-label="Next slide">
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M9 6l6 6-6 6"/></svg>
+                  </button>
+                </div>
+                <div class="rx-banner__text-wrapper">
+                  <p class="rx-banner__title">The Most-Versatile Cordless Tool Collection You&rsquo;ll Ever Own</p>
+                  <p class="rx-banner__body">
+                    All the power you need in one battery. All applications covered in one toolbox.
+                    All the tools you want in one series.
+                  </p>
+                  <div class="rx-banner__actions">
+                    <a class="rx-btn rx-btn--dark" href="#banner">View 86 Series</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 2</span>The single-action form: one square <code>#1e1e1e</code> button at 14&nbsp;px, no leading dot.</figcaption>
+          </figure>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Frame tokens</h3>
+            <p>
+              The banner carries its own grid tokens, separate from the page frames. They are what
+              keep the stage height and the wrapper width in proportion at each breakpoint.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Token</th><th>Large</th><th>Small</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>banner-001/wrapper/Extra</code></td><td>656</td><td>540</td></tr>
+                    <tr><td><code>banner-001/wrapper/Default</code></td><td>566</td><td>326</td></tr>
+                    <tr><td><code>banner-001/content-wrapper/Extra</code></td><td>1320</td><td>540</td></tr>
+                    <tr><td><code>banner-001/content-wrapper/Default</code></td><td>1140</td><td>326</td></tr>
+                    <tr><td><code>banner-001/Text wrapper size/Extra</code></td><td>1400</td><td>576</td></tr>
+                    <tr><td><code>text-wrapper-padding</code></td><td>32</td><td>24</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Values in px, read from the Large and Small sections of the library.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Content rules</h3>
+            <p>
+              The title runs to two lines at most. Body copy stays under 160 characters so it holds
+              two lines at Small.
+            </p>
+            <p>
+              Two actions maximum, and only one of them primary. A banner with two red buttons asks
+              the user to choose without telling them which choice matters.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="gap:8px">
+                <a class="rx-btn rx-btn--primary" href="#banner">Shop the range</a>
+                <a class="rx-btn rx-btn--secondary" href="#banner">Find a dealer</a>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 4</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>One primary, one secondary.</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="gap:8px">
+                <a class="rx-btn rx-btn--primary" href="#banner">Shop the range</a>
+                <a class="rx-btn rx-btn--primary" href="#banner">Find a dealer</a>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 5</span>
+                <span class="sg-verdict sg-verdict--dont" style="display:block">
+                  <span class="sg-verdict__label">Don&rsquo;t</span>
+                  <span>Two primaries. Neither action leads.</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="buttons">Buttons</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Three variants. Primary carries the brand red and the single most important action on
+              a view. Secondary is the default for everything else. Ghost is for actions inside a
+              dense surface where a border would add noise.
+            </p>
+            <p>
+              Height is 40&nbsp;px, padding is X-Small by Medium, radius is 4&nbsp;px, and the label
+              is Subtitle&nbsp;2. Disabled buttons drop to background&nbsp;4 and foreground&nbsp;3.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;gap:16px;align-items:flex-start">
+                <div class="sg-row">
+                  <a class="rx-btn rx-btn--primary" href="#buttons">Primary</a>
+                  <a class="rx-btn rx-btn--secondary" href="#buttons">Secondary</a>
+                  <a class="rx-btn rx-btn--ghost" href="#buttons">Ghost</a>
+                  <button class="rx-btn rx-btn--primary" type="button" disabled>Disabled</button>
+                </div>
+                <div class="sg-row">
+                  <a class="rx-btn rx-btn--primary" href="#buttons">
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    With icon
+                  </a>
+                  <a class="rx-btn rx-btn--secondary" href="#buttons"><span class="rx-btn__dot"></span>CTA</a>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Variants and states.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Markup</h3>
+          </div>
+          <pre class="sg-pre">&lt;a class="rx-btn rx-btn--primary" href="/catalogue"&gt;Shop the range&lt;/a&gt;
+&lt;button class="rx-btn rx-btn--secondary" type="button"&gt;Find a dealer&lt;/button&gt;
+&lt;button class="rx-btn rx-btn--primary" type="button" disabled&gt;Out of stock&lt;/button&gt;</pre>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="cards">Tiles and cards</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A tile is a coloured rectangle that groups content. A card is a tile with a function —
+              it links somewhere or triggers something — and carries a 1&nbsp;px stroke to signal
+              that it is a target.
+            </p>
+            <p>
+              Cards sit on background&nbsp;1 with Medium padding. The media area holds a 4:3 image;
+              the title is Subtitle&nbsp;2 and the supporting line is Body&nbsp;1 in
+              foreground&nbsp;2.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;width:100%">
+                  <div class="rx-card">
+                    <div class="rx-card__media"></div>
+                    <p class="rx-card__title">Rotary hammer</p>
+                    <p class="rx-card__body">SDS-Plus, 800 W</p>
+                  </div>
+                  <div class="rx-card">
+                    <div class="rx-card__media"></div>
+                    <p class="rx-card__title">Angle grinder</p>
+                    <p class="rx-card__body">125 mm, 1100 W</p>
+                  </div>
+                  <div class="rx-card">
+                    <div class="rx-card__media"></div>
+                    <p class="rx-card__title">Impact driver</p>
+                    <p class="rx-card__body">18 V, brushless</p>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 7</span>Card row at Medium padding with a 16&nbsp;px gap.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Tiles in brand colours</h3>
+            <p>
+              Tiles may take the brand red or foreground&nbsp;1 as a fill. When they do, content on
+              them switches to <code class="sg-code">Foreground/On&nbsp;brand</code>.
+            </p>
+            <p>
+              A 4&nbsp;px gap between tiles reads as a single composed surface; 16&nbsp;px reads as
+              separate blocks. Both are correct — pick one per group and keep it.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;width:100%">
+                  <div class="rx-tile" style="background:var(--brand-background-1-rest);color:var(--global-foreground-on-brand-rest);height:80px;display:flex;align-items:flex-end">Brand</div>
+                  <div class="rx-tile" style="background:var(--global-foreground-1-rest);color:var(--global-foreground-on-brand-rest);height:80px;display:flex;align-items:flex-end">Dark</div>
+                  <div class="rx-tile" style="background:var(--global-background-2-rest);height:80px;display:flex;align-items:flex-end">Surface</div>
+                  <div class="rx-tile" style="background:var(--global-background-4-rest);height:80px;display:flex;align-items:flex-end">Placeholder</div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 8</span>Tile group with a 4&nbsp;px gap: one composed surface.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%">
+                  <div class="rx-tile" style="height:80px"></div>
+                  <div class="rx-tile" style="height:80px"></div>
+                  <div class="rx-tile" style="height:80px"></div>
+                  <div class="rx-tile" style="height:80px"></div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 9</span>The same tiles at a 16&nbsp;px gap: four separate blocks.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="layout.html"><span>Previous chapter</span>&larr; Layout &amp; Grid</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

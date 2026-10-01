@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://designsystem.ronixtools.com/sitemap.xml

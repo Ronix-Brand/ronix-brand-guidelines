@@ -1,0 +1,584 @@
+/* ==========================================================================
+   Brand Guidelines — the cover page and the Corporate Identity chapters.
+
+   Loaded after styleguide.css. Everything here is prefixed rx-brand- or ci-.
+   Motion is opt-out: every animation is disabled under prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---- Cover page -------------------------------------------------------- */
+
+.rx-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--ci-white);
+  color: var(--global-foreground-1-rest);
+}
+
+/* A slow drifting field of hairlines, barely there on white. */
+.rx-cover::before {
+  content: "";
+  position: absolute;
+  inset: -40% -10%;
+  z-index: -2;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, .045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, .045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  transform: rotate(-8deg);
+  animation: rx-drift 60s linear infinite;
+}
+
+/* One warm field, off-centre, breathing. Kept very low on white so it reads
+   as light rather than as a pink wash. */
+.rx-cover::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -30%;
+  right: -10%;
+  width: 70vw;
+  height: 70vw;
+  max-width: 900px;
+  max-height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(237, 28, 36, .07) 0%, rgba(237, 28, 36, .025) 45%, transparent 70%);
+  animation: rx-breathe 14s ease-in-out infinite;
+}
+
+@keyframes rx-drift { to { background-position: 72px 72px; } }
+@keyframes rx-breathe {
+  0%, 100% { transform: scale(1);    opacity: .85; }
+  50%      { transform: scale(1.12); opacity: 1; }
+}
+
+.rx-cover__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: clamp(72px, 14vh, 160px) 24px clamp(56px, 10vh, 120px);
+}
+
+.rx-cover__eyebrow {
+  margin: 0 0 var(--padding-medium);
+  font-size: var(--font-overline);
+  line-height: 1;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--global-foreground-3-rest);
+  animation: rx-rise .8s .1s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* The logo arrives behind a wipe rather than fading — it reads as printed. */
+.rx-cover__logo {
+  display: block;
+  width: min(420px, 62vw);
+  margin: 0 0 var(--padding-xx-large);
+  clip-path: inset(0 100% 0 0);
+  animation: rx-wipe 1.1s .25s cubic-bezier(.65, 0, .35, 1) both;
+}
+
+.rx-cover__logo svg { display: block; width: 100%; height: auto; }
+
+@keyframes rx-wipe { to { clip-path: inset(0 0 0 0); } }
+
+.rx-cover__rule {
+  width: 0;
+  height: 4px;
+  margin: 0 0 var(--padding-xx-large);
+  background: var(--ci-red);
+  animation: rx-rule 1s .9s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes rx-rule { to { width: 168px; } }
+
+.rx-cover__title {
+  margin: 0 0 var(--padding-medium);
+  max-width: 18ch;
+  font-size: clamp(40px, 7vw, 76px);
+  line-height: 1.04;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  animation: rx-rise .9s .55s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.rx-cover__lead {
+  margin: 0;
+  max-width: 54ch;
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.6;
+  color: var(--global-foreground-2-rest);
+  animation: rx-rise .9s .7s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes rx-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---- The two doors ----------------------------------------------------- */
+
+.rx-doors {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--padding-medium);
+  max-width: 1140px;
+  margin: calc(-1 * clamp(32px, 6vh, 72px)) auto 0;
+  padding: 0 24px clamp(48px, 8vh, 96px);
+}
+
+@media (max-width: 767px) {
+  .rx-doors { grid-template-columns: minmax(0, 1fr); }
+}
+
+.rx-door {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: var(--padding-xx-large);
+  overflow: hidden;
+  border: var(--stroke-thin) solid var(--global-stroke-1-global-rest-alt);
+  border-radius: var(--size-corner-radius-4);
+  background: var(--global-background-1-rest);
+  color: var(--global-foreground-1-rest);
+  text-decoration: none;
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1),
+              box-shadow .45s cubic-bezier(.22, 1, .36, 1),
+              border-color .3s ease;
+}
+
+.rx-door:hover {
+  transform: translateY(-6px);
+  border-color: var(--ci-red);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .10);
+}
+
+/* A red rule along the top edge, drawn in on hover. Replaces the wash. */
+.rx-door::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--ci-red);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.rx-door:hover::before { transform: scaleX(1); }
+
+.rx-door__num {
+  position: relative;
+  margin: 0 0 var(--padding-medium);
+  font-size: var(--font-overline);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ci-red);
+}
+
+.rx-door__title {
+  position: relative;
+  margin: 0 0 var(--padding-small);
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.rx-door__text {
+  position: relative;
+  margin: 0 0 var(--padding-xx-large);
+  max-width: 42ch;
+  font-size: var(--font-body-1-regular);
+  line-height: 1.6;
+  color: var(--global-foreground-2-rest);
+}
+
+.rx-door__list {
+  position: relative;
+  margin: 0 0 var(--padding-xx-large);
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--padding-xxx-small) var(--padding-x-small);
+  font-size: var(--font-caption-1);
+  color: var(--global-foreground-3-rest);
+}
+
+.rx-door__list li::after { content: " ·"; }
+.rx-door__list li:last-child::after { content: ""; }
+
+.rx-door__go {
+  position: relative;
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--padding-x-small);
+  font-size: var(--font-body-2-strong);
+  font-weight: 600;
+  color: var(--ci-red);
+}
+
+.rx-door__go svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.rx-door:hover .rx-door__go svg { transform: translateX(6px); }
+
+/* ---- At a glance ------------------------------------------------------- */
+
+.rx-glance {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px clamp(64px, 10vh, 120px);
+}
+
+.rx-glance__head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--padding-medium);
+  margin-bottom: var(--padding-x-large);
+  padding-bottom: var(--padding-x-small);
+  border-bottom: var(--stroke-thin) solid var(--global-stroke-1-global-rest-alt);
+}
+
+.rx-glance__head h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.rx-glance__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--padding-medium);
+}
+
+/* Reveal-on-scroll, applied by brand.js. */
+.rx-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s cubic-bezier(.22, 1, .36, 1),
+              transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.rx-reveal.is-in { opacity: 1; transform: none; }
+
+/* ---- Corporate Identity: shared display pieces -------------------------- */
+
+.ci-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
+  padding: var(--padding-xx-large);
+  border-radius: var(--size-corner-radius-4);
+  background: var(--global-background-2-rest);
+}
+
+.ci-stage--white { background: var(--ci-white); border: var(--stroke-thin) solid var(--global-stroke-1-global-rest-alt); }
+.ci-stage--grey  { background: var(--ci-grey); }
+.ci-stage--red   { background: var(--ci-red); }
+.ci-stage--black { background: var(--ci-black); }
+.ci-stage--silver { background: linear-gradient(135deg, #f2f2f2 0%, #d8d8d8 45%, #f7f7f7 60%, #cfcfcf 100%); }
+
+.ci-logo { display: block; width: min(280px, 70%); }
+.ci-logo svg { display: block; width: 100%; height: auto; }
+
+/* Reversed lockups. The mark ships as red + grey artwork; these recolour it
+   through two custom properties the symbol reads. */
+.ci-logo--on-dark    { --logo-word: #ffffff; }
+.ci-logo--mono-white { --logo-word: #ffffff; --logo-mark: #ffffff; }
+.ci-logo--mono-black { --logo-word: #000000; --logo-mark: #000000; }
+
+/* ---- Misuse grid -------------------------------------------------------- */
+
+.ci-misuse {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--padding-medium);
+}
+
+.ci-dont {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: var(--stroke-thin) solid var(--global-stroke-1-global-rest-alt);
+  border-radius: var(--size-corner-radius-4);
+  background: var(--global-background-1-rest);
+}
+
+.ci-dont__frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 132px;
+  padding: var(--padding-medium);
+  overflow: hidden;
+  background: var(--global-background-2-rest);
+}
+
+/* The bar across a wrong example — the same device the printed guide uses. */
+.ci-dont__frame::after {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 50%;
+  height: 6px;
+  background: #29abe2;
+  transform: rotate(-24deg);
+  transform-origin: center;
+}
+
+.ci-dont__caption {
+  display: flex;
+  gap: var(--padding-x-small);
+  padding: var(--padding-small) var(--padding-medium);
+  font-size: var(--font-body-3);
+  line-height: var(--font-line-height-body-3);
+  color: var(--global-foreground-2-rest);
+}
+
+.ci-dont__n {
+  flex: none;
+  font-weight: 700;
+  color: var(--ci-red);
+}
+
+.ci-dont .ci-logo { width: 78%; }
+
+/* The individual wrongs. */
+.ci-w-stretch  { transform: scaleX(1.55); }
+.ci-w-squash   { transform: scaleY(.55); }
+.ci-w-rotate   { transform: rotate(-16deg); }
+.ci-w-outline  { --logo-word: none; --logo-mark: none; }
+.ci-w-outline svg { stroke: #000; stroke-width: .6; }
+.ci-w-shadow   { filter: drop-shadow(3px 4px 2px rgba(0, 0, 0, .55)); }
+.ci-w-glow     { filter: drop-shadow(0 0 9px rgba(237, 28, 36, .95)); }
+.ci-w-recolour { --logo-mark: #7b3fbf; }
+.ci-w-font     { font-family: Georgia, "Times New Roman", serif; }
+
+.ci-dont__frame--busy {
+  background-image: url("../img/job-concrete-tools.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.ci-dont__frame--lowcontrast { background: #e04b50; }
+
+.ci-dont__frame--boxed .ci-logo {
+  padding: 6px 10px;
+  border: 3px solid #000;
+  background: #fff;
+}
+
+.ci-dont__frame--crowded { position: relative; }
+
+.ci-dont__crowd {
+  position: absolute;
+  font-size: 9px;
+  line-height: 1.2;
+  color: var(--global-foreground-3-rest);
+}
+
+.ci-dont__crowd--t { top: 6px;    left: 50%; transform: translateX(-50%); }
+.ci-dont__crowd--b { bottom: 6px; left: 50%; transform: translateX(-50%); }
+.ci-dont__crowd--l { left: 6px;   top: 50%;  transform: translateY(-50%) rotate(-90deg); }
+.ci-dont__crowd--r { right: 6px;  top: 50%;  transform: translateY(-50%) rotate(90deg); }
+
+/* ---- Clear space -------------------------------------------------------- */
+
+.ci-clear {
+  position: relative;
+  display: inline-block;
+  padding: var(--ci-gap, 44px);
+  background:
+    repeating-linear-gradient(45deg,
+      rgba(237, 28, 36, .07) 0 6px,
+      rgba(237, 28, 36, .14) 6px 12px);
+  outline: 1px dashed rgba(237, 28, 36, .55);
+}
+
+.ci-clear__inner {
+  position: relative;
+  background: var(--ci-white);
+  outline: 1px solid rgba(0, 0, 0, .18);
+}
+
+.ci-clear .ci-logo { width: 260px; }
+
+/* The measure: one R-width, marked on each side. */
+.ci-clear__tick {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ci-red);
+  background: rgba(255, 255, 255, .86);
+}
+
+.ci-clear__tick--top    { top: 0;    left: 50%; width: 22px; height: var(--ci-gap, 44px); transform: translateX(-50%); }
+.ci-clear__tick--bottom { bottom: 0; left: 50%; width: 22px; height: var(--ci-gap, 44px); transform: translateX(-50%); }
+.ci-clear__tick--left   { left: 0;   top: 50%;  height: 22px; width: var(--ci-gap, 44px); transform: translateY(-50%); }
+.ci-clear__tick--right  { right: 0;  top: 50%;  height: 22px; width: var(--ci-gap, 44px); transform: translateY(-50%); }
+
+/* ---- Minimum size ladder ------------------------------------------------ */
+
+.ci-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--padding-x-large);
+}
+
+.ci-size { text-align: center; }
+
+.ci-size__bar {
+  height: 8px;
+  margin-bottom: var(--padding-x-small);
+  border-radius: 2px;
+  background: var(--ci-red);
+}
+
+.ci-size__cm {
+  font-size: var(--font-body-2-strong);
+  font-weight: 700;
+  color: var(--global-foreground-1-rest);
+}
+
+.ci-size__for {
+  font-size: var(--font-caption-1);
+  color: var(--global-foreground-3-rest);
+}
+
+/* ---- Colour ------------------------------------------------------------- */
+
+.ci-colours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--padding-medium);
+}
+
+.ci-colour {
+  overflow: hidden;
+  border: var(--stroke-thin) solid var(--global-stroke-1-global-rest-alt);
+  border-radius: var(--size-corner-radius-4);
+  background: var(--global-background-1-rest);
+}
+
+.ci-colour__chip {
+  height: 118px;
+  transition: height .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.ci-colour:hover .ci-colour__chip { height: 148px; }
+
+.ci-colour__body { padding: var(--padding-medium); }
+
+.ci-colour__name {
+  margin: 0 0 var(--padding-x-small);
+  font-size: var(--font-subtitle-2);
+  line-height: var(--font-line-height-subtitle-2);
+  font-weight: var(--font-subtitle-2-weight);
+}
+
+.ci-colour__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--padding-x-small);
+  padding: 3px 0;
+  font-size: var(--font-caption-1);
+  line-height: 1.5;
+  border-top: var(--stroke-thin) solid var(--global-stroke-1-global-rest-alt);
+}
+
+.ci-colour__row span:first-child { color: var(--global-foreground-3-rest); }
+.ci-colour__row span:last-child  { font-family: "Roboto Mono", monospace; color: var(--global-foreground-1-rest); }
+
+/* ---- Tint ladder -------------------------------------------------------- */
+
+.ci-tints { display: flex; width: 100%; }
+
+.ci-tint {
+  flex: 1 1 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 0;
+  height: 92px;
+  padding-bottom: 6px;
+  font-size: 10px;
+  transition: height .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.ci-tints:hover .ci-tint { height: 76px; }
+.ci-tint:hover { height: 112px !important; }
+
+/* ---- Type specimens ----------------------------------------------------- */
+
+.ci-specimen {
+  padding: var(--padding-medium) 0;
+  border-bottom: var(--stroke-thin) solid var(--global-stroke-1-global-rest-alt);
+}
+
+.ci-specimen:last-child { border-bottom: 0; }
+
+.ci-specimen__name {
+  margin: 0 0 var(--padding-xxx-small);
+  font-size: var(--font-caption-1);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--global-foreground-3-rest);
+}
+
+.ci-specimen__line {
+  margin: 0;
+  font-size: clamp(22px, 3.2vw, 34px);
+  line-height: 1.25;
+  color: var(--global-foreground-1-rest);
+  overflow-wrap: anywhere;
+}
+
+.ci-f-reg  { font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; font-weight: 400; }
+.ci-f-bold { font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; font-weight: 700; }
+.ci-f-cond { font-family: "Helvetica Condensed", "Arial Narrow", Helvetica, Arial, sans-serif; font-weight: 400; font-stretch: condensed; }
+.ci-f-condbold { font-family: "Helvetica Condensed", "Arial Narrow", Helvetica, Arial, sans-serif; font-weight: 700; font-stretch: condensed; }
+
+/* ---- Motion opt-out ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .rx-cover::before,
+  .rx-cover::after,
+  .rx-cover__eyebrow,
+  .rx-cover__logo,
+  .rx-cover__rule,
+  .rx-cover__title,
+  .rx-cover__lead { animation: none; }
+
+  .rx-cover__logo { clip-path: none; }
+  .rx-cover__rule { width: 168px; }
+
+  .rx-reveal { opacity: 1; transform: none; transition: none; }
+
+  .rx-door,
+  .rx-door::before,
+  .rx-door__go svg,
+  .ci-colour__chip,
+  .ci-tint { transition: none; }
+
+  .rx-door:hover { transform: none; }
+}

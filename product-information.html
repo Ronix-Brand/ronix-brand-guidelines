@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product information — Ronix Design System</title>
+<meta name="description" content="The PDP: image slider, information wrapper, sticky tablist, feature list and spec table.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Product information</p>
+
+      <div class="sg-hero">
+        <h1>Product information</h1>
+        <p class="sg-hero__lead">
+          The product detail page — the deepest screen in the system. An image slider paired with an
+          information wrapper, followed by a sticky tab bar and an information section carrying the
+          feature list and specification table.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="layout">Page layout</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Two columns above the fold: the slider takes roughly 60&nbsp;% of the container and the
+              information wrapper the rest. Below 992&nbsp;px they stack, slider first.
+            </p>
+            <p>
+              The information wrapper is a fixed 512&nbsp;px at its Default size and compresses to
+              434&nbsp;px inside the 1320 and 1140 containers.
+            </p>
+            <h3>Vertical order</h3>
+            <ul>
+              <li>Main navigation bar — 54&nbsp;px</li>
+              <li>Slider and information wrapper</li>
+              <li>Sticky tablist — 64&nbsp;px container, 40&nbsp;px buttons</li>
+              <li>Information Section — feature list and spec table</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Slider</th><th>Info wrapper</th><th>Info Section</th></tr></thead>
+                  <tbody>
+                    <tr><td>1920</td><td>822 &times; 739</td><td>434</td><td>1920 &times; 732</td></tr>
+                    <tr><td>1400</td><td>822 &times; 739</td><td>434</td><td>1400 &times; 732</td></tr>
+                    <tr><td>1200</td><td>658 &times; 559</td><td>434</td><td>1200 &times; 820</td></tr>
+                    <tr><td>992</td><td>687 &times; 604</td><td>stacked</td><td>992 &times; 916</td></tr>
+                    <tr><td>768</td><td>583 &times; 500</td><td>stacked</td><td>768 &times; 1138</td></tr>
+                    <tr><td>576</td><td>540 &times; 620</td><td>stacked</td><td>576 &times; 972</td></tr>
+                    <tr><td>358</td><td>326 &times; 398</td><td>stacked</td><td>358 &times; 1234</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>The Information Section nearly doubles in height between 1400 and 358 as its two columns stack.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="slider">Image slider</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A square stage with a thumbnail rail. The rail runs <strong>vertically at
+              75&nbsp;px</strong> beside the stage on large viewports, and
+              <strong>horizontally at 65&ndash;90&nbsp;px</strong> beneath it on smaller ones.
+            </p>
+            <h3>Video thumbnails</h3>
+            <p>
+              A video thumbnail carries a play badge — a filled circle in brand red, centred on the tile.
+            </p>
+            <h3>Chevrons</h3>
+            <p>
+              Two 30&times;30 chevrons sit inside the stage at its lower-left, stacked vertically —
+              they page the <em>thumbnail rail</em>, not the stage.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-slider" style="width:100%;max-width:520px">
+                  <div class="rx-slider__thumbs" role="tablist" aria-label="Product images">
+                    <button class="rx-slider__thumb" role="tab" aria-selected="true" type="button"><img src="img/pdp-1.jpg" alt="Drill in use" loading="lazy"></button>
+                    <button class="rx-slider__thumb rx-slider__thumb--video" role="tab" aria-selected="false" type="button" aria-label="Product video"><img src="img/pdp-2.jpg" alt="" loading="lazy"></button>
+                    <button class="rx-slider__thumb" role="tab" aria-selected="false" type="button"><img src="img/pdp-3.jpg" alt="Drill body" loading="lazy"></button>
+                    <button class="rx-slider__thumb" role="tab" aria-selected="false" type="button"><img src="img/pdp-4.jpg" alt="Chuck detail" loading="lazy"></button>
+                  </div>
+                  <div class="rx-slider__stage">
+                    <img src="img/pdp-1.jpg" alt="Corded impact drill in use" loading="lazy">
+                    <div class="rx-slider__chevrons">
+                      <button class="rx-chevron" type="button" aria-label="Previous image">
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 15l6-6 6 6"/></svg>
+                      </button>
+                      <button class="rx-chevron" type="button" aria-label="Next image">
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Image slider, large layout. Narrow the window past 768&nbsp;px and the rail moves beneath the stage.</figcaption>
+            </figure>
+          </div>
+
+          <p class="sg-note">
+            Up to nine thumbnails are shown at every size. At narrow widths nine tiles exceed the frame,
+            so the rail scrolls rather than wrapping — keeping the stage in a fixed position while the
+            thumbnails move.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="info-wrapper">Information wrapper</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The densest block of type in the system — eleven distinct elements in a single column,
+              using six different type styles.
+            </p>
+            <h3>Order</h3>
+            <ul>
+              <li>Product rate — star plus count, Caption&nbsp;1</li>
+              <li>Labels — the product-card status chips, reused</li>
+              <li>Item code — Title&nbsp;5</li>
+              <li>Barcodes — three Caption&nbsp;1 lines</li>
+              <li>Origin badge — image</li>
+              <li>Product name — Title&nbsp;2 in-container, 28/32</li>
+              <li>Description — Body&nbsp;1, 16/20</li>
+              <li>Actions — Bulk order (primary), Compare (secondary)</li>
+              <li>Feature and Spec accordions</li>
+              <li>Share — social icons</li>
+              <li>Similar models — chips</li>
+            </ul>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-pdp-info" style="width:100%;max-width:420px">
+                  <div class="rx-pdp-info__meta">
+                    <span>Product rate:</span>
+                    <span class="rx-rating">&#9733;</span>
+                    <span>(4)</span>
+                  </div>
+                  <div class="rx-pdp-info__meta">
+                    <span>Labels:</span>
+                    <span class="rx-label rx-label--neutral">Hot sale</span>
+                    <span class="rx-label rx-label--neutral">Made in Germany &#127465;&#127466;</span>
+                  </div>
+
+                  <p class="rx-pdp-info__code">Item code: V12001</p>
+                  <p class="rx-pdp-info__barcodes">
+                    Product barcode: 6984523168746<br>
+                    Barcode For Color Box: 4069516000283<br>
+                    Barcode For Color Carton: 4069516000290
+                  </p>
+
+                  <hr class="rx-pdp-info__rule">
+
+                  <h3 class="rx-pdp-info__title">Corded Impact Drill</h3>
+                  <p class="rx-pdp-info__body">
+                    Do you want to get a miter saw? Whether you are a professional or a homeowner, you
+                    must choose the tool that best suits your needs. Ronix 5302 miter saw with 2000W
+                    power and 5300 RPM is used to cut at an angle so you can create angles with pieces
+                    of wood.
+                  </p>
+
+                  <div class="sg-row">
+                    <a class="rx-btn rx-btn--primary" href="#info-wrapper">Bulk order</a>
+                    <a class="rx-btn rx-btn--secondary" href="#info-wrapper">Compare</a>
+                  </div>
+
+                  <details class="rx-accordion">
+                    <summary class="rx-accordion__summary">
+                      Feature
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"/></svg>
+                    </summary>
+                    <div class="rx-accordion__body">
+                      <ul class="rx-feature-list" style="padding-left:16px">
+                        <li>Powerful 2000W motor delivers 5300 RPM</li>
+                        <li>Equipped with belt to transfer power for less noise</li>
+                        <li>Made from high quality material</li>
+                      </ul>
+                    </div>
+                  </details>
+
+                  <details class="rx-accordion">
+                    <summary class="rx-accordion__summary">
+                      Spec
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"/></svg>
+                    </summary>
+                    <div class="rx-accordion__body">
+                      <table class="rx-spc">
+                        <tbody>
+                          <tr><th>No-Load Speed</th><td>0-3000 RPM</td></tr>
+                          <tr><th>Power</th><td>600W</td></tr>
+                          <tr><th>Chuck Size</th><td>13mm</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
+
+                  <div class="rx-pdp-info__meta" style="margin-top:8px">
+                    <strong style="font-size:var(--font-title-in-container-5);font-weight:800;color:var(--global-foreground-1-rest)">Similar Model:</strong>
+                  </div>
+                  <div class="rx-model-chips">
+                    <a class="rx-model-chip" href="#info-wrapper">2211P</a>
+                    <a class="rx-model-chip" href="#info-wrapper">2211X</a>
+                    <a class="rx-model-chip" href="#info-wrapper">2211V</a>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Information wrapper. The Feature and Spec accordions are live.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="tabs">Sticky tablist</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Six buttons in a 64&nbsp;px container beneath the fold. The library annotates two frames
+              with <em>&ldquo;While Scrolling : Tabs Sticky&rdquo;</em> — the bar pins under the
+              navigation as the page scrolls.
+            </p>
+            <p>
+              Buttons are 40&nbsp;px tall at Large and 36&nbsp;px at Medium and Small, matching the
+              standard button component rather than defining their own.
+            </p>
+            <p>
+              At 358&nbsp;px the six buttons need 874&nbsp;px against a 326&nbsp;px container, so the
+              bar scrolls horizontally.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="width:100%;padding:0 16px 16px;background:var(--global-background-1-rest)">
+                  <div class="rx-pdp-tabs" style="position:static">
+                    <a class="rx-btn rx-btn--ghost" href="#tabs" style="color:var(--brand-foreground-1-rest);font-weight:600">Product information</a>
+                    <a class="rx-btn rx-btn--ghost" href="#tabs">Features</a>
+                    <a class="rx-btn rx-btn--ghost" href="#tabs">Specs</a>
+                    <a class="rx-btn rx-btn--ghost" href="#tabs">Downloads</a>
+                    <a class="rx-btn rx-btn--ghost" href="#tabs">Similar products</a>
+                    <a class="rx-btn rx-btn--ghost" href="#tabs">Support</a>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>The tablist. Scroll it sideways at narrow widths.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="info-section">Information Section</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Two columns on one white surface: the feature list on the left, the specification table
+              on the right, with a pair of document actions beneath.
+            </p>
+            <p>
+              Feature items are Body&nbsp;2 Strong — Medium&nbsp;500 at 14/18. The spec table uses the
+              same size, with labels in regular weight and values in
+              <code class="sg-code">Foreground/2</code>.
+            </p>
+            <p>
+              It ships in seven variants across three Size values and seven Breakpoints — the most
+              heavily specified component on the page.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="width:100%;padding:24px;background:var(--global-background-1-rest)">
+                  <div style="display:grid;gap:32px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+                    <div>
+                      <p style="margin:0 0 12px;font-size:var(--font-body-2-strong);font-weight:600">Feature</p>
+                      <hr class="rx-pdp-info__rule" style="margin-bottom:12px">
+                      <ul class="rx-feature-list">
+                        <li>Powerful 2000W motor delivers 5300 RPM for maximum productivity</li>
+                        <li>Equipped with belt to transfer power for less noise and vibration</li>
+                        <li>Made from high quality material which secures precise cutting</li>
+                        <li>Adjustable and expandable base extensions for work-piece support</li>
+                        <li>Compact design and lightweight for job site portability</li>
+                        <li>Horizontal D-handle design for easy and comfortable operation</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p style="margin:0 0 12px;font-size:var(--font-body-2-strong);font-weight:600">SPC</p>
+                      <hr class="rx-pdp-info__rule" style="margin-bottom:12px">
+                      <table class="rx-spc">
+                        <tbody>
+                          <tr><th>No-Load Speed</th><td>0-3000 RPM</td></tr>
+                          <tr><th>Frequency</th><td>50-60Hz</td></tr>
+                          <tr><th>Model</th><td>2211</td></tr>
+                          <tr><th>Chuck Type</th><td>Keyed</td></tr>
+                          <tr><th>Chuck Size</th><td>13mm</td></tr>
+                          <tr><th>Power</th><td>600W</td></tr>
+                          <tr><th>Drill Capacity</th><td>13-30mm</td></tr>
+                          <tr><th>Weight</th><td>1.88kg</td></tr>
+                          <tr><th>Voltage</th><td>220-240 V</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <hr class="rx-pdp-info__rule" style="margin:24px 0">
+                  <div class="sg-row">
+                    <a class="rx-btn rx-btn--primary" href="#info-section">User manual</a>
+                    <a class="rx-btn rx-btn--secondary" href="#info-section">Exploded view</a>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>Information Section, Size=Large, Breakpoint=1400.</figcaption>
+            </figure>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Variant</th><th>Width</th><th>Height</th><th>Columns</th></tr></thead>
+                  <tbody>
+                    <tr><td>Size=Large, Breakpoint=Default</td><td>1920</td><td>732</td><td>2</td></tr>
+                    <tr><td>Size=Large, Breakpoint=1400</td><td>1400</td><td>732</td><td>2</td></tr>
+                    <tr><td>Size=Large, Breakpoint=1200</td><td>1200</td><td>820</td><td>2</td></tr>
+                    <tr><td>Size=Medium, Breakpoint=992</td><td>992</td><td>916</td><td>2</td></tr>
+                    <tr><td>Size=Medium, Breakpoint=768</td><td>768</td><td>1138</td><td>1</td></tr>
+                    <tr><td>Size=Small, Breakpoint=576</td><td>576</td><td>972</td><td>1</td></tr>
+                    <tr><td>Size=Small, Breakpoint=358</td><td>358</td><td>1234</td><td>1</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Seven variants. Note this component names its property <code>Breakpoint</code> — which is what the category tile should have done.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              The accordions are native <code class="sg-code">&lt;details&gt;</code> elements — they
+              work without JavaScript and are keyboard accessible by default.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;div class="rx-pdp"&gt;
+  &lt;div class="rx-slider"&gt;
+    &lt;div class="rx-slider__thumbs" role="tablist"&gt;
+      &lt;button class="rx-slider__thumb" role="tab" aria-selected="true"&gt;…&lt;/button&gt;
+      &lt;button class="rx-slider__thumb rx-slider__thumb--video" role="tab"&gt;…&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="rx-slider__stage"&gt;
+      &lt;img src="drill.jpg" alt="Corded impact drill"&gt;
+      &lt;div class="rx-slider__chevrons"&gt;…&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="rx-pdp-info"&gt;
+    &lt;h1 class="rx-pdp-info__title"&gt;Corded Impact Drill&lt;/h1&gt;
+    &lt;details class="rx-accordion"&gt;
+      &lt;summary class="rx-accordion__summary"&gt;Spec&lt;/summary&gt;
+      &lt;div class="rx-accordion__body"&gt;…&lt;/div&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="categories.html"><span>Previous chapter</span>&larr; Category tile</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+<script>
+/* Slider demo: clicking a thumbnail swaps the stage image. */
+(function () {
+  var slider = document.querySelector('.rx-slider');
+  if (!slider) return;
+  var stage = slider.querySelector('.rx-slider__stage img');
+  var thumbs = [].slice.call(slider.querySelectorAll('.rx-slider__thumb'));
+
+  thumbs.forEach(function (thumb) {
+    thumb.addEventListener('click', function () {
+      thumbs.forEach(function (t) { t.setAttribute('aria-selected', String(t === thumb)); });
+      var img = thumb.querySelector('img');
+      if (img) stage.src = img.src;
+    });
+  });
+})();
+</script>
+</body>
+</html>

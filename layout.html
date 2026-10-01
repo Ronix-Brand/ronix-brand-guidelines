@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout &amp; Grid — Ronix Design System</title>
+<meta name="description" content="Frame sizes, breakpoints, spacing, stroke and radius tokens of the Ronix design library.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Foundations &nbsp;/&nbsp; Layout &amp; Grid</p>
+
+      <div class="sg-hero">
+        <h1>Layout &amp; Grid</h1>
+        <p class="sg-hero__lead">
+          Two nested frames govern every page: a <em>section</em> that spans the full usable width,
+          and a <em>container</em> inside it that holds the content. Both are tokens, and both change
+          value at each breakpoint.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="frames">Section and container</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A section is the outer frame — the full-bleed band that carries a background colour or
+              image. The container sits inside it and is where content actually begins.
+            </p>
+            <p>
+              Each comes in an <strong>Extra</strong> and a <strong>Default</strong> width. Extra is
+              for wide editorial layouts; Default is the standard page measure used across the
+              catalogue.
+            </p>
+            <p>
+              The difference between section and container is the page gutter: 40&nbsp;px at Large,
+              16&nbsp;px at Small.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="width:100%;padding:24px;background:var(--global-background-4-rest)">
+                  <p style="margin:0 0 8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--global-foreground-2-rest)">Section — 1200</p>
+                  <div style="background:var(--global-background-1-rest);border:1px dashed var(--global-stroke-1-global-rest);padding:24px;margin:0 20px">
+                    <p style="margin:0;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--global-foreground-3-rest)">Container — 1140</p>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Default section and container at the Large breakpoint.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="breakpoints">Breakpoints</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The design library lays out the same components three times — Large, Medium and Small —
+              and rebinds the frame tokens in each. The CSS mirrors that with two media queries.
+            </p>
+            <p>
+              Design for Small first. The 326&nbsp;px container is the hardest constraint in the
+              system.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead>
+                    <tr><th>Breakpoint</th><th>Section</th><th>Container</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large &ge; 1200</td><td>1400</td><td>1320</td></tr>
+                    <tr><td>1200</td><td>1140</td></tr>
+                    <tr><td rowspan="2">Medium 768&ndash;1199</td><td>992</td><td>928</td></tr>
+                    <tr><td>768</td><td>720</td></tr>
+                    <tr><td rowspan="2">Small &lt; 768</td><td>576</td><td>540</td></tr>
+                    <tr><td>358</td><td>326</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Frame sizes in px. Every breakpoint carries two widths — build to the container, not the section.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="spacing">Spacing</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Eight padding steps, every one a multiple of 2 and all but the smallest a multiple
+              of 4. If a gap needs a value that is not on this list, the structure above it is
+              usually the thing to fix.
+            </p>
+          </div>
+
+          <ul class="sg-scale">
+            <li>
+              <span class="sg-scale__name">Padding / None</span>
+              <span class="sg-scale__value">0 px</span>
+              <span class="sg-scale__bar" style="width:0;min-width:2px;background:var(--global-background-4-rest)"></span>
+            </li>
+            <li>
+              <span class="sg-scale__name">Padding / XXXX-Small</span>
+              <span class="sg-scale__value">2 px</span>
+              <span class="sg-scale__bar" style="width:2px"></span>
+            </li>
+            <li>
+              <span class="sg-scale__name">Padding / XXX-Small</span>
+              <span class="sg-scale__value">4 px</span>
+              <span class="sg-scale__bar" style="width:4px"></span>
+            </li>
+            <li>
+              <span class="sg-scale__name">Padding / X-Small</span>
+              <span class="sg-scale__value">8 px</span>
+              <span class="sg-scale__bar" style="width:8px"></span>
+            </li>
+            <li>
+              <span class="sg-scale__name">Padding / Small</span>
+              <span class="sg-scale__value">12 px</span>
+              <span class="sg-scale__bar" style="width:12px"></span>
+            </li>
+            <li>
+              <span class="sg-scale__name">Padding / Medium</span>
+              <span class="sg-scale__value">16 px</span>
+              <span class="sg-scale__bar" style="width:16px"></span>
+            </li>
+            <li>
+              <span class="sg-scale__name">Padding / X-Large</span>
+              <span class="sg-scale__value">24 px</span>
+              <span class="sg-scale__bar" style="width:24px"></span>
+            </li>
+            <li>
+              <span class="sg-scale__name">Padding / XX-Large</span>
+              <span class="sg-scale__value">32 px</span>
+              <span class="sg-scale__bar" style="width:32px"></span>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="stroke">Stroke, radius and icons</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The system has one stroke width and one corner radius. Both are deliberately small: the
+              geometry stays quiet so that contrast and spacing do the structuring.
+            </p>
+            <p>
+              Icon size is a token too, and it is one of the values that steps down at Small — from
+              24&nbsp;px to 20&nbsp;px — alongside the type.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+                  <tbody>
+                    <tr><td><code>Thin</code></td><td>1 px</td><td>All borders, dividers and separators</td></tr>
+                    <tr><td><code>Size/Corner radious/4</code></td><td>4 px</td><td>Buttons, cards, tiles, inputs, banners</td></tr>
+                    <tr><td><code>Main icon / large object</code></td><td>24 px &rarr; 20 px</td><td>Header, navigation, standalone icon buttons</td></tr>
+                    <tr><td><code>Text-wrapper icon / large</code></td><td>24 px &rarr; 20 px</td><td>Icons set inline with Subtitle or Body text</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Arrows show the Large &rarr; Small transition.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="usage">Building a page</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              A section–container pair in CSS is four declarations. Nothing below carries a literal
+              measurement, which is what lets the same markup serve all three breakpoints.
+            </p>
+          </div>
+
+          <pre class="sg-pre">.section {
+  width: 100%;
+  padding-inline: var(--padding-medium);
+  background: var(--global-background-2-rest);
+}
+
+.section__container {
+  max-width: var(--frame-container-default);
+  margin-inline: auto;
+  padding-block: var(--padding-xx-large);
+}
+
+/* Wide editorial variant */
+.section--extra .section__container {
+  max-width: var(--frame-container-extra);
+}</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="typography.html"><span>Previous chapter</span>&larr; Typography</a>
+        <a href="components.html"><span>Next chapter</span>Components &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

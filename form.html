@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Form — Ronix Design System</title>
+<meta name="description" content="The contact form — and the legacy system it is built on, including a different typeface.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Form</p>
+
+      <div class="sg-hero">
+        <h1>Form</h1>
+        <p class="sg-hero__lead">
+          A single contact form, specified at six widths. It is also the clearest case of drift in the
+          whole kit — the component is built on the legacy system throughout, down to a different
+          typeface.
+        </p>
+      </div>
+
+
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A 64&nbsp;px padded block — 32&nbsp;px at the smallest width — containing a heading
+              pair, four inputs in two rows, a message field and a footer.
+            </p>
+            <h3>Input box</h3>
+            <p>
+              73&nbsp;px tall overall: a 20&nbsp;px label, a 40&nbsp;px field with a thin stroke and
+              4&nbsp;px radius, and a 13&nbsp;px helper line beneath carrying an icon and message.
+            </p>
+            <p>
+              The helper line is always present in the library, reading
+              &ldquo;Couldn&rsquo;t&nbsp;Find&rdquo; on every field. That is placeholder text, not a
+              default state — the space is reserved so validation messages do not shift the layout.
+            </p>
+            <h3>Message field</h3>
+            <p>
+              128&nbsp;px tall, no border, sitting on the tinted panel fill. It is the only field in
+              the system with no stroke.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <form class="rx-form" style="width:100%" onsubmit="return false">
+                  <div class="rx-form__head">
+                    <h3 class="rx-form__title">Get in touch</h3>
+                    <p class="rx-form__subtitle">We&rsquo;d be delighted to hear from you.</p>
+                  </div>
+
+                  <div class="rx-form__rows">
+                    <div class="rx-form__field">
+                      <label class="rx-form__label" for="f-name">Full Name</label>
+                      <input class="rx-form__input" id="f-name" type="text" autocomplete="name">
+                      <span class="rx-form__help"></span>
+                    </div>
+                    <div class="rx-form__field">
+                      <label class="rx-form__label" for="f-country">Country</label>
+                      <input class="rx-form__input" id="f-country" type="text" autocomplete="country-name">
+                      <span class="rx-form__help"></span>
+                    </div>
+                    <div class="rx-form__field">
+                      <label class="rx-form__label" for="f-phone">Phone number</label>
+                      <input class="rx-form__input" id="f-phone" type="tel" autocomplete="tel">
+                      <span class="rx-form__help"></span>
+                    </div>
+                    <div class="rx-form__field">
+                      <label class="rx-form__label" for="f-email">E-mail address</label>
+                      <input class="rx-form__input" id="f-email" type="email" autocomplete="email">
+                      <span class="rx-form__help"></span>
+                    </div>
+                    <div class="rx-form__field rx-form__field--full">
+                      <label class="rx-form__label sg-visually-hidden" for="f-message">Your Message</label>
+                      <textarea class="rx-form__textarea" id="f-message" placeholder="Your Message"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="rx-form__foot">
+                    <p class="rx-form__privacy">100% Privacy Guaranteed</p>
+                    <button class="rx-form__submit" type="submit">Submit</button>
+                  </div>
+                </form>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Form-Contact us at 1320&nbsp;px. Live — the fields work and the layout stacks below 768&nbsp;px.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Validation state</h3>
+            <p>
+              The helper line is where a field&rsquo;s error appears. Reserving it in the resting
+              state is the right call — the alternative pushes every row below it down the moment a
+              message appears.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-form" style="width:100%;padding:32px">
+                  <div class="rx-form__field" style="max-width:420px">
+                    <label class="rx-form__label" for="f-demo">E-mail address</label>
+                    <input class="rx-form__input" id="f-demo" type="email" value="sales@" style="outline:2px solid var(--legacy-red-dark);outline-offset:-2px">
+                    <span class="rx-form__help" style="color:var(--legacy-red-dark)">
+                      <svg viewBox="0 0 24 24" width="11" height="11" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>
+                      Couldn&rsquo;t Find
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>The reserved helper line carrying an error.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="responsive">Responsive behaviour</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Six widths. The two-column field grid holds down to 720&nbsp;px, then collapses to one
+              column — and the submit button goes full width at the same point.
+            </p>
+            <p>
+              The block padding drops from 64&nbsp;px to 32&nbsp;px only at the narrowest width,
+              which means a 540&nbsp;px form still gives up 128&nbsp;px to padding.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Width</th><th>Block padding</th><th>Field columns</th><th>Field width</th><th>Submit</th></tr></thead>
+                  <tbody>
+                    <tr><td>1320</td><td>64</td><td>2</td><td>588</td><td>76 px</td></tr>
+                    <tr><td>1140</td><td>64</td><td>2</td><td>498</td><td>76 px</td></tr>
+                    <tr><td>960</td><td>64</td><td>2</td><td>408</td><td>76 px</td></tr>
+                    <tr><td>720</td><td>64</td><td>2</td><td>288</td><td>76 px</td></tr>
+                    <tr><td>540</td><td>64</td><td>1</td><td>412</td><td>full width</td></tr>
+                    <tr><td>326</td><td>32</td><td>1</td><td>262</td><td>full width</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>The message field stays 128&nbsp;px tall at every width.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Every field takes a real <code class="sg-code">&lt;label&gt;</code> bound by
+              <code class="sg-code">for</code>, with correct <code class="sg-code">type</code> and
+              <code class="sg-code">autocomplete</code> values. The message field takes a visually
+              hidden label — a placeholder is not a label.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;div class="rx-form__field"&gt;
+  &lt;label class="rx-form__label" for="f-email"&gt;E-mail address&lt;/label&gt;
+  &lt;input class="rx-form__input" id="f-email" type="email" autocomplete="email"&gt;
+  &lt;span class="rx-form__help" id="f-email-help"&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- On error --&gt;
+&lt;input … aria-invalid="true" aria-describedby="f-email-help"&gt;
+&lt;span class="rx-form__help" id="f-email-help"&gt;Couldn't Find&lt;/span&gt;</pre>
+        </div>
+
+        <p class="sg-note">
+          Three requirements are carried by the markup rather than the visual design: the association
+          between a field and its error message (<code class="sg-code">aria-describedby</code>), the
+          invalid state (<code class="sg-code">aria-invalid</code>), and a real label on the message
+          field. All three are mandatory.
+        </p>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="information-cards.html"><span>Previous chapter</span>&larr; Information cards</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

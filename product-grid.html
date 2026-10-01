@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product grid — Ronix Design System</title>
+<meta name="description" content="The product listing page: filter panel, product tablist, grid and pagination.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Product grid</p>
+
+      <div class="sg-hero">
+        <h1>Product grid</h1>
+        <p class="sg-hero__lead">
+          The product listing page — filter panel, breadcrumb tablist, card grid and pagination,
+          with the Selected interaction state and the brand tints that support it.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="layout">Page layout</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A 257&nbsp;px filter sidebar beside the grid, with the
+              <a href="#tablist">product tablist</a> above both. The grid column count is driven by
+              the filter component&rsquo;s own <code class="sg-code">Layout</code> property.
+            </p>
+            <p>
+              The sidebar holds 257&nbsp;px at both 1400 and 1200 — so the grid absorbs the entire
+              difference, and cards drop from 258&nbsp;px to 211&nbsp;px while staying four across.
+            </p>
+            <p>
+              Below 992&nbsp;px the sidebar leaves the layout entirely.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Container</th><th>Sidebar</th><th>Grid</th><th>Columns</th><th>Card</th></tr></thead>
+                  <tbody>
+                    <tr><td>1400</td><td>1320</td><td>257</td><td>1055</td><td>4</td><td>258</td></tr>
+                    <tr><td>1200</td><td>1140</td><td>257</td><td>875</td><td>4</td><td>211</td></tr>
+                    <tr><td>576</td><td>540</td><td>&mdash;</td><td>540</td><td>2</td><td>266</td></tr>
+                    <tr><td>358</td><td>326</td><td>&mdash;</td><td>326</td><td>2</td><td>159</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Gaps are 8&nbsp;px throughout. The 1200 card is 47&nbsp;px narrower than at 1400 because the sidebar does not shrink.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="states">Selected — a fourth interaction state</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Alongside Rest, Hover and Pressed, the filter panel and pagination use
+              <strong>Selected</strong>:
+            </p>
+            <ul>
+              <li><code class="sg-code">Global/background/1/Selected</code> — #ebebeb</li>
+              <li><code class="sg-code">Global/Stroke/1/Global/Selected</code> — #cccccc</li>
+            </ul>
+            <p>
+              Selected is distinct from Hover. Hover is transient and follows the pointer; Selected
+              persists and describes what the user has chosen. Use the Selected tokens for a chosen
+              filter, never the Hover tokens.
+            </p>
+            <h3>Brand tints</h3>
+            <p>
+              <code class="sg-code">Brand/background/2</code> (#fff5f5) and
+              <code class="sg-code">Brand/Stroke/2</code> (#ffcccc) are the light end of the brand ramp.
+              They carry the &ldquo;Clear All&rdquo; control.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;gap:16px;align-items:flex-start">
+                <div class="sg-row">
+                  <button class="rx-value-chip" type="button" aria-pressed="true">220 V</button>
+                  <button class="rx-value-chip" type="button" aria-pressed="false">60 V</button>
+                  <button class="rx-value-chip" type="button" aria-pressed="false">40 V</button>
+                  <button class="rx-value-chip" type="button" aria-pressed="false">20 V</button>
+                  <button class="rx-value-chip" type="button" aria-pressed="false">18 V</button>
+                </div>
+                <div class="sg-row">
+                  <span class="rx-filter-chip">&times; Industrial tools</span>
+                  <span class="rx-filter-chip">&times; In Stock</span>
+                  <span class="rx-filter-chip">&times; Hot sale</span>
+                  <span class="rx-filter-chip rx-filter-chip--clear">Clear All</span>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Above: value chips using Selected. Below: applied-filter chips, with Clear All on the brand tint.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="filters">Filter panel</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Eight variants: <code class="sg-code">Layout</code> of 5, 4, 3 or 1 column crossed with
+              <code class="sg-code">Type</code> of Extra or Default.
+            </p>
+            <p>
+              The <code class="sg-code">Layout</code> property does not describe the filter — it
+              describes <em>the grid beside it</em>. A 5-column grid leaves a 257&nbsp;px sidebar; a
+              3-column grid leaves 434&nbsp;px. Filter and grid are sized as one decision.
+            </p>
+            <h3>The 1-column variant</h3>
+            <p>
+              At <code class="sg-code">Layout=1&nbsp;-&nbsp;Column</code> the panel is
+              <strong>1320&nbsp;px wide</strong> — the full container. It is not a sidebar at all but
+              a full-width filter surface, which is what replaces the sidebar when it leaves the
+              layout below 992&nbsp;px.
+            </p>
+            <h3>Groups</h3>
+            <ul>
+              <li><strong>Filtered Option</strong> — applied chips plus Clear All</li>
+              <li><strong>Application</strong> — searchable checkbox list</li>
+              <li><strong>Voltage</strong> — value chips</li>
+              <li><strong>Highlights</strong> — In Stock, Hot sale, New, Discontinued</li>
+              <li><strong>Star rating</strong> — searchable checkbox list</li>
+            </ul>
+            <p>
+              Three of the five groups carry their own search field, which is the right call for
+              lists that can run long.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Layout</th><th>Type=Extra</th><th>Type=Default</th><th>Role</th></tr></thead>
+                  <tbody>
+                    <tr><td>5 - Column</td><td>257 &times; 1217</td><td>257 &times; 1217</td><td>Narrow sidebar</td></tr>
+                    <tr><td>4 - Column</td><td>324 &times; 1187</td><td>279 &times; 1187</td><td>Sidebar</td></tr>
+                    <tr><td>3 - Column</td><td>434 &times; 1127</td><td>374 &times; 1157</td><td>Wide sidebar</td></tr>
+                    <tr><td>1 - Column</td><td>1320 &times; 1127</td><td>1140 &times; 1127</td><td><strong>Full-width surface</strong></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>The panel gets shorter as it gets wider — the same controls in fewer rows.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Live panel</h3>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame">
+              <div class="rx-filters" style="width:100%;max-width:257px">
+                <p class="rx-filters__title">Filters</p>
+                <p class="rx-filters__count">Corded impact drills (86) result</p>
+
+                <details class="rx-filters__group" open>
+                  <summary class="rx-filters__legend">Filtered Option
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M6 15l6-6 6 6"/></svg>
+                  </summary>
+                  <div class="rx-filters__body">
+                    <div class="rx-filter-chips">
+                      <span class="rx-filter-chip">&times; Industrial tools</span>
+                      <span class="rx-filter-chip">&times; In Stock</span>
+                      <span class="rx-filter-chip">&times; Hot sale</span>
+                      <span class="rx-filter-chip rx-filter-chip--clear">Clear All</span>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="rx-filters__group" open>
+                  <summary class="rx-filters__legend">Application
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M6 15l6-6 6 6"/></svg>
+                  </summary>
+                  <div class="rx-filters__body">
+                    <input class="rx-filters__search" type="search" placeholder="Placeholder text" aria-label="Search applications">
+                    <ul class="rx-filters__list">
+                      <li><label><input type="checkbox" checked> Industrial tools</label></li>
+                      <li><label><input type="checkbox"> Wood carving tools</label></li>
+                      <li><label><input type="checkbox"> Tool kit</label></li>
+                      <li><label><input type="checkbox"> Jewelry tools</label></li>
+                      <li><label><input type="checkbox"> Concrete tools</label></li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details class="rx-filters__group" open>
+                  <summary class="rx-filters__legend">Voltage
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M6 15l6-6 6 6"/></svg>
+                  </summary>
+                  <div class="rx-filters__body">
+                    <div class="rx-filter-chips">
+                      <button class="rx-value-chip" type="button" aria-pressed="true">220 V</button>
+                      <button class="rx-value-chip" type="button" aria-pressed="false">60 V</button>
+                      <button class="rx-value-chip" type="button" aria-pressed="false">40 V</button>
+                      <button class="rx-value-chip" type="button" aria-pressed="false">20 V</button>
+                      <button class="rx-value-chip" type="button" aria-pressed="false">18 V</button>
+                    </div>
+                  </div>
+                </details>
+
+                <details class="rx-filters__group" open>
+                  <summary class="rx-filters__legend">Highlights
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M6 15l6-6 6 6"/></svg>
+                  </summary>
+                  <div class="rx-filters__body">
+                    <input class="rx-filters__search" type="search" placeholder="Placeholder text" aria-label="Search highlights">
+                    <ul class="rx-filters__list">
+                      <li><label><input type="checkbox" checked> In Stock</label></li>
+                      <li><label><input type="checkbox" checked> Hot sale</label></li>
+                      <li><label><input type="checkbox"> New</label></li>
+                      <li><label><input type="checkbox"> Discontinued</label></li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 4</span>Filter panel, Layout=5&nbsp;-&nbsp;Column. Groups collapse; chips and checkboxes are live.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="tablist">Product tablist</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Not a tablist at all — it is a breadcrumb of dropdowns on the left and a Sort by control
+              on the right, in a 120&nbsp;px block.
+            </p>
+            <p>
+              Each breadcrumb level is itself a dropdown, so a user can re-pick at any level without
+              going back. That is a better pattern than a plain breadcrumb, and the name hides it.
+            </p>
+            <p>
+              Two variants, State=Extra and State=Default, both 1320&times;120 — identical in the
+              render. At 358 it grows to 152&nbsp;px as the controls wrap.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="width:100%;padding:16px;background:var(--global-background-2-rest)">
+                  <div class="rx-plp-tablist">
+                    <button class="rx-dropdown" type="button">Power tools
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <span class="rx-plp-tablist__sep">/</span>
+                    <button class="rx-dropdown" type="button">Drills
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <span class="rx-plp-tablist__sep">/</span>
+                    <button class="rx-dropdown" type="button">Electric drills
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <span class="rx-plp-tablist__sort">
+                      <button class="rx-dropdown" type="button">Sort by
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>Breadcrumb dropdowns left, Sort by right.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="pagination">Pagination</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Previous, ten numbered pages, next — 520&times;52 at Large, 512&times;48 at 576 and
+              299&times;48 at 358.
+            </p>
+            <p>
+              The current page uses the <strong>Selected</strong> background with brand-red text — brand red
+              as a foreground on a neutral surface rather than as a fill.
+            </p>
+            <p>
+              Ten page links fit 520&nbsp;px comfortably. On narrower widths, or for catalogues running to
+              many pages, truncate the middle — <code class="sg-code">1 &hellip; 5 6 7 &hellip; 40</code>.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <nav class="rx-pagination" aria-label="Pages" style="width:100%;max-width:520px">
+                  <a href="#pagination" aria-label="Previous">&lsaquo;</a>
+                  <a href="#pagination" aria-current="page">1</a>
+                  <a href="#pagination">2</a>
+                  <a href="#pagination">3</a>
+                  <a href="#pagination">4</a>
+                  <a href="#pagination">5</a>
+                  <a href="#pagination">6</a>
+                  <a href="#pagination">7</a>
+                  <a href="#pagination">8</a>
+                  <a href="#pagination">9</a>
+                  <a href="#pagination">10</a>
+                  <a href="#pagination" aria-label="Next">&rsaquo;</a>
+                </nav>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Page 1 selected — Selected background, brand-red label.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="together">Assembled</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Tablist, filter sidebar, grid and pagination together. Narrow past 992&nbsp;px and the
+              sidebar drops out, as it does in the library.
+            </p>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame sg-figure__frame--flush">
+              <div style="width:100%;padding:16px;background:var(--global-background-2-rest)">
+                <div class="rx-plp-tablist">
+                  <button class="rx-dropdown" type="button">Power tools
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <span class="rx-plp-tablist__sep">/</span>
+                  <button class="rx-dropdown" type="button">Drills
+                    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
+                  <span class="rx-plp-tablist__sort">
+                    <button class="rx-dropdown" type="button">Sort by
+                      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                  </span>
+                </div>
+
+                <div class="rx-plp">
+                  <aside class="rx-plp__filters">
+                    <div class="rx-filters">
+                      <p class="rx-filters__title">Filters</p>
+                      <p class="rx-filters__count">Corded impact drills (86) result</p>
+                      <details class="rx-filters__group" open>
+                        <summary class="rx-filters__legend">Voltage
+                          <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M6 15l6-6 6 6"/></svg>
+                        </summary>
+                        <div class="rx-filters__body">
+                          <div class="rx-filter-chips">
+                            <button class="rx-value-chip" type="button" aria-pressed="true">220 V</button>
+                            <button class="rx-value-chip" type="button" aria-pressed="false">60 V</button>
+                            <button class="rx-value-chip" type="button" aria-pressed="false">40 V</button>
+                          </div>
+                        </div>
+                      </details>
+                      <details class="rx-filters__group" open>
+                        <summary class="rx-filters__legend">Highlights
+                          <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:16px;height:16px"><path d="M6 15l6-6 6 6"/></svg>
+                        </summary>
+                        <div class="rx-filters__body">
+                          <ul class="rx-filters__list">
+                            <li><label><input type="checkbox" checked> In Stock</label></li>
+                            <li><label><input type="checkbox"> New</label></li>
+                          </ul>
+                        </div>
+                      </details>
+                    </div>
+                  </aside>
+
+                  <div>
+                    <div class="rx-plp-grid">
+                      <a class="rx-product-card" href="#together">
+                        <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                        <span class="rx-product-card__body">
+                          <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10200</span><span class="rx-label">Hot sale</span></span>
+                          <span class="rx-product-card__title">Heat Gun 2000W</span>
+                          <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                        </span>
+                      </a>
+                      <a class="rx-product-card" href="#together">
+                        <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                        <span class="rx-product-card__body">
+                          <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10210</span></span>
+                          <span class="rx-product-card__title">Orbital Sander 300W</span>
+                          <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rx-compare">Compare</span></span>
+                        </span>
+                      </a>
+                      <a class="rx-product-card" href="#together">
+                        <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                        <span class="rx-product-card__body">
+                          <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10220</span><span class="rx-label">New</span></span>
+                          <span class="rx-product-card__title">Heat Gun 1600W</span>
+                          <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                        </span>
+                      </a>
+                      <a class="rx-product-card" href="#together">
+                        <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                        <span class="rx-product-card__body">
+                          <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10230</span></span>
+                          <span class="rx-product-card__title">Orbital Sander 200W</span>
+                          <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                        </span>
+                      </a>
+                    </div>
+
+                    <nav class="rx-pagination" aria-label="Pages">
+                      <a href="#together" aria-label="Previous">&lsaquo;</a>
+                      <a href="#together" aria-current="page">1</a>
+                      <a href="#together">2</a>
+                      <a href="#together">3</a>
+                      <a href="#together">4</a>
+                      <a href="#together" aria-label="Next">&rsaquo;</a>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 7</span>The assembled PLP. Below 992&nbsp;px the sidebar leaves the flow.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="gap">Filters on small screens</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Below 992&nbsp;px the sidebar leaves the layout. Filters are reached instead from a
+              trigger in the tablist row, which opens the
+              <code class="sg-code">Layout&nbsp;=&nbsp;1&nbsp;-&nbsp;Column</code> variant as a
+              full-width surface.
+            </p>
+            <p>
+              That variant is the mobile filter surface: same groups, same controls, laid out across
+              the full container width rather than down a sidebar.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <p class="sg-note" style="margin:0">
+              <strong>Filters must stay reachable at every width.</strong> A listing of 86 results
+              needs narrowing most on a phone, so the trigger belongs in the tablist row where it is
+              visible without scrolling. Opening the filter surface should not lose the user&rsquo;s
+              place in the results.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="modal.html"><span>Previous chapter</span>&larr; Modal &amp; catalogue card</a>
+        <a href="inventory.html"><span>Next chapter</span>Component index &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+<script>
+/* Value chips toggle their Selected state. */
+document.querySelectorAll('.rx-value-chip').forEach(function (c) {
+  c.addEventListener('click', function () {
+    c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+  });
+});
+</script>
+</body>
+</html>

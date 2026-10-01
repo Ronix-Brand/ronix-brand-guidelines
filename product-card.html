@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product card — Ronix Design System</title>
+<meta name="description" content="Product card anatomy, states, labels, responsive grid and the legacy PLP card.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Product card</p>
+
+      <div class="sg-hero">
+        <h1>Product card</h1>
+        <p class="sg-hero__lead">
+          The densest component in the system and the one that appears most often. It carries a product
+          image, SKU, status labels, title, a three-line specification list, a rating and a compare
+          control — inside 221&nbsp;px at its narrowest.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Two regions. The <strong>media area</strong> is a 1:1 square on
+              <code class="sg-code">background/3</code> (#f0f0f0) holding a cut-out product
+              photograph. The <strong>body</strong> sits on <code class="sg-code">background/1</code>
+              with <code class="sg-code">Padding/Small</code> (12&nbsp;px).
+            </p>
+            <h3>Body order, top to bottom</h3>
+            <ul>
+              <li>SKU in Caption&nbsp;1 Strong (12&nbsp;px), with status labels right-aligned</li>
+              <li>Title in Body&nbsp;1 Strong — Medium 500, 16/22</li>
+              <li>Specification list in Body&nbsp;3 — 12/16, three items</li>
+              <li>Rating and Compare, pushed to the foot</li>
+            </ul>
+            <p>
+              Internal gaps are <code class="sg-code">Padding/XXX-Small</code> (4&nbsp;px); the gap
+              between labels is <code class="sg-code">Padding/XXXX-Small</code> (2&nbsp;px).
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-product-card rx-product-card--fixed rx-product-card--extra" href="#anatomy">
+                  <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                  <span class="rx-product-card__body">
+                    <span class="rx-product-card__meta">
+                      <span class="rx-product-card__sku">V10200</span>
+                      <span class="rx-product-card__labels">
+                        <span class="rx-label">Hot sale</span>
+                      </span>
+                    </span>
+                    <span class="rx-product-card__title">Heat Gun 2000W</span>
+                    <ul class="rx-product-card__specs">
+                      <li>Power 2000W</li>
+                      <li>2 speed settings</li>
+                      <li>50-600 &deg;C</li>
+                    </ul>
+                    <span class="rx-product-card__footer">
+                      <span class="rx-rating" aria-label="Rated 4 out of 5">
+                        &#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span>
+                      </span>
+                      <span class="rx-compare">Compare</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Type=Extra at its 257&nbsp;px minimum width.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-product-card rx-product-card--fixed" href="#anatomy">
+                  <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                  <span class="rx-product-card__body">
+                    <span class="rx-product-card__meta">
+                      <span class="rx-product-card__sku">V10200</span>
+                      <span class="rx-product-card__labels">
+                        <span class="rx-label">Discontinued</span>
+                      </span>
+                    </span>
+                    <span class="rx-product-card__title">Heat Gun 2000W</span>
+                    <ul class="rx-product-card__specs">
+                      <li>Power 2000W</li>
+                      <li>2 speed settings</li>
+                      <li>50-600 &deg;C</li>
+                    </ul>
+                    <span class="rx-product-card__footer">
+                      <span class="rx-rating" aria-label="Rated 4 out of 5">
+                        &#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span>
+                      </span>
+                      <span class="rx-compare">Compare</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Type=Defualt at its 221&nbsp;px minimum width. Hover either card to see the Hover state.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="states">States and variants</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The component set is a 2&times;2 matrix: <code class="sg-code">State</code> of Rest or
+              Hover, crossed with <code class="sg-code">Type</code> of Extra or Defualt.
+            </p>
+            <p>
+              Hover does two things — it draws a 1&nbsp;px
+              <code class="sg-code">Brand/Stroke/1</code> border around the whole card, and it lifts
+              the body to <code class="sg-code">background/1/Hover</code> (#f5f5f5). The media area
+              does not change.
+            </p>
+            <p>
+              There is no pressed or focus variant in the library. For keyboard users the hover
+              treatment should be mirrored on <code class="sg-code">:focus-visible</code>.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Variant</th><th>Min width</th><th>Border</th><th>Body fill</th></tr></thead>
+                  <tbody>
+                    <tr><td>State=Rest, Type=Extra</td><td>257 px</td><td>transparent</td><td>#ffffff</td></tr>
+                    <tr><td>State=Hover, Type=Extra</td><td>257 px</td><td>#a30000</td><td>#f5f5f5</td></tr>
+                    <tr><td>State=Rest, Type=Defualt</td><td>221 px</td><td>transparent</td><td>#ffffff</td></tr>
+                    <tr><td>State=Hover, Type=Defualt</td><td>221 px</td><td>#a30000</td><td>#f5f5f5</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>Height is content-driven — 377&nbsp;px and 360&nbsp;px respectively in the library, but not fixed.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="labels">Status labels</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Four states ship in the library: <strong>New</strong>, <strong>Hot Sale</strong>,
+              <strong>Discontinued</strong> and <strong>Made in Germany</strong>, the last carrying a
+              flag glyph.
+            </p>
+            <p>
+              Labels are 22&nbsp;px tall, Caption&nbsp;2 (10/12), with a 2&nbsp;px radius — the only
+              place in the system that uses <code class="sg-code">Corner radious/2</code> rather than 4.
+            </p>
+            <p>
+              Two labels on one card is the practical maximum at Type=Defualt; past that they wrap
+              and push the title down.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;gap:8px;align-items:flex-start">
+                <span class="rx-label">New</span>
+                <span class="rx-label">Hot Sale</span>
+                <span class="rx-label">Discontinued</span>
+                <span class="rx-label">Made in Germany &#127465;&#127466;</span>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>Labels on a card, in the brand fill.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;gap:8px;align-items:flex-start">
+                <span class="rx-label rx-label--neutral">New</span>
+                <span class="rx-label rx-label--neutral">Hot Sale</span>
+                <span class="rx-label rx-label--neutral">Discontinued</span>
+                <span class="rx-label rx-label--neutral">Made in Germany &#127465;&#127466;</span>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>The neutral rendering, used where the card already carries a red element.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="grid">Grid and responsive behaviour</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Cards sit inside the standard container and step down in count rather than in width.
+              The gap is always <code class="sg-code">Padding/X-Small</code> (8&nbsp;px).
+            </p>
+            <p>
+              Below, the live grid follows the same rules — narrow the window and it steps
+              5&nbsp;&rarr;&nbsp;4&nbsp;&rarr;&nbsp;2.
+            </p>
+            <h3>Min width is not a grid constraint</h3>
+            <p>
+              The <code class="sg-code">min width</code> tokens (257 and 221) describe the card used
+              <em>standalone or in a rail</em>. They do not apply inside the grid — the library&rsquo;s
+              own layouts take cards down to 180&nbsp;px and 163&nbsp;px.
+            </p>
+            <p>
+              Applying <code class="sg-code">min-width</code> to a grid child makes it overflow its
+              column and paint over its neighbour, which silently swallows the hover border on the
+              overlapped edge. Grid cards must be free to shrink.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Section</th><th>Container</th><th>Columns</th><th>Card width</th></tr></thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large</td><td>1400</td><td>1320</td><td>5</td><td>264</td></tr>
+                    <tr><td>1200</td><td>1140</td><td>5</td><td>228</td></tr>
+                    <tr><td rowspan="2">Medium</td><td>992</td><td>960</td><td>4</td><td>240</td></tr>
+                    <tr><td>768</td><td>720</td><td>4</td><td>180</td></tr>
+                    <tr><td rowspan="2">Small</td><td>576</td><td>540</td><td>2</td><td>270</td></tr>
+                    <tr><td>358</td><td>326</td><td>2</td><td>163</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 6</span>Five across at Large, four at Medium, two at Small. Card width is the container less the gaps, divided by the column count.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <h3>Live grid</h3>
+          </div>
+          <figure class="sg-figure">
+            <div class="sg-figure__frame">
+              <div class="rx-product-grid" style="width:100%">
+                <a class="rx-product-card" href="#grid">
+                  <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                  <span class="rx-product-card__body">
+                    <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10200</span><span class="rx-label">New</span></span>
+                    <span class="rx-product-card__title">Heat Gun 2000W</span>
+                    <ul class="rx-product-card__specs"><li>Power 2000W</li><li>2 speed settings</li><li>50-600 °C</li></ul>
+                    <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                  </span>
+                </a>
+                <a class="rx-product-card" href="#grid">
+                  <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                  <span class="rx-product-card__body">
+                    <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10210</span><span class="rx-label">Hot sale</span></span>
+                    <span class="rx-product-card__title">Orbital Sander 300W</span>
+                    <ul class="rx-product-card__specs"><li>Power 300W</li><li>125 mm pad</li><li>12000 OPM</li></ul>
+                    <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rx-compare">Compare</span></span>
+                  </span>
+                </a>
+                <a class="rx-product-card" href="#grid">
+                  <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                  <span class="rx-product-card__body">
+                    <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10220</span></span>
+                    <span class="rx-product-card__title">Heat Gun 1600W</span>
+                    <ul class="rx-product-card__specs"><li>Power 1600W</li><li>2 speed settings</li><li>300-500 °C</li></ul>
+                    <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                  </span>
+                </a>
+                <a class="rx-product-card" href="#grid">
+                  <span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                  <span class="rx-product-card__body">
+                    <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10230</span><span class="rx-label">Discontinued</span></span>
+                    <span class="rx-product-card__title">Orbital Sander 200W</span>
+                    <ul class="rx-product-card__specs"><li>Power 200W</li><li>90 mm pad</li><li>14000 OPM</li></ul>
+                    <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                  </span>
+                </a>
+                <a class="rx-product-card" href="#grid">
+                  <span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span>
+                  <span class="rx-product-card__body">
+                    <span class="rx-product-card__meta"><span class="rx-product-card__sku">V10240</span></span>
+                    <span class="rx-product-card__title">Heat Gun 2300W</span>
+                    <ul class="rx-product-card__specs"><li>Power 2300W</li><li>3 speed settings</li><li>50-650 °C</li></ul>
+                    <span class="rx-product-card__footer"><span class="rx-rating">&#9733;&#9733;&#9733;&#9733;<span class="rx-rating__empty">&#9733;</span></span><span class="rx-compare">Compare</span></span>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <figcaption><span class="sg-figure__num">Fig. 7</span>Live product grid, 8&nbsp;px gap, stepping 5 / 4 / 2 by breakpoint.</figcaption>
+          </figure>
+        </div>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <h3>Grid or rail?</h3>
+            <p>
+              The library contains a second set of sections where five cards keep their minimum width
+              inside a 326&nbsp;px container — a total of 1145&nbsp;px of content in a 326&nbsp;px
+              frame.
+            </p>
+            <p>
+              That is not a broken layout; it is a horizontally scrolling rail. Both patterns are
+              legitimate, and they are visually identical until the viewport narrows, so the choice
+              has to be made explicitly in code.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <div class="rx-product-rail" style="width:100%">
+                  <a class="rx-product-card" href="#grid"><span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span><span class="rx-product-card__body"><span class="rx-product-card__sku">V10200</span><span class="rx-product-card__title">Heat Gun 2000W</span></span></a>
+                  <a class="rx-product-card" href="#grid"><span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span><span class="rx-product-card__body"><span class="rx-product-card__sku">V10210</span><span class="rx-product-card__title">Rotary Hammer</span></span></a>
+                  <a class="rx-product-card" href="#grid"><span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span><span class="rx-product-card__body"><span class="rx-product-card__sku">V10220</span><span class="rx-product-card__title">Angle Grinder</span></span></a>
+                  <a class="rx-product-card" href="#grid"><span class="rx-product-card__media"><img src="img/ronix-heat-gun.png" alt="" loading="lazy"></span><span class="rx-product-card__body"><span class="rx-product-card__sku">V10230</span><span class="rx-product-card__title">Cordless Drill</span></span></a>
+                  <a class="rx-product-card" href="#grid"><span class="rx-product-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span><span class="rx-product-card__body"><span class="rx-product-card__sku">V10240</span><span class="rx-product-card__title">Circular Saw</span></span></a>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 8</span>The rail variant: cards hold 221&nbsp;px and the row scrolls.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="plp">PLP card</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A category tile, 242&times;140, with two states — default and hover. It carries an
+              image and a single centred label, nothing else.
+            </p>
+            <p>
+              Hover draws a dark border rather than the brand red used on the product card.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame">
+                <a class="rx-plp-card" href="#plp" style="width:242px">
+                  <span class="rx-plp-card__media"><img src="img/ronix-sander.png" alt="" loading="lazy"></span>
+                  <span class="rx-plp-card__label">Rotary &amp; Demolition Hammers</span>
+                </a>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 9</span>PLP card, default state. Hover to see the border.</figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Legacy variable</th><th>Value</th></tr></thead>
+                  <tbody>
+                    <tr><td>Back Ground / White - Container</td><td>#ffffff</td></tr>
+                    <tr><td>Back Ground / Light Gray - Base</td><td>#f2f2f2</td></tr>
+                    <tr><td>Back Ground / Secondary</td><td>#e5e5e5</td></tr>
+                    <tr><td>Red / Dark Red</td><td>#bf0000</td></tr>
+                    <tr><td>&gt;358 / Subtitle / Subtitle small</td><td>14 / 20 Regular</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 10</span>The PLP card&rsquo;s bindings.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              The whole card is one anchor, so the entire surface is the target rather than the title
+              alone. Compare is a nested control and needs its own handler with
+              <code class="sg-code">preventDefault</code>.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;!-- In a grid: no width modifier, let the column size it --&gt;
+&lt;a class="rx-product-card" href="/p/V10200"&gt;
+  &lt;span class="rx-product-card__media"&gt;&lt;img src="…" alt=""&gt;&lt;/span&gt;
+  &lt;span class="rx-product-card__body"&gt;
+    &lt;span class="rx-product-card__meta"&gt;
+      &lt;span class="rx-product-card__sku"&gt;V10200&lt;/span&gt;
+      &lt;span class="rx-product-card__labels"&gt;
+        &lt;span class="rx-label"&gt;Hot sale&lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span class="rx-product-card__title"&gt;Heat Gun 2000W&lt;/span&gt;
+    &lt;ul class="rx-product-card__specs"&gt;
+      &lt;li&gt;Power 2000W&lt;/li&gt;
+      &lt;li&gt;2 speed settings&lt;/li&gt;
+      &lt;li&gt;50-600 &amp;deg;C&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;span class="rx-product-card__footer"&gt;
+      &lt;span class="rx-rating" aria-label="Rated 4 out of 5"&gt;★★★★☆&lt;/span&gt;
+      &lt;span class="rx-compare"&gt;Compare&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/span&gt;
+&lt;/a&gt;</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="components.html"><span>Previous chapter</span>&larr; Components</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zigzag card — Ronix Design System</title>
+<meta name="description" content="The zigzag card: alternating image and text, the accordion variant, and its documented content limits.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Components &nbsp;/&nbsp; Zigzag card</p>
+
+      <div class="sg-hero">
+        <h1>Zigzag card</h1>
+        <p class="sg-hero__lead">
+          A half-image, half-text block designed to be stacked — each successive card flips the image
+          to the opposite side, which is where the name comes from. It is the only component in the system that ships with written content limits.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="anatomy">Anatomy</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              A 1320&nbsp;px wrapper split roughly in half: a 656&times;492 image on one side, a text
+              column on the other with <strong>64&nbsp;px</strong> of padding.
+            </p>
+            <h3>Text side</h3>
+            <ul>
+              <li>Title — Title&nbsp;3 in-container, 26/30 ExtraBold</li>
+              <li>Body — Body&nbsp;1, 16/20, in <code class="sg-code">Foreground/2</code></li>
+              <li>Up to two actions — one primary, one secondary</li>
+            </ul>
+            <p>
+              The image is 656 of 1320&nbsp;px — 49.7&nbsp;%, not quite half — and holds a 4:3 ratio,
+              the same frame the
+              <a href="images.html#matrix">Images with overlay text</a> component uses at
+              Size=Extra, Grid=2.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-zigzag" style="width:100%">
+                  <div class="rx-zigzag__media">
+                    <img src="img/job-concrete-tools.jpg" alt="Ronix tools in use" loading="lazy">
+                  </div>
+                  <div class="rx-zigzag__body">
+                    <h3 class="rx-zigzag__title">Benefit from Free Ad Services as a VIP Customer</h3>
+                    <p class="rx-zigzag__text">
+                      Want a boost in your business for free? Ronix offers free ad services to its VIP
+                      customers. This means you can receive content for your social media and website,
+                      and a design for your store and showroom, all in your desired language.
+                    </p>
+                    <div class="rx-zigzag__actions">
+                      <a class="rx-btn rx-btn--primary" href="#anatomy"><span class="rx-btn__dot"></span>Download</a>
+                      <a class="rx-btn rx-btn--secondary" href="#anatomy"><span class="rx-btn__dot"></span>Our Product Series</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 1</span>Property&nbsp;1=Extra — 1320&times;492. Text padding is 64&nbsp;px.</figcaption>
+            </figure>
+          </div>
+
+          <p class="sg-note">
+            The 64&nbsp;px text padding is component-specific —
+            <code class="sg-code">zigzag-card/text-wrapper-padding/Extra</code> — rather than a step on
+            the general padding scale. Use the token, not a hard-coded value.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="zigzag">Alternating direction</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The component is meant to repeat. Each card flips the image to the opposite side so the
+              eye tracks down the page in a zigzag rather than a straight column.
+            </p>
+            <p>
+              Direction is set by a <code class="sg-code">Picture Position = Right | Left</code>
+              property. In code it is a modifier class, applied to alternate cards — or better, by
+              the parent list with <code class="sg-code">:nth-child(even)</code>, so it cannot be
+              forgotten halfway down a long list.
+            </p>
+            <p>
+              Below 992&nbsp;px the split collapses and the image always sits above the text, so the
+              alternation disappears. That is correct — a flipped stack on a phone reads as a mistake.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div style="display:grid;gap:8px;width:100%">
+                  <div class="rx-zigzag">
+                    <div class="rx-zigzag__media"><img src="img/warehouse-germany.jpg" alt="" loading="lazy"></div>
+                    <div class="rx-zigzag__body" style="padding:32px">
+                      <h3 class="rx-zigzag__title" style="font-size:20px;line-height:24px">Warehouse in Germany</h3>
+                      <p class="rx-zigzag__text">Located in the heart of Europe, serving as a central hub for European distribution.</p>
+                    </div>
+                  </div>
+                  <div class="rx-zigzag rx-zigzag--flip">
+                    <div class="rx-zigzag__media"><img src="img/warehouse-china.jpg" alt="" loading="lazy"></div>
+                    <div class="rx-zigzag__body" style="padding:32px">
+                      <h3 class="rx-zigzag__title" style="font-size:20px;line-height:24px">Warehouse in China</h3>
+                      <p class="rx-zigzag__text">Storing our products and facilitating quick access to the Asian market.</p>
+                    </div>
+                  </div>
+                  <div class="rx-zigzag">
+                    <div class="rx-zigzag__media"><img src="img/warehouse-uae.jpg" alt="" loading="lazy"></div>
+                    <div class="rx-zigzag__body" style="padding:32px">
+                      <h3 class="rx-zigzag__title" style="font-size:20px;line-height:24px">Warehouse in UAE</h3>
+                      <p class="rx-zigzag__text">At the crossroads of Europe, Asia and Africa, serving the Middle Eastern market.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 2</span>Three cards alternating. Narrow past 992&nbsp;px and all three stack image-first.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="content-limits">Content limits</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The component carries explicit copy limits. Honour them: the 64&nbsp;px padding leaves a narrow
+              measure, and the card holds a fixed 492&nbsp;px height at Extra.
+            </p>
+            <p>
+              Below the minimums the text column looks empty against the image; above the maximums it
+              overflows, because the height does not grow at Extra.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Field</th><th>Minimum</th><th>Maximum</th></tr></thead>
+                  <tbody>
+                    <tr><td>Title</td><td>48 characters</td><td>132 characters</td></tr>
+                    <tr><td>Description</td><td>200 characters</td><td>488 characters</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 3</span>From the component description on <code>Zigzag Card - 1400-992</code>.</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="accordion">Accordion variant</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              <code class="sg-code">Zigzag Card with Accordion-1</code> replaces the text column with
+              a panel of four collapsibles on <code class="sg-code">background/2</code>, plus a
+              &ldquo;Back&rdquo; control at the top right.
+            </p>
+            <h3>States</h3>
+            <p>
+              Ten variants: five <code class="sg-code">State</code> values crossed with
+              <code class="sg-code">type</code> of Extra or Default. State=Main is the plain card;
+              Accordion-1 through -4 each show a different item expanded.
+            </p>
+            <p>
+              That is a prototyping convention, not a code one. In markup this is one
+              component with native <code class="sg-code">&lt;details&gt;</code> elements — the five
+              states collapse into ordinary open/closed behaviour.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame sg-figure__frame--flush">
+                <div class="rx-zigzag" style="width:100%">
+                  <div class="rx-zigzag__media"><img src="img/job-concrete-tools.jpg" alt="" loading="lazy"></div>
+                  <div class="rx-zigzag__panel">
+                    <div class="rx-zigzag__panel-head">
+                      <a class="rx-btn rx-btn--secondary" href="#accordion">Back</a>
+                    </div>
+                    <details class="rx-zigzag-accordion" open>
+                      <summary class="rx-zigzag-accordion__summary">
+                        Free ad services
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"/></svg>
+                      </summary>
+                      <div class="rx-zigzag-accordion__body">
+                        Want a boost in your business for free? Ronix offers free ad services to its
+                        VIP customers, in your desired language.
+                      </div>
+                    </details>
+                    <details class="rx-zigzag-accordion">
+                      <summary class="rx-zigzag-accordion__summary">
+                        Showroom design
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"/></svg>
+                      </summary>
+                      <div class="rx-zigzag-accordion__body">
+                        A design for your store and showroom, produced to the Ronix brand standard.
+                      </div>
+                    </details>
+                    <details class="rx-zigzag-accordion">
+                      <summary class="rx-zigzag-accordion__summary">
+                        Social media content
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"/></svg>
+                      </summary>
+                      <div class="rx-zigzag-accordion__body">
+                        Ready-made content for your social channels and website.
+                      </div>
+                    </details>
+                    <details class="rx-zigzag-accordion">
+                      <summary class="rx-zigzag-accordion__summary">
+                        Product training
+                        <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px"><path d="M6 9l6 6 6-6"/></svg>
+                      </summary>
+                      <div class="rx-zigzag-accordion__body">
+                        Technical training for your sales team, delivered in the local language.
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 4</span>The accordion variant. All four are live — open and close them.</figcaption>
+            </figure>
+          </div>
+
+          <p class="sg-note">
+            Accordion headings are <code class="sg-code">Subtitle&nbsp;1 Stronger</code> — 20&nbsp;px
+            Bold&nbsp;700 at a 100&nbsp;% line height — and bodies are
+            <code class="sg-code">Body&nbsp;2 Strong</code> at 14/18. Note the library labels every
+            heading in this component simply &ldquo;Text&rdquo;, so the real headings are not
+            specified anywhere.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="responsive">Responsive behaviour</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The card holds its two-column split down to 992&nbsp;px, then stacks. Once stacked its
+              height roughly doubles, because the text no longer has a column to fill.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--1">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="align-items:stretch">
+                <table class="sg-table">
+                  <thead><tr><th>Breakpoint</th><th>Card</th><th>Layout</th></tr></thead>
+                  <tbody>
+                    <tr><td rowspan="2">Large</td><td>1320 &times; 492</td><td>Side by side</td></tr>
+                    <tr><td>1140 &times; 425</td><td>Side by side</td></tr>
+                    <tr><td rowspan="2">Medium</td><td>960 &times; 480</td><td>Side by side</td></tr>
+                    <tr><td>720 &times; 966</td><td>Stacked</td></tr>
+                    <tr><td rowspan="2">Small</td><td>540 &times; 655</td><td>Stacked</td></tr>
+                    <tr><td>326 &times; 751</td><td>Stacked</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption><span class="sg-figure__num">Fig. 5</span>The card stacks at 720 and below. Height roughly doubles at the switch, because the text no longer has a column beside the image.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="markup">Markup</h2>
+
+        <div class="sg-block sg-block--stack">
+          <div class="sg-block__text" style="max-width:640px">
+            <p>
+              Direction is a modifier on alternate cards. Applying it with
+              <code class="sg-code">:nth-child(even)</code> in the parent list is safer still.
+            </p>
+          </div>
+
+          <pre class="sg-pre">&lt;article class="rx-zigzag"&gt;
+  &lt;div class="rx-zigzag__media"&gt;&lt;img src="vip.jpg" alt=""&gt;&lt;/div&gt;
+  &lt;div class="rx-zigzag__body"&gt;
+    &lt;h2 class="rx-zigzag__title"&gt;Benefit from Free Ad Services&lt;/h2&gt;
+    &lt;p class="rx-zigzag__text"&gt;Want a boost in your business…&lt;/p&gt;
+    &lt;div class="rx-zigzag__actions"&gt;
+      &lt;a class="rx-btn rx-btn--primary" href="/download"&gt;Download&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+
+&lt;!-- The next card down flips the image --&gt;
+&lt;article class="rx-zigzag rx-zigzag--flip"&gt;…&lt;/article&gt;
+
+/* Or let the list handle it */
+.zigzag-list &gt; .rx-zigzag:nth-child(even) .rx-zigzag__media { order: 2; }</pre>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="images.html"><span>Previous chapter</span>&larr; Images with overlay text</a>
+        <a href="tokens.html"><span>Next chapter</span>Token reference &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

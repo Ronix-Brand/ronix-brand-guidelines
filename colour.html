@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colour — Ronix Design System</title>
+<meta name="description" content="The Ronix colour system: global background and foreground ramps, stroke, and the brand red.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Foundations &nbsp;/&nbsp; Colour</p>
+
+      <div class="sg-hero">
+        <h1>Colour</h1>
+        <p class="sg-hero__lead">
+          The palette is deliberately narrow: a neutral grey ramp carries the interface, and a single
+          brand red carries the signal. Every colour in the system is a variable in the
+          <em>Color</em> collection, named by role rather than by hue.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="background">Global background</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Five background steps. Steps&nbsp;1&ndash;4 are a tight light ramp: step&nbsp;1 is the
+              page, step&nbsp;2 a resting surface, step&nbsp;4 a placeholder or disabled fill —
+              only 26&nbsp;points of lightness separate them.
+            </p>
+            <p>
+              <strong>Step&nbsp;5 is not part of that ramp.</strong> At #0a0a0a it is near-black,
+              used for dark surfaces such as the social card&rsquo;s Follow button. Reading the set as
+              a smooth progression will mislead you.
+            </p>
+            <p>
+              Each step has a <code class="sg-code">Rest</code> and a
+              <code class="sg-code">Hover</code> variant. Use the hover variant only on surfaces that
+              are themselves interactive.
+            </p>
+          </div>
+
+          <ul class="sg-swatches">
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-background-1-rest);border-bottom:1px solid var(--global-stroke-1-global-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/background/1/Rest</span>
+                <span class="sg-swatch__value">#ffffff</span>
+              </div>
+            </li>
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-background-2-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/background/2/Rest</span>
+                <span class="sg-swatch__value">#f5f5f5</span>
+              </div>
+            </li>
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-background-3-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/background/3/Rest</span>
+                <span class="sg-swatch__value">#f0f0f0</span>
+              </div>
+            </li>
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-background-4-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/background/4/Rest</span>
+                <span class="sg-swatch__value">#e5e5e5</span>
+              </div>
+            </li>
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-background-5-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/background/5/Rest</span>
+                <span class="sg-swatch__value">#0a0a0a</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="foreground">Global foreground</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              Foreground is not black. <code class="sg-code">Foreground/1</code> is #2e2e2e, which
+              keeps long-form text comfortable on white without losing authority.
+            </p>
+            <p>
+              <code class="sg-code">Foreground/On&nbsp;brand</code> is the only foreground permitted
+              on brand red or on foreground&nbsp;1.
+            </p>
+          </div>
+
+          <ul class="sg-swatches">
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-foreground-1-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/Foreground/1/Rest</span>
+                <span class="sg-swatch__value">#2e2e2e</span>
+              </div>
+            </li>
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-foreground-2-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/Foreground/2/Generic/Rest</span>
+                <span class="sg-swatch__value">#424242</span>
+              </div>
+            </li>
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-foreground-3-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/Foreground/3/Rest</span>
+                <span class="sg-swatch__value">#616161</span>
+              </div>
+            </li>
+            <li class="sg-swatch">
+              <div class="sg-swatch__chip" style="background:var(--global-foreground-on-brand-rest);border-bottom:1px solid var(--global-stroke-1-global-rest)"></div>
+              <div class="sg-swatch__meta">
+                <span class="sg-swatch__name">Global/Foreground/On brand/Rest</span>
+                <span class="sg-swatch__value">#ffffff</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="brand">Brand</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              <code class="sg-code">Brand/background/1/Rest</code> is #a30000. It marks the primary
+              action, the active navigation indicator and nothing else by default.
+            </p>
+            <p>
+              Because it is a signal, its density matters more than its placement. One red element
+              per view is the working rule.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <ul class="sg-swatches" style="grid-column:1/-1">
+              <li class="sg-swatch">
+                <div class="sg-swatch__chip" style="background:var(--brand-background-1-rest)"></div>
+                <div class="sg-swatch__meta">
+                  <span class="sg-swatch__name">Brand/background/1/Rest</span>
+                  <span class="sg-swatch__value">#a30000</span>
+                </div>
+              </li>
+              <li class="sg-swatch">
+                <div class="sg-swatch__chip" style="background:var(--brand-background-1-hover)"></div>
+                <div class="sg-swatch__meta">
+                  <span class="sg-swatch__name">Brand/background/1/Hover</span>
+                  <span class="sg-swatch__value">#8a0000</span>
+                </div>
+              </li>
+              <li class="sg-swatch">
+                <div class="sg-swatch__chip" style="background:var(--brand-background-1-pressed)"></div>
+                <div class="sg-swatch__meta">
+                  <span class="sg-swatch__name">Brand/background/1/Pressed</span>
+                  <span class="sg-swatch__value">#700000</span>
+                </div>
+              </li>
+              <li class="sg-swatch">
+                <div class="sg-swatch__chip" style="background:var(--global-stroke-1-global-rest)"></div>
+                <div class="sg-swatch__meta">
+                  <span class="sg-swatch__name">Global/Stroke/1/Global/Rest</span>
+                  <span class="sg-swatch__value">#dbdbdb</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="contrast">Contrast and pairing</h2>
+
+        <div class="sg-block">
+          <div class="sg-block__text">
+            <p>
+              The permitted pairings below all meet WCAG&nbsp;AA for body text. Brand red on white
+              reaches 8.6:1; white on brand red reaches the same, which is why both directions are
+              allowed.
+            </p>
+            <p>
+              Foreground&nbsp;3 at #616161 on white reaches 6.0:1, so it clears AA for body text as
+              well as for captions and metadata. It is a de-emphasis colour by intent, not by
+              necessity.
+            </p>
+          </div>
+
+          <div class="sg-figures sg-figures--2">
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;gap:12px;align-items:stretch">
+                <div style="background:#fff;color:var(--global-foreground-1-rest);padding:12px 16px;border-radius:4px;border:1px solid var(--global-stroke-1-global-rest)">Foreground 1 on background 1 — 12.6:1</div>
+                <div style="background:var(--brand-background-1-rest);color:#fff;padding:12px 16px;border-radius:4px">On brand on brand red — 8.6:1</div>
+                <div style="background:var(--global-foreground-1-rest);color:#fff;padding:12px 16px;border-radius:4px">On brand on foreground 1 — 12.6:1</div>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 1</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>Approved pairings for body text.</span>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="sg-figure">
+              <div class="sg-figure__frame" style="flex-direction:column;gap:12px;align-items:stretch">
+                <div style="background:#fff;color:var(--global-foreground-3-rest);padding:12px 16px;border-radius:4px;border:1px solid var(--global-stroke-1-global-rest)">Foreground 3 on background 1 — 6.0:1</div>
+                <div style="background:var(--global-background-4-rest);color:var(--global-foreground-3-rest);padding:12px 16px;border-radius:4px">Foreground 3 on background 4 — 5.1:1</div>
+              </div>
+              <figcaption>
+                <span class="sg-figure__num">Fig. 2</span>
+                <span class="sg-verdict sg-verdict--do" style="display:block">
+                  <span class="sg-verdict__label">Do</span>
+                  <span>Both clear AA. Foreground 3 is a de-emphasis choice, not a contrast compromise.</span>
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="ui-introduction.html"><span>Previous chapter</span>&larr; UI Introduction</a>
+        <a href="typography.html"><span>Next chapter</span>Typography &rarr;</a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>

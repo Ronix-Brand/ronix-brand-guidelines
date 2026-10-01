@@ -1,0 +1,348 @@
+/* ==========================================================================
+   Ronix Design System — Design Tokens
+
+   Names mirror the token paths, so a value in code can be traced back to a
+   value in the library:
+       Global/background/2/Rest   ->  --global-background-2-rest
+       Brand/background/1/Rest    ->  --brand-background-1-rest
+       Padding/X-Small            ->  --padding-x-small
+
+   Custom properties only, no rules, so this stylesheet can load ahead of any
+   framework stylesheet.
+   ========================================================================== */
+
+:root {
+  /* ---- Colour · Global background ------------------------------------- */
+  --global-background-1-rest: #ffffff;
+  --global-background-1-hover: #f5f5f5;  /* confirmed: Product-card */
+  --global-background-2-rest: #f5f5f5;
+  --global-background-3-rest: #f0f0f0;   /* confirmed: Product-card */
+  --global-background-4-rest: #e5e5e5;
+  /* Step 5 is NOT a continuation of the grey ramp — it is near-black, used for
+     dark surfaces such as the social card's Follow button. */
+  --global-background-5-rest: #0a0a0a;   /* confirmed: Clickable-Card */
+
+  /* ---- Colour · Global foreground ------------------------------------- */
+  --global-foreground-1-rest: #2e2e2e;
+  --global-foreground-2-rest: #424242;   /* confirmed: Product line (Foreground/2/Generic) */
+  --global-foreground-3-rest: #616161;   /* confirmed: Zigzag card */
+  --global-foreground-on-brand-rest: #ffffff;
+  --global-foreground-1-pressed: #2e2e2e;      /* confirmed: Product Grid */
+  --global-background-subtle-rest: #ffffff00;  /* transparent */
+
+  /* ---- Selected state ---------------------------------------------------
+     A fourth interaction state alongside Rest, Hover and Pressed. Only the
+     filter panel and pagination bind it. */
+  --global-background-1-selected: #ebebeb;
+  --global-stroke-1-global-selected: #cccccc;
+
+  /* ---- Colour · Stroke ------------------------------------------------- */
+  /* The same token path carries two values depending on which component
+     binds it. Banner -> #dbdbdb, Product-card -> #e0e0e0. Both are kept so
+     neither component is misrendered. See tokens.html. */
+  --global-stroke-1-global-rest: #dbdbdb;      /* Banner-era binding */
+  --global-stroke-1-global-rest-alt: #e0e0e0;  /* Product-card binding */
+  --global-stroke-1-global-hover: #d6d6d6;     /* confirmed: Tablist */
+
+  /* ---- Colour · Brand -------------------------------------------------- */
+  --brand-background-1-rest: #a30000;
+  --brand-background-1-hover: #8a0000;   /* INFERRED */
+  --brand-background-1-pressed: #700000; /* INFERRED */
+  --brand-foreground-1-rest: #a30000;    /* confirmed: Product-card */
+  --brand-stroke-1-rest: #a30000;        /* confirmed: Product-card */
+  --brand-stroke-2-selected: #a30000;    /* confirmed: Tablist selected underline */
+  --brand-stroke-compound-rest: #a30000; /* confirmed: Tablist */
+
+  /* Brand tints — the only light end of the brand ramp. Filter chips only. */
+  --brand-background-2-rest: #fff5f5;
+  --brand-stroke-2-rest: #ffcccc;
+
+  /* ---- Typeface -------------------------------------------------------- */
+  --font-roboto: "Roboto", "Helvetica Neue", Arial, sans-serif;
+
+  /* ---- Type scale · Large viewport (>= 1200px) ------------------------- */
+  --font-title-in-container-1: 32px;
+  --font-title-in-container-1-line-height: 1;      /* 100% */
+  --font-title-in-container-1-weight: 800;         /* ExtraBold */
+
+  /* Title 2, out-of-container — the section heading on Product line */
+  --font-title-out-container-2: 32px;
+  --font-line-height-title-2-out: 38px;
+  --font-title-out-container-2-weight: 800;        /* ExtraBold */
+
+  /* Title 2, in-container — the PDP product name.
+     Note this is NOT the same as Title 2 out-of-container (32/38). */
+  --font-title-in-container-2: 28px;
+  --font-line-height-title-2-in: 32px;
+  --font-title-in-container-2-weight: 800;         /* ExtraBold */
+
+  /* Title 4, in-container — PDP sub-headings */
+  --font-title-in-container-4: 20px;
+  --font-line-height-title-4-in: 22px;
+  --font-title-in-container-4-weight: 800;         /* ExtraBold */
+
+  /* Title 3, in-container — the series heading */
+  --font-title-in-container-3: 26px;
+  --font-line-height-title-3-in: 30px;
+  --font-title-in-container-3-weight: 800;         /* ExtraBold */
+
+  /* Title 5, in-container — the category tile label */
+  --font-title-in-container-5: 18px;
+  --font-line-height-title-5-in: 22px;
+  --font-title-in-container-5-weight: 800;         /* ExtraBold */
+
+  /* Title 5, out-of-container — the filter panel heading. Same name, 20px. */
+  --font-title-out-container-5: 20px;
+  --font-line-height-title-5-out: 1;               /* 100% */
+  --font-title-out-container-5-weight: 800;
+
+  --font-subtitle-2: 18px;
+  --font-line-height-subtitle-2: 22px;
+  --font-subtitle-2-weight: 600;                   /* SemiBold */
+
+  --font-body-1-regular: 16px;
+  --font-line-height-body-1: 20px;
+  --font-body-1-weight: 400;                       /* Regular */
+
+  /* Body 1 Strong — note it takes its SIZE from "Font/Body/Body 2" (16px)
+     and a 22px line height, not from the Body 1 tokens above. */
+  --font-body-2: 16px;
+  --font-line-height-body-1-strong: 22px;
+  --font-body-1-strong-weight: 500;                /* Medium */
+
+  /* Web/Body/Body 3 — the spec-list size on product cards */
+  --font-body-3: 12px;
+  --font-line-height-body-3: 16px;
+
+  /* type system/Body/Body 2 — 12/16, the tablist panel size.
+     Note it resolves through the size token "Font/Body/Body 3". */
+  --font-body-2-size: 12px;
+  --font-line-height-body-2: 16px;
+
+  /* Subtitle 1 Stronger — Bold 700 at 20px, line height 100% */
+  --font-subtitle-1-strong: 20px;
+  --font-line-height-subtitle-1-strong: 1;
+  --font-subtitle-1-strong-weight: 700;            /* Bold */
+
+  /* Body 2 Strong — Medium 500, 14/18 (Product Information binding) */
+  --font-body-2-strong: 14px;
+  --font-line-height-body-2-strong: 18px;
+  --font-body-2-strong-weight: 500;
+
+  /* Overline — the only style in the system with non-zero tracking.
+     Used for dates on news cards, set in caps. */
+  --font-overline: 12px;
+  --font-line-height-overline: 1;                  /* 100% */
+  --font-overline-weight: 400;
+  --font-overline-tracking: 1.5px;
+
+  /* Captions. Caption 1 exists in two weights: Regular 400 and Light 300 —
+     the only use of Light anywhere in the system. */
+  --font-caption-1: 12px;
+  --font-line-height-caption-1: 14px;
+  --font-caption-1-weight: 400;
+  --font-caption-1-light-weight: 300;
+  --font-caption-1-strong: 12px;
+  --font-line-height-caption-1-strong: 1;          /* 100% */
+  --font-caption-2: 10px;
+  --font-line-height-caption-2: 12px;
+  --web-caption-2-line-height: 14px;               /* Web/Caption/Caption 2 */
+
+  /* ---- Spacing --------------------------------------------------------- */
+  --padding-none: 0px;
+  --padding-xxxx-small: 2px;
+  --padding-xxx-small: 4px;
+  --padding-xx-small: 6px;                         /* confirmed: Tablist */
+  --padding-x-small: 8px;
+  --padding-small: 12px;
+  --padding-medium: 16px;
+  --padding-x-large: 24px;                         /* confirmed: Office card */
+  --padding-xx-large: 32px;
+  --space-x-small: 2px;                            /* the library: "X-Small" */
+  --space-small: 4px;                              /* the library: "Small" */
+  --spacing-vertical-xx-small: 4px;
+
+  /* ---- Border & radius ------------------------------------------------- */
+  --stroke-thin: 1px;                              /* the library: "Thin" */
+  --stroke-thick: 2px;                             /* the library: "Thick" — tablist underline */
+  --size-corner-radius-2: 2px;
+  --size-corner-radius-4: 4px;
+
+  /* ---- Icon sizing ----------------------------------------------------- */
+  --icon-main-large: 24px;
+  --icon-text-wrapper-large: 24px;
+  --icon-text-wrapper-small: 20px;
+
+  /* ---- Component min widths (Product card) ----------------------------- */
+  --frame-width-extra-min: 257px;
+  --frame-width-default-min: 221px;
+
+  /* ---- Grid columns (Product line) ------------------------------------- */
+  --frame-grid-col-1-extra: 1320px;
+  --frame-grid-col-1-default: 1140px;
+
+  /* ---- Product line image ratio ---------------------------------------- */
+  --product-line-image-height-extra: 440px;
+  --product-line-image-width-default: 1140px;
+
+  /* ---- Images with overlay text ----------------------------------------
+     Height is set by Size; width by Grid. The 3-column variants have no
+     height token of their own — they reuse the 2-column heights, which is
+     what makes them portrait rather than landscape. */
+  --image-2col-extra-width: 656px;
+  --image-2col-extra-height: 492px;
+  --image-2col-default-width: 566px;
+  --image-2col-default-height: 424px;
+  --image-3col-extra-width: 434px;
+  --image-3col-default-width: 374px;
+
+  /* ---- Zigzag card ------------------------------------------------------ */
+  --zigzag-main-wrapper-extra: 1320px;
+  --zigzag-image-width-extra: 656px;
+  --zigzag-image-height-extra: 492px;
+  --zigzag-text-wrapper-padding-extra: 64px;
+
+  /* ---- Layout · Frame sizes (Large / 1920 artboard) -------------------- */
+  --frame-section-extra: 1400px;
+  --frame-section-default: 1200px;
+  --frame-container-extra: 1320px;
+  --frame-container-default: 1140px;
+
+  /* ---- Banner-Grid ----------------------------------------------------- */
+  --banner-001-wrapper-extra: 656px;
+  --banner-001-wrapper-default: 566px;
+  --banner-001-content-wrapper-extra: 1320px;
+  --banner-001-content-wrapper-default: 1140px;
+  --banner-001-text-wrapper-extra: 1400px;
+  --banner-001-text-wrapper-default: 1200px;
+  --banner-text-wrapper-padding-extra: 32px;
+  --banner-text-wrapper-padding-default: 32px;
+
+  /* ---- LEGACY collection ----------------------------------------------
+     The PLP-card still binds an older, hue-named variable set that predates
+     the role-named system above. Do not use these in new work; they are here
+     so the legacy component renders correctly and so the debt is visible. */
+  --legacy-bg-white: #ffffff;
+  --legacy-bg-base-light-gray: #f2f2f2;
+  --legacy-bg-secondary: #e5e5e5;
+  --legacy-red-dark: #bf0000;
+  --legacy-subtitle-small: 14px;
+  --legacy-subtitle-small-line-height: 20px;
+
+  /* A third collection again, bound only by the job-category card. */
+  --legacy-text-on-dark: #ffffff;
+
+  /* ---- Legacy form layer ------------------------------------------------
+     The contact form binds an older system wholesale, including a DIFFERENT
+     TYPEFACE. Nothing else in the system uses Helvetica LT. */
+  --legacy-font-helvetica: "Helvetica LT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --legacy-headline-2: 34px;
+  --legacy-headline-2-line-height: 40px;
+  --legacy-headline-2-weight: 700;
+  --legacy-headline-3: 24px;
+  --legacy-headline-3-line-height: 26px;
+  --legacy-headline-3-weight: 700;
+  --legacy-headline-3-tracking: 0.15px;
+  --legacy-text-deep-gray: #3d3d3d;
+  --legacy-bg-secondary-light: #f9f9f9;
+
+  /* ---- Navigation & footer layer ----------------------------------------
+     A THIRD red lives here. The system now has #a30000 (brand), #bf0000 (legacy
+     dark) and #f20000 (legacy base) — none of them equal. */
+  --legacy-red-base: #f20000;
+  --legacy-text-base-gray: #5e5e5e;
+  --legacy-logo-gray: #717171;
+  --legacy-bg-dark-mode: #1e1e1e;
+
+  /* ---- "Web/" type collection -------------------------------------------
+     A parallel type system that coexists with "type system/". Same style
+     names, different values and weights. Bound by the warehouse carousel
+     card and parts of the product card. */
+  --web-title-3: 24px;
+  --web-line-height-title-3: 32px;
+  --web-title-3-weight: 700;          /* Bold — not ExtraBold 800 */
+  --web-body-2: 14px;
+  --web-line-height-body-2: 20px;
+  --web-body-2-weight: 400;
+  --generic-foreground-on-brand: #ffffff;
+}
+
+/* ==========================================================================
+   Responsive token overrides
+   The design library redefines the same variables per breakpoint section
+   (Large / Medium / Small). Type, icon and frame tokens shrink; colour,
+   radius and stroke tokens do not.
+   ========================================================================== */
+
+/* ---- Medium (768px – 1199px) ----------------------------------------- */
+@media (max-width: 1199px) {
+  :root {
+    --frame-section-extra: 992px;
+    --frame-section-default: 768px;
+    --frame-container-extra: 928px;
+    --frame-container-default: 720px;
+    --banner-001-wrapper-extra: 560px;
+    --banner-001-wrapper-default: 480px;
+    --banner-001-content-wrapper-extra: 928px;
+    --banner-001-content-wrapper-default: 720px;
+    --banner-text-wrapper-padding-extra: 24px;
+    --banner-text-wrapper-padding-default: 24px;
+  }
+}
+
+/* ---- Small (< 768px) -------------------------------------------------- */
+@media (max-width: 767px) {
+  :root {
+    --font-title-in-container-1: 28px;
+    --font-subtitle-2: 14px;
+    --font-line-height-subtitle-2: 16px;
+    --font-body-1-regular: 14px;
+    --font-line-height-body-1: 20px;
+
+    --icon-main-large: 20px;
+    --icon-text-wrapper-large: 20px;
+
+    --frame-section-extra: 576px;
+    --frame-section-default: 358px;
+    --frame-container-extra: 540px;
+    --frame-container-default: 326px;
+
+    --banner-001-wrapper-extra: 540px;
+    --banner-001-wrapper-default: 326px;
+    --banner-001-content-wrapper-extra: 540px;
+    --banner-001-content-wrapper-default: 326px;
+    --banner-001-text-wrapper-extra: 576px;
+    --banner-001-text-wrapper-default: 358px;
+    --banner-text-wrapper-padding-extra: 24px;
+    --banner-text-wrapper-padding-default: 24px;
+  }
+}
+
+/* ==========================================================================
+   Corporate Identity — the brand-level palette.
+
+   These are the four print-and-brand colours. They govern the logo and
+   printed collateral. The interface palette above is a separate, wider set
+   built for screens; where the two differ, the page you are on says which
+   one applies.
+   ========================================================================== */
+
+:root {
+  --ci-red: #ed1c24;            /* the logo artwork red */
+  --ci-red-stated: #ff0000;     /* CMYK 0/100/100/0 as stated for RGB use */
+  --ci-black: #000000;          /* CMYK 80/60/40/100 */
+  --ci-grey: #6d6e71;           /* CMYK 0/0/0/70 */
+  --ci-white: #ffffff;          /* CMYK 0/0/0/0 */
+
+  /* Black tint ladder, 10% steps, used behind the logo. */
+  --ci-black-10: #e6e6e6;
+  --ci-black-20: #cccccc;
+  --ci-black-30: #b3b3b3;
+  --ci-black-40: #999999;
+  --ci-black-50: #808080;
+  --ci-black-60: #666666;
+  --ci-black-70: #4d4d4d;
+  --ci-black-80: #333333;
+  --ci-black-90: #1a1a1a;
+  --ci-black-100: #000000;
+}

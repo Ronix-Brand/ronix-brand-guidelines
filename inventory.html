@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Component index — Ronix Design System</title>
+<meta name="description" content="Every component in the Ronix design library and where to find it in this guide.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ed1c24">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css?v=27">
+<link rel="stylesheet" href="css/styleguide.css?v=27">
+</head>
+<body>
+
+<header class="sg-header">
+  <button class="sg-nav-toggle" type="button" aria-label="Chapters" aria-expanded="false" aria-controls="sgSidebar">
+    <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+  <a class="sg-logo" href="index.html">Ronix<span class="sg-logo__dot">.</span></a>
+  <span class="sg-header__title">Design System — User Interface</span>
+  <div class="sg-header__actions">
+    <label class="sg-search">
+      <svg class="sg-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search" aria-label="Search the style guide">
+    </label>
+  </div>
+</header>
+
+<div class="sg-shell">
+  <nav class="sg-sidebar" id="sgSidebar" aria-label="Chapters"></nav>
+
+  <main class="sg-doc">
+    <div class="sg-doc__inner">
+
+      <p class="sg-breadcrumb"><a href="index.html">Ronix Design System</a> &nbsp;/&nbsp; Resources &nbsp;/&nbsp; Component index</p>
+
+      <div class="sg-hero">
+        <h1>Component index</h1>
+        <p class="sg-hero__lead">
+          Every component in the system, grouped by function. Names match the published library, so a
+          component found in the library can be looked up here directly.
+        </p>
+      </div>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="commerce">Commerce</h2>
+
+        <div class="sg-block sg-block--stack">
+          <figure class="sg-figure">
+            <div class="sg-figure__frame" style="align-items:stretch">
+              <table class="sg-table">
+                <thead><tr><th>Component</th><th>Variants</th><th>Documented in</th></tr></thead>
+                <tbody>
+                  <tr><td>Product card</td><td>State &times; Type — 4</td><td><a href="product-card.html#anatomy">Product card</a></td></tr>
+                  <tr><td>Label</td><td>New, Hot sale, Discontinued, Made in Germany</td><td><a href="product-card.html#labels">Product card</a></td></tr>
+                  <tr><td>PLP-card</td><td>Default, Hover</td><td><a href="product-card.html#plp">Product card</a></td></tr>
+                  <tr><td>filter-options</td><td>Layout &times; Type — 8</td><td><a href="product-grid.html#filters">Product grid</a></td></tr>
+                  <tr><td>Filter-chips, filters-section</td><td>&mdash;</td><td><a href="product-grid.html#filters">Product grid</a></td></tr>
+                  <tr><td>Product-tablist</td><td>State — 2</td><td><a href="product-grid.html#tablist">Product grid</a></td></tr>
+                  <tr><td>pagination</td><td>3 widths</td><td><a href="product-grid.html#pagination">Product grid</a></td></tr>
+                  <tr><td>Similar-model chips</td><td>Rest, current</td><td><a href="production.html#chips">Production components</a></td></tr>
+                  <tr><td>Related products rail</td><td>4 / 3 / 2 across</td><td><a href="production.html#related">Production components</a></td></tr>
+                  <tr><td>Review list</td><td>Rest, replying, writing</td><td><a href="production.html#reviews">Production components</a></td></tr>
+                  <tr><td>image-slider</td><td>2 layouts</td><td><a href="product-information.html#slider">Product information</a></td></tr>
+                  <tr><td>Information-wrapper</td><td>Default</td><td><a href="product-information.html#info-wrapper">Product information</a></td></tr>
+                  <tr><td>Information Section</td><td>Size &times; Breakpoint — 7</td><td><a href="product-information.html#info-section">Product information</a></td></tr>
+                  <tr><td>Product feature, Product-spc-table, SPC-tabel</td><td>&mdash;</td><td><a href="product-information.html#info-section">Product information</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption><span class="sg-figure__num">Index 1</span>Product listing and detail components.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="editorial">Editorial &amp; marketing</h2>
+
+        <div class="sg-block sg-block--stack">
+          <figure class="sg-figure">
+            <div class="sg-figure__frame" style="align-items:stretch">
+              <table class="sg-table">
+                <thead><tr><th>Component</th><th>Variants</th><th>Documented in</th></tr></thead>
+                <tbody>
+                  <tr><td>Banner-001</td><td>Type &times; Size</td><td><a href="components.html#banner">Banner, buttons &amp; cards</a></td></tr>
+                  <tr><td>Countaning text banner</td><td>Type &times; Size</td><td><a href="components.html#banner">Banner, buttons &amp; cards</a></td></tr>
+                  <tr><td>product-line</td><td>Type — 2</td><td><a href="product-line.html#anatomy">Product line</a></td></tr>
+                  <tr><td>product-line-with-tablist</td><td>Type — 2</td><td><a href="product-line.html#series-rail">Product line</a></td></tr>
+                  <tr><td>tablist block</td><td>6 widths</td><td><a href="product-line.html#tablist">Product line</a></td></tr>
+                  <tr><td>series-information-block</td><td>Size — 2</td><td><a href="product-line.html#series-info">Product line</a></td></tr>
+                  <tr><td>picture-ratio</td><td>&mdash;</td><td><a href="product-line.html#ratio">Product line</a></td></tr>
+                  <tr><td>Picture - Inside Label</td><td>Type &times; Size — 6</td><td><a href="categories.html#variants">Category tile</a></td></tr>
+                  <tr><td>Images with overlay text</td><td>Size &times; Grid — 4</td><td><a href="images.html#matrix">Images with overlay text</a></td></tr>
+                  <tr><td>Overlay card</td><td>&mdash;</td><td><a href="images.html#overlay-card">Images with overlay text</a></td></tr>
+                  <tr><td>Job category card</td><td>16 trades</td><td><a href="images.html#job-card">Images with overlay text</a></td></tr>
+                  <tr><td>Zigzag Card</td><td>Property 1 — 2</td><td><a href="zigzag.html#anatomy">Zigzag card</a></td></tr>
+                  <tr><td>Zigzag Card with Accordion</td><td>State &times; type — 10</td><td><a href="zigzag.html#accordion">Zigzag card</a></td></tr>
+                  <tr><td>News Card - EN</td><td>State &times; Grid &times; Size — 12</td><td><a href="news.html#matrix">News card</a></td></tr>
+                  <tr><td>news-Information-Box</td><td>state &times; Size — 4</td><td><a href="news.html#info-box">News card</a></td></tr>
+                  <tr><td>Related-article</td><td>state — 2</td><td><a href="news.html#related">News card</a></td></tr>
+                  <tr><td>Office card</td><td>State &times; type &times; Grid — 8</td><td><a href="office.html#anatomy">Office card</a></td></tr>
+                  <tr><td>value-Card, value-card-Simple</td><td>Size &times; Type</td><td><a href="information-cards.html#value">Information cards</a></td></tr>
+                  <tr><td>Informative-card</td><td>Type &times; State — 4</td><td><a href="information-cards.html#informative">Information cards</a></td></tr>
+                  <tr><td>Clickable-Card</td><td>State &times; Size — 4</td><td><a href="information-cards.html#clickable">Information cards</a></td></tr>
+                  <tr><td>value-block</td><td>Type &times; color-mode — 4</td><td><a href="unrefine.html#dark">Additional components</a></td></tr>
+                  <tr><td>Announcement bar</td><td>Default, dismissed</td><td><a href="production.html#announce">Production components</a></td></tr>
+                  <tr><td>In-grid promo tile</td><td>Default</td><td><a href="production.html#promo">Production components</a></td></tr>
+                  <tr><td>Video testimonial card</td><td>Rest, playing</td><td><a href="production.html#video">Production components</a></td></tr>
+                  <tr><td>Modal Card</td><td>5 breakpoints</td><td><a href="modal.html#modal">Modal &amp; catalogue card</a></td></tr>
+                  <tr><td>Catalogue card</td><td>Default, Small</td><td><a href="modal.html#catalogue">Modal &amp; catalogue card</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption><span class="sg-figure__num">Index 2</span>Editorial, campaign and marketing components.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <section class="sg-section">
+        <h2 id="navigation">Navigation, forms &amp; utility</h2>
+
+        <div class="sg-block sg-block--stack">
+          <figure class="sg-figure">
+            <div class="sg-figure__frame" style="align-items:stretch">
+              <table class="sg-table">
+                <thead><tr><th>Component</th><th>Variants</th><th>Documented in</th></tr></thead>
+                <tbody>
+                  <tr><td>Main navigation bar</td><td>State &times; Type &times; layout — 8</td><td><a href="navigation.html#navbar">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Navigation-bar, Navigation-bar &gt;992</td><td>type &times; state</td><td><a href="navigation.html#navbar">Navigation &amp; footer</a></td></tr>
+                  <tr><td>navigation-bar-with-menus</td><td>State, per width — 12</td><td><a href="navigation.html#navbar">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Ronixmag Top Navigation Bar</td><td>State, per width — 10</td><td><a href="navigation.html#navbar">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Mega Menu</td><td>Size &times; State — 12</td><td><a href="navigation.html#megamenu">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Desktop List Item</td><td>&mdash;</td><td><a href="navigation.html#megamenu">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Mobile menu</td><td>State — 10</td><td><a href="navigation.html#mobile">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Menu, Large-frame-menu, Small-frame-menu</td><td>Size &times; State</td><td><a href="navigation.html#mobile">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Search box, Search-dropdown, Search-product-block</td><td>various</td><td><a href="navigation.html#search">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Footer</td><td>Type — 6 breakpoints</td><td><a href="navigation.html#footer">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Footer Collaps Button</td><td>Close, Open</td><td><a href="navigation.html#footer">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Flag</td><td>30+ countries</td><td><a href="navigation.html#global">Navigation &amp; footer</a></td></tr>
+                  <tr><td>Form-Contact us</td><td>6 widths</td><td><a href="form.html#anatomy">Form</a></td></tr>
+                  <tr><td>Ronix - input box</td><td>&mdash;</td><td><a href="form.html#anatomy">Form</a></td></tr>
+                  <tr><td>Button</td><td>Primary, Secondary, Ghost, Disabled</td><td><a href="components.html#buttons">Banner, buttons &amp; cards</a></td></tr>
+                  <tr><td>tab-list</td><td>type &times; State &times; button-typpe — 24</td><td><a href="unrefine.html#tablist">Additional components</a></td></tr>
+                  <tr><td>Icon-Card</td><td>10 icons</td><td><a href="unrefine.html#icons">Additional components</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <figcaption><span class="sg-figure__num">Index 3</span>Navigation, form and utility components.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <nav class="sg-pager" aria-label="Chapter">
+        <a href="tokens.html"><span>Previous chapter</span>&larr; Token reference</a>
+        <span></span>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="sg-footer">
+      <div class="sg-footer__legal">
+        <p>
+          <strong>&copy; 2026 Ronix. All rights reserved.</strong> RONIX, the Ronix logotype and the
+          tagline &ldquo;Premium Quality&rdquo; are trademarks of Ronix and are protected by trademark
+          and copyright law in the territories in which they are registered.
+        </p>
+        <p>
+          This document sets out the Corporate Identity and User Interface standards for the Ronix
+          brand. <strong>Any use of the Ronix name, logotype, tagline, colours or other brand assets
+          must comply with these guidelines</strong> &mdash; by employees, distributors, resellers,
+          partners, suppliers, agencies and any other party. Material that does not comply is not
+          approved for production, publication or distribution.
+        </p>
+        <p>
+          Access to these guidelines and to the brand assets does not grant any right, title,
+          licence or interest in the trademarks, and confers no permission to use them. Permission
+          is granted only under a separate written agreement with Ronix, and use must remain within
+          the scope of that agreement. Ronix may amend these guidelines at any time and may require
+          the correction or withdrawal of any material that departs from them.
+        </p>
+        <p>
+          Requests for approval, brand assets or clarification should be directed to the Ronix
+          marketing department before production begins.
+        </p>
+      </div>
+    <div class="sg-footer__inner">
+      <span>Ronix Design System</span>
+      <span>Brand red #a30000 · Roboto</span>
+    </div>
+  </footer>
+</div>
+
+<script src="js/nav.js?v=27"></script>
+</body>
+</html>
